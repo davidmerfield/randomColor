@@ -2,7 +2,7 @@
 
 For generating attractive colors with an element of randomness. Returns a hex string by default.
 
-[Live demo](https://rawgithub.com/davidmerfield/Random-Color/master/demo.html)
+[Live demo](https://rawgithub.com/davidmerfield/Random-Color/master/demo/index.html)
 
 Disclaimer: Perceived luminance is hard to represent digitally. Colors are quite complicated cultural constructs Nevertheless it's useful to generate attractive colors.
 

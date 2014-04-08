@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+  <head>
+    <title>Random Color</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="randomColor.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>A random colour generator <button type="button" onclick="renderDemo()">Regenerate</button></h1>
+    </header>
+    <section>
+        <h3>Default</h3>
+      <code>randomColor() <br>
+        > #000</code>
+      <p>Returns a random color, of medium opacity, hue and saturation</p>
+
+      <span class="color_swatch" data-arguments=""></span>
+      <span class="color_swatch" data-arguments=""></span>
+      <span class="color_swatch" data-arguments=""></span>
+      <span class="color_swatch" data-arguments=""></span>
+      <span class="color_swatch" data-arguments=""></span>
+      <div class="clear"></div>
+    </section>
+    <section>
+      <h3> Light colors</h3>
+      <code>randomColor('light') <br>
+        > #23132</code>
+      <p>Returns a random light color</p>
+
+      <span class="color_swatch" data-arguments="light"></span>
+      <span class="color_swatch" data-arguments="light"></span>
+      <span class="color_swatch" data-arguments="light"></span>
+      <span class="color_swatch" data-arguments="light"></span>
+      <span class="color_swatch" data-arguments="light"></span>
+      <div class="clear"></div>
+    </section>
+    <section>
+      <h3> Dark colors</h3>
+      <code>randomColor('light') <br>
+        > #23132</code>
+      <p>Returns a random light color</p>
+
+      <span class="color_swatch" data-arguments="dark"></span>
+      <span class="color_swatch" data-arguments="dark"></span>
+      <span class="color_swatch" data-arguments="dark"></span>
+      <span class="color_swatch" data-arguments="dark"></span>
+      <span class="color_swatch" data-arguments="dark"></span>
+      <div class="clear"></div>
+    </section>
+    <section>
+      <h3> Bright colors</h3>
+      <code>randomColor('bright') <br>
+        > #23132</code>
+      <p>Returns a random light color</p>
+
+      <span class="color_swatch" data-arguments="bright"></span>
+      <span class="color_swatch" data-arguments="bright"></span>
+      <span class="color_swatch" data-arguments="bright"></span>
+      <span class="color_swatch" data-arguments="bright"></span>
+      <span class="color_swatch" data-arguments="bright"></span>
+      <div class="clear"></div>
+    </section>
+    <section>
+      <h3> Dull colors</h3>
+      <code>randomColor('dull') <br>
+        > #23132</code>
+      <p>Returns a random light color</p>
+
+      <span class="color_swatch" data-arguments="dull"></span>
+      <span class="color_swatch" data-arguments="dull"></span>
+      <span class="color_swatch" data-arguments="dull"></span>
+      <span class="color_swatch" data-arguments="dull"></span>
+      <span class="color_swatch" data-arguments="dull"></span>
+      <div class="clear"></div>
+    </section>
+    <script>
+      var renderDemo = function() {
+
+        var swatches = document.querySelectorAll(".color_swatch");
+
+        for (var i in swatches) {
+          var swatch = swatches[i],
+              args = swatch
+                      .getAttribute('data-arguments')
+                      .split(" ");
+              
+              swatch.style.background = randomColor.apply(this, args);
+          }
+        };
+
+      renderDemo();
+    </script>
+  </body>
+</html>

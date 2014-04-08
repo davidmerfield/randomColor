@@ -2,6 +2,8 @@
 
 For generating attractive random colors.
 
+[Live demo](https://rawgithub.com/davidmerfield/Random-Color/master/demo.html)
+
 ## How it works
 
 If a hue (color) is specified, the range of the H value is bound.

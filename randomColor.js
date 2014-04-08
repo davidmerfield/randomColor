@@ -94,32 +94,3 @@ var randomColor = function randomColor(options){
   return util.hsvRGB(hue,saturation,value);
 
 };
-
-
-
-
-
-
-fnction randomssColor () {
-  
-  var hue = Math.random(),
-      saturation = 0.65,
-      value = 0.9,
-      goldenRatio = 0.61803398874989;
-
-  hue += goldenRatio;
-  hue %= 1;
-
-  compHue = hue + goldenRatio;
-  compHue %=1;
-
-  var response = {
-    base: 'rgb(' + hsvRGB(hue,saturation,value) + ')',
-    complementary: 'rgb(' + hsvRGB(compHue,saturation,value) + ')'
-  };
-
-  console.log(response);
-
-  return response
-
-};

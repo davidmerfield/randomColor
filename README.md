@@ -2,17 +2,22 @@
 
 For generating attractive colors with an element of randomness. Returns a hex string by default.
 
-[Live demo](https://rawgithub.com/davidmerfield/Random-Color/master/demo/index.html)
+> randomColor()
+> '#F7A7D9'
+
+[Demo](https://rawgithub.com/davidmerfield/Random-Color/master/demo/index.html)
 
 Disclaimer: Perceived luminance is hard to represent digitally. Colors are quite complicated cultural constructs Nevertheless it's useful to generate attractive colors.
 
-## Usage
+## Options
 
-Generate a random, attractive color:
-'''randomColor()
-> '#F7A7D9''''
+randomColor accepts an object with the following properties which will influence the randomized output
 
-randomColor also accepts an object with the following features
+- Hue
+- Luminosity
+- Complements
+- Contrasts
+- Format
 
 ### Hue
 

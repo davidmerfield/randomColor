@@ -12,13 +12,26 @@
         <h3>Default</h3>
       <code>randomColor() <br>
         > #000</code>
-      <p>Returns a random color, of medium opacity, hue and saturation</p>
+      <p>Returns a random color with an attractive hue and saturation</p>
 
       <span class="color_swatch" data-arguments=""></span>
       <span class="color_swatch" data-arguments=""></span>
       <span class="color_swatch" data-arguments=""></span>
       <span class="color_swatch" data-arguments=""></span>
       <span class="color_swatch" data-arguments=""></span>
+      <div class="clear"></div>
+    </section>
+    <section>
+      <h3> Monochrome</h3>
+      <code>randomColor({hue: 'monochrome'}) <br>
+        > #23132</code>
+      <p>Returns a random grey color</p>
+
+      <span class="color_swatch" data-arguments-hue="monochrome"></span>
+      <span class="color_swatch" data-arguments-hue="monochrome"></span>
+      <span class="color_swatch" data-arguments-hue="monochrome"></span>
+      <span class="color_swatch" data-arguments-hue="monochrome"></span>
+      <span class="color_swatch" data-arguments-hue="monochrome"></span>
       <div class="clear"></div>
     </section>
     <!-- <section>
@@ -79,12 +92,13 @@
         var swatches = document.querySelectorAll(".color_swatch");
 
         for (var i in swatches) {
-          var swatch = swatches[i],
-              args = swatch
-                      .getAttribute('data-arguments')
-                      .split(" ");
-              
-              swatch.style.background = randomColor.apply(this, args);
+          var options = {},
+              swatch = swatches[i];
+
+          options['hue'] = swatch.getAttribute('data-arguments-hue');
+
+          swatch.style.background = randomColor(options);
+
           }
         };
 

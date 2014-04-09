@@ -1,48 +1,39 @@
-# Random Color Generator
+# Random Color
 
-For generating attractive colors with an element of randomness. Returns a hex string by default.
+For generating attractive colors with an element of randomness. Here's a basic example:
 
-> randomColor()
-> '#F7A7D9'
+>  randomColor()
+   \> '#F7A7D9'
 
-[Demo](https://rawgithub.com/davidmerfield/Random-Color/master/demo/index.html)
-
-Disclaimer: Perceived luminance is hard to represent digitally. Colors are quite complicated cultural constructs Nevertheless it's useful to generate attractive colors.
+[See more examples on the demo](https://rawgithub.com/davidmerfield/Random-Color/master/demo/index.html)
 
 ## Options
 
-randomColor accepts an object with the following properties which will influence the randomized output
+randomColor lets you set preferences for the color it returns. Just pass an options object when you call randomColor:
+
+Here's an example with preferences:
+
+>  randomColor({
+      hue: 'orange',
+      luminosity: 'dark'
+   })
+   \> '#F7A7D9'
+
+The full list of options is as follows:
 
 - Hue
+      Accepts a color name (e.g. 'orange') or a hue value (e.g. 124).
 - Luminosity
+      Accepts 'light', 'dark', 'bright', 'dull'
 - Complements
+      Accepts a color name (e.g. 'orange') or a hue value (e.g. 124).
+      This will return a color which complements the hue you passed.
 - Contrasts
+      Accepts a color name (e.g. 'orange') or a hue value (e.g. 124).
+      This will return a color which contrasts with the hue you passed.
 - Format
-
-### Hue
-
-'''randomColor({hue: 'orange'})
-> '#F7A7D9''''
-
-Pass a color to return a random color which matched the hue.
-
-'''randomColor({hue: 122})
-> '#F7A7D9''''
-
-You could also provide an integer between 0 and 360 which corresponds to the [HSV color wheel](http://en.wikipedia.org/wiki/HSL_and_HSV). This will return a random color with that hue but randomized luminosity.
-
-'''randomColor({hue: 122})
-> '#F7A7D9''''
-
-You could also provide an integer between 0 and 360 which corresponds to the [HSV color wheel](http://en.wikipedia.org/wiki/HSL_and_HSV). This will return a random color with that hue but randomized luminosity.
-
-### Format
-
-'''randomColor({format: 'rgb'})
-> 'rgb(100,231,87)''''
- 
-Pass a format to return a random color which matchs the format. Defaults to a hex string. Possible formats include hsv, hsvArray, rgb, rgbArray, and hex. 
-
+      Accepts 'hsv', 'hsvArray', 'rgb', 'rgbArray', and 'hex'
+      This modifys the format of the color returned.
 
 ## How it works
 
@@ -53,6 +44,10 @@ If you look at a representation of the HSV color space, there's broadly speaking
 Try to pick an S and V value which lies within this triangle. Pick lighter colors from the top left of this region. Pick darker colors from the lower right of this triangle.
 
 If 'dull' pick outside the attractive triangle
+
+## Disclaimers
+
+Perceived luminance is hard to represent digitally. Colors are quite complicated cultural constructs Nevertheless it's useful to generate attractive colors.
 
 ## Code outline
 

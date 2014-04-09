@@ -1,6 +1,6 @@
 # Random Color
 
-For generating attractive colors with an element of randomness. Here's a basic example:
+For generating attractive colors with an element of randomness. Here's an example:
 
 >  randomColor()
    \> '#F7A7D9'

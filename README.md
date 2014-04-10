@@ -1,47 +1,39 @@
 # Random Color
 
-For generating attractive colors with an element of randomness. Here's an example:
+For generating attractive colors with an element of randomness. It's simple to use and returns a hex string by default:
 
->  randomColor()
-   \> '#F7A7D9'
+>  randomColor() // => '#F7A7D9'
 
 [See more examples on the demo](https://rawgithub.com/davidmerfield/Random-Color/master/demo/index.html)
 
 ## Options
 
-randomColor lets you set preferences for the color it returns. Just pass an options object when you call randomColor:
+randomColor accepts an options object to influence the type of color it returns. 
 
-Here's an example with preferences:
+**Hue** -  A color name string or a specific hue value.
+**Luminosity** - 'light', 'dark', 'bright', 'dull'
+**Format** - 'hsv', 'hsvArray', 'rgb', 'rgbArray', and 'hex'
+      
+Here's an example to produce a random orange color:
 
->  randomColor({
-      hue: 'orange',
-      luminosity: 'dark'
-   })
-   \> '#F7A7D9'
-
-The full list of options is as follows:
-
-- Hue
-      Accepts a color name (e.g. 'orange') or a hue value (e.g. 124).
-- Luminosity
-      Accepts 'light', 'dark', 'bright', 'dull'
-- Complements
-      Accepts a color name (e.g. 'orange') or a hue value (e.g. 124).
-      This will return a color which complements the hue you passed.
-- Contrasts
-      Accepts a color name (e.g. 'orange') or a hue value (e.g. 124).
-      This will return a color which contrasts with the hue you passed.
-- Format
-      Accepts 'hsv', 'hsvArray', 'rgb', 'rgbArray', and 'hex'
-      This modifys the format of the color returned.
+>  randomColor({hue: 'orange'}) // => '#F7A7D9'
 
 ## How it works
 
-If you look at a representation of the HSV color space, there's broadly speaking a triangle of attractive colors to the top right for each H value between 0 and 360. 
+The goal of the function is to return colors of a random hue with high luminosity. We'll use the [HSV color space](http://en.wikipedia.org/wiki/HSL_and_HSV) to determine a color since I find HSV more intuitive than RGB for working with luminosity.
+
+1. Pick a hue
+
+First we pick a hue value (**H**) at random. **H** corresponds to the angle on the surface of the HSV cylinder. 
+
+By default, **H** is picked randomly between 0 and 360. If a hue preference is specified then the range of possible **H* values is restricted. For example, we'd classify orange hues as lying between an **H** value of 18 and 46.
+
+2. Pick a luminosity
+
+If you look at a representation of the HSV color space, there's roughly a region of attractive colors to the top right for each H value between 0 and 360. 
 
 ![Attractive triangle](/demo/attractive_triangle.png "Attractive triangle")
-
-Try to pick an S and V value which lies within this triangle. Pick lighter colors from the top left of this region. Pick darker colors from the lower right of this triangle.
+. Pick lighter colors from the top left of this region. Pick darker colors from the lower right of this triangle.
 
 If 'dull' pick outside the attractive triangle
 

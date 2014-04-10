@@ -27,6 +27,8 @@ function randomColor (options) {
         // with the color name (e.g. [18,46] for orange)
         var hueRange = util.colorDictionary[options.hue].hueRange;
 
+        // need to handle the RED exeception with negative h values
+
         // Pick a random H value within this range
         return util.randomBetween(hueRange[0],hueRange[1],'integer')
 
@@ -67,19 +69,25 @@ function randomColor (options) {
     // s and v will do for our purposes
     var s,v;
 
-    attractiveTriangle = [
-      [45,100],
-      [100,100],
-      [100,65]
-    ];
+    // We look up the color from the randomly generated hue value
+    // to determine the s and v values which are attractive
+    var colorName = util.lookupColorName(hue),
+        color = util.colorDictionary[colorName];
+
+    console.log(color)
+    // Used to plot a line which represents the lower boundary
+    // of the attractive triangle
+    var m = (100 - color.sMin)/(color.vMin - 100);
+        b = color.vMin - m*100;
 
     do {
 
       // this picks a pair of points in rectangle in the upper right of the hsv color space...
-      s = util.randomBetween(45,100,'integer');
-      v = util.randomBetween(65,100,'integer');
+      s = util.randomBetween(color.sMin, 100,'integer');
+      v = util.randomBetween(color.vMin, 100,'integer');
 
-    } while (v < ((1415-7*s)/11));
+    } while (v < m*s + b);
+
     // this ensures the points lie in the attractive triangle...
 
     // this should be weighted to higher numbers
@@ -184,6 +192,12 @@ function loadUtilities () {
       }
     },
     lookupColorName: function(hue) {
+
+      // Maps red colors to make picking hue easier
+      if (hue > 334 && hue < 360) {
+        hue-= 360
+      };
+
       for (var colorName in this.colorDictionary) {
          color = this.colorDictionary[colorName];
          if (hue >= color.hueRange[0] &&

@@ -2,13 +2,12 @@ function randomColor (options) {
   
   var h,s,v,l,
       rgb,hex,
-      options,
 
       util = loadUtilities();
 
   // Create empty options object if none is passed
   // This stops statements like 'if (options.hue)' throwing errors
-  if (!options) {options = {}};
+  if (!options) {var options = {}};
 
   // First we determine the
   // hue of our random color
@@ -109,12 +108,6 @@ function randomColor (options) {
   // Convert the HSV value to an array representing the color in RGB
   // We do this no matter which format is specified by the user because
   // Hex is a different way of representing a rgb color
-  
-  console.log('hue preference is: '+ options.hue);
-  console.log('h is: '+ h);
-  console.log('s is: '+ s);
-  console.log('v is: '+ v);
-
 
   rgb = util.hsvRGB(h,s,v);
 
@@ -137,7 +130,15 @@ function randomColor (options) {
     return [h,s,v] // e.g [124,70,30]
   };
 
-  console.log(hex)
+  if (options.debug) {
+    console.log('Input options: ');
+    console.log(options);
+    console.log('Output: ');
+    console.log('HSV: ' + h + ', ' + s + ', ' + v);
+    console.log('RGB: ' + rgb);
+    console.log('Hex: ' + hex);
+  };
+
   return hex
 
 };

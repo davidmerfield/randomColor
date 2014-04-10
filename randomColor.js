@@ -162,8 +162,8 @@ function loadUtilities () {
       },
       orange: {
         hueRange: [18, 46],
-        sMin: 45,
-        vMin: 88
+        sMin: 40,
+        vMin: 83
       },
       yellow: {
         hueRange: [46, 66],
@@ -172,8 +172,8 @@ function loadUtilities () {
       },
       green:  {
         hueRange: [66, 168],
-        sMin: 55,
-        vMin: 50
+        sMin: 65,
+        vMin: 65
       },
       blue: {
         hueRange: [168, 258],

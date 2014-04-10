@@ -22,6 +22,32 @@
       <div class="clear"></div>
     </section>
     <section>
+      <h3> Orange</h3>
+      <code>randomColor({hue: 'orange'}) <br>
+        > #23132</code>
+      <p>Returns a random orange color</p>
+
+      <span class="color_swatch" data-arguments-hue="orange"></span>
+      <span class="color_swatch" data-arguments-hue="orange"></span>
+      <span class="color_swatch" data-arguments-hue="orange"></span>
+      <span class="color_swatch" data-arguments-hue="orange"></span>
+      <span class="color_swatch" data-arguments-hue="orange"></span>
+      <div class="clear"></div>
+    </section>
+    <section>
+      <h3> Blue</h3>
+      <code>randomColor({hue: 'blue'}) <br>
+        > #23132</code>
+      <p>Returns a random orange color</p>
+
+      <span class="color_swatch" data-arguments-hue="blue"></span>
+      <span class="color_swatch" data-arguments-hue="blue"></span>
+      <span class="color_swatch" data-arguments-hue="blue"></span>
+      <span class="color_swatch" data-arguments-hue="blue"></span>
+      <span class="color_swatch" data-arguments-hue="blue"></span>
+      <div class="clear"></div>
+    </section>
+    <section>
       <h3> Monochrome</h3>
       <code>randomColor({hue: 'monochrome'}) <br>
         > #23132</code>
@@ -33,8 +59,8 @@
       <span class="color_swatch" data-arguments-hue="monochrome"></span>
       <span class="color_swatch" data-arguments-hue="monochrome"></span>
       <div class="clear"></div>
-    </section>
-    <!-- <section>
+    </section>    
+  <!-- <section>
       <h3> Light colors</h3>
       <code>randomColor('light') <br>
         > #23132</code>
@@ -96,6 +122,7 @@
               swatch = swatches[i];
 
           options['hue'] = swatch.getAttribute('data-arguments-hue');
+          options['format'] = 'rgb';
 
           swatch.style.background = randomColor(options);
 

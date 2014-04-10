@@ -1,11 +1,14 @@
 function randomColor (options) {
-
-  console.log(options);
   
   var h,s,v,l,
       rgb,hex,
+      options,
 
       util = loadUtilities();
+
+  // Create empty options object if none is passed
+  // This stops statements like 'if (options.hue)' throwing errors
+  if (!options) {options = {}};
 
   // First we determine the
   // hue of our random color
@@ -19,14 +22,14 @@ function randomColor (options) {
       
       // Determine if the hue preference
       // is a color name (e.g. 'orange')
-      if (util.colorDictionary.hasOwnProperty(options.hue)) {
+      if (util.colorDictionary[options.hue]) {
         
         // Look up the range of hues associated
         // with the color name (e.g. [18,46] for orange)
         var hueRange = util.colorDictionary[options.hue].h;
 
         // Pick a random H value within this range
-        return util.randomBetween(hueRange,'integer')
+        return util.randomBetween(hueRange[0],hueRange[1],'integer')
 
       } else {
 
@@ -71,27 +74,28 @@ function randomColor (options) {
       [100,65]
     ];
 
-    // this picks a pair of points in rectangle in the upper right of the hsv color space...
-    s = util.randomBetween(45,100,'integer');
-    v = util.randomBetween(65,100,'integer');
+    do {
 
-    // but we want points within the attractive triangle...
-    // so we'll reflect the points which are generated below the bottom edge of the triangle
+      // this picks a pair of points in rectangle in the upper right of the hsv color space...
+      s = util.randomBetween(45,100,'integer');
+      v = util.randomBetween(65,100,'integer');
 
-    if (options.hue === 'monochrome') {
-      
+    } while (v < ((1415-7*s)/11));
+    // this ensures the points lie in the attractive triangle...
+
+    // this should be weighted to higher numbers
+    if (options.luminosity === 'light') {
+      v = util.randomBetween(50,100);
+    };
+
+    // this should be weighted to lower numbers
+    if (options.luminosity === 'dark') {
+      v = util.randomBetween(0,50);
+    };
+
+    if (options.hue === 'monochrome') {      
       // s value needs to be zero to produce a grey
       s = 0;
-
-      // this should be weighted to higher numbers
-      if (options.luminosity === 'light') {
-        v = util.randomBetween(50,100);
-      };
-
-      // this should be weighted to lower numbers
-      if (options.luminosity === 'dark') {
-        v = util.randomBetween(0,50);
-      };
     }
 
     return [s,v]
@@ -133,6 +137,7 @@ function randomColor (options) {
     return [h,s,v] // e.g [124,70,30]
   };
 
+  console.log(hex)
   return hex
 
 };
@@ -142,7 +147,7 @@ function loadUtilities () {
     goldenRatio: 0.61803398874989,
     colorDictionary: {
       red: {
-        h: [0, 18] // oh dear there's also red between 334, 360
+        h: [1, 18] // oh dear there's also red between 334, 360
       },
       orange: {
         h: [18, 46]
@@ -174,6 +179,7 @@ function loadUtilities () {
     randomPick: function(choices) {
       return choices[Math.floor(Math.random() * choices.length)]
     },
+    // this doesn't work all the time
     rgbHex: function(rgb){
       return '#' + ("000000" +
          rgb[0].toString(16) +

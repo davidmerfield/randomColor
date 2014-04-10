@@ -1,22 +1,30 @@
 # Random Color
 
-For generating attractive colors with an element of randomness. It's simple to use and returns a hex string by default:
+For generating attractive colors with an element of randomness. [See the demo](https://rawgithub.com/davidmerfield/Random-Color/master/demo/index.html).
 
->  randomColor() // => '#F7A7D9'
+```javascript
+randomColor() // returns '#F7A7D9'
+```
+
+
+
+### Options
+
+You can pass an options object to influence the type of color it produces. The options object accepts the following properties:
+
+**Hue** – Possible values are *red, orange, yellow, green, blue, purple, pink*. Also accept a hue value between 0 and 360
+
+**Luminosity** – Possible values are *light, dark, bright, dull*.
+
+**Format** – Possible values are *hsv, rgb, rgbArray, and hex*.
+      
+Here's an example with an options object. This will produce a random orange color:
+
+```javascript
+randomColor({hue: 'orange'}) // returns '#F7A7D9'
+```
 
 [See more examples on the demo](https://rawgithub.com/davidmerfield/Random-Color/master/demo/index.html)
-
-## Options
-
-randomColor accepts an options object to influence the type of color it returns. 
-
-**Hue** -  A color name string or a specific hue value.
-**Luminosity** - 'light', 'dark', 'bright', 'dull'
-**Format** - 'hsv', 'hsvArray', 'rgb', 'rgbArray', and 'hex'
-      
-Here's an example to produce a random orange color:
-
->  randomColor({hue: 'orange'}) // => '#F7A7D9'
 
 ## How it works
 

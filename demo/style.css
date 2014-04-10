@@ -12,6 +12,7 @@ body {
   overflow: hidden;
   text-indent: -1000px;
   float: left;
+  background: #000;
   margin: 12px 12px 0 0; 
   font-size: 0.7em;
   font-family: monospace;
@@ -27,6 +28,8 @@ code {
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 4px;
 }
+
+.comment {color: #888}
 
 .clear {
   width: 100%;

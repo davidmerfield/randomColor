@@ -25,7 +25,7 @@ function randomColor (options) {
         
         // Look up the range of hues associated
         // with the color name (e.g. [18,46] for orange)
-        var hueRange = util.colorDictionary[options.hue].h;
+        var hueRange = util.colorDictionary[options.hue].hueRange;
 
         // Pick a random H value within this range
         return util.randomBetween(hueRange[0],hueRange[1],'integer')
@@ -182,6 +182,15 @@ function loadUtilities () {
         sMin: 40,
         vMin: 90
       }
+    },
+    lookupColorName: function(hue) {
+      for (var colorName in this.colorDictionary) {
+         color = this.colorDictionary[colorName];
+         if (hue >= color.hueRange[0] &&
+             hue <= color.hueRange[1]) {
+            return colorName
+         }     
+      } return 'Color not found'
     },
     randomBetween: function(min, max, isInteger) {
 

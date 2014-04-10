@@ -5,12 +5,27 @@ body {
   font-family: sans-serif;
 }
 
-.color_swatch {
-  width: 100px;
-  height: 100px;
+.swatch {
+  width: 48px;
+  height: 48px;
   display: block;
+  overflow: hidden;
+  text-indent: -1000px;
   float: left;
-  margin-right: 1em
+  margin: 12px 12px 0 0; 
+  font-size: 0.7em;
+  font-family: monospace;
+}
+
+code {
+  padding: 1em;
+  margin: 1em 0;
+  display: block;
+  position: relative;
+  line-height: 1.33em;
+  background: rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 4px;
 }
 
 .clear {
@@ -20,7 +35,7 @@ body {
 
 header,
 section {
-  width: 960px;
+  width: 660px;
   margin: 2em auto
 }
 

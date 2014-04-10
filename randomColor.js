@@ -148,25 +148,39 @@ function loadUtilities () {
     goldenRatio: 0.61803398874989,
     colorDictionary: {
       red: {
-        h: [1, 18] // oh dear there's also red between 334, 360
+        hueRange: [-26, 18], // oh dear there's also red between 334, 360
+        sMin: 47,
+        vMin: 70
       },
       orange: {
-        h: [18, 46]
+        hueRange: [18, 46],
+        sMin: 45,
+        vMin: 88
       },
       yellow: {
-        h: [46, 66]
+        hueRange: [46, 66],
+        sMin: 35,
+        vMin: 90
       },
       green:  {
-        h: [66, 168]
+        hueRange: [66, 168],
+        sMin: 55,
+        vMin: 50
       },
       blue: {
-        h: [168, 258]
+        hueRange: [168, 258],
+        sMin: 48,
+        vMin: 45
         },
       purple: {
-        h: [258, 282]
+        hueRange: [258, 282],
+        sMin: 38,
+        vMin: 55,
         },
       pink: {
-        h: [282, 334]
+        hueRange: [282, 334],
+        sMin: 40,
+        vMin: 90
       }
     },
     randomBetween: function(min, max, isInteger) {

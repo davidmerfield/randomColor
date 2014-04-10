@@ -45,6 +45,11 @@ Try to pick an S and V value which lies within this triangle. Pick lighter color
 
 If 'dull' pick outside the attractive triangle
 
+The attractive triangle will vary in area, but since hue is picked randomly the distribution of colors should be even, though the distribution of luminosities will vary at different hues.
+
+I could pick a random color from the dictionary first, then a random hue within that hue range.
+This would normalize for different colors, since there are more red hues on the HSV spectrum than yellow hues. This is super cultural.
+
 ## Disclaimers
 
 Perceived luminance is hard to represent digitally. Colors are quite complicated cultural constructs Nevertheless it's useful to generate attractive colors.

@@ -219,11 +219,14 @@ function loadUtilities () {
     },
     // this doesn't work all the time
     rgbHex: function(rgb){
-      return '#' + ("000000" +
-         rgb[0].toString(16) +
-         rgb[1].toString(16) + 
-         rgb[2].toString(16)
-         ).slice(-6);
+
+      function componentToHex(c) {
+          var hex = c.toString(16);
+          return hex.length == 1 ? "0" + hex : hex;
+      }
+
+      return "#" + componentToHex(rgb[0]) + componentToHex(rgb[1]) + componentToHex(rgb[2]);
+
     },
     hsvRGB: function(h,s,v) {
       

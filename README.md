@@ -16,10 +16,11 @@ You can pass an options object to influence the type of color it produces. The o
 
 **Format** – Possible values are *hsv, rgb, rgbArray, and hex*.
  
-{count: 10,distinct: true}     
+### Examples
 
-randomColor({hue: 'green', count: 10, distinct: true});
+Here's are a few examples showing what you can do with the options object. [See more examples on the demo](https://rawgithub.com/davidmerfield/Random-Color/master/demo/index.html)
 
+```javascript
 randomColor({
    count: 10, // returns array of 10 colors...
    hue: 'green', // with green hues...
@@ -36,10 +37,6 @@ randomColor({
    hue: {complements: 'blue'}, // with hues which complement blue
 );
 
-Here's an example with an options object. This will produce a random orange color:
-
-```javascript
 randomColor({hue: 'orange'}) // returns '#F7A7D9'
 ```
 
-[See more examples on the demo](https://rawgithub.com/davidmerfield/Random-Color/master/demo/index.html)

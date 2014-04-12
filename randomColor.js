@@ -63,14 +63,37 @@ function randomColor (options) {
 
     // luminosity is tough to represent as a pair of values but
     // s and v will do for our purposes
-    var s,v;
+    var s,v, sMax, vMax;
 
     // We look up the color from the randomly generated hue value
     // to determine the s and v values which are attractive
     var colorName = util.lookupColorName(hue),
         color = util.colorDictionary[colorName];
 
-    console.log(color)
+    if (options.luminosity) {
+
+
+      if (options.luminosity === 'dark') {
+        console.log('dark color requested!!!');
+        vMax = color.vMin/2 + 50;
+        sMax = color.sMin/2 + 50;
+      };
+
+      if (options.luminosity === 'dull') {
+
+      };
+
+      if (options.luminosity === 'bright') {
+
+      };
+
+    } else {
+
+      vMax = 100;
+      sMax = 100;
+
+    }
+
     // Used to plot a line which represents the lower boundary
     // of the attractive triangle
     var m = (100 - color.sMin)/(color.vMin - 100);

@@ -99,25 +99,24 @@ function randomColor (options) {
     var m = (100 - color.sMin)/(color.vMin - 100);
         b = color.vMin - m*100;
 
+    // this picks a pair of points in rectangle in the upper right of the hsv color space...
+    function newSVpair () {
+      console.log('Constraints: s(' + color.sMin + ', ' + sMax + '), v(' + color.vMin + ', ' + vMax +')');
+      s = util.randomBetween(color.sMin, sMax,'integer');
+      v = util.randomBetween(color.vMin, vMax,'integer');
+      console.log('Generated: s(' + s + '), v(' + v + ')');
+    }
+
+    // tests if the sv pair lies within the attractive triangle
+    function isAttractive () {
+      return v < m*s + b
+    }
+
     do {
+      newSVpair();
+    } while (isAttractive());
 
-      // this picks a pair of points in rectangle in the upper right of the hsv color space...
-      s = util.randomBetween(color.sMin, 100,'integer');
-      v = util.randomBetween(color.vMin, 100,'integer');
-
-    } while (v < m*s + b);
-
-    // this ensures the points lie in the attractive triangle...
-
-    // this should be weighted to higher numbers
-    if (options.luminosity === 'light') {
-      v = util.randomBetween(50,100);
-    };
-
-    // this should be weighted to lower numbers
-    if (options.luminosity === 'dark') {
-      v = util.randomBetween(0,50);
-    };
+    console.log(s + ', ' + v + ' passed the test!');
 
     if (options.hue === 'monochrome') {      
       // s value needs to be zero to produce a grey

@@ -1,22 +1,36 @@
-# To do
+# Generating attractive colors
 
+Your display can render 16,777,216 possible colors. A simple color generator would pick one of these randomly. Here's the output of a simple random color generator run 50 times.
 
-- Add feature to generate an array of X random colors with option to make them distinct
-- Add feature to generate a contrasting color
-- Add feature to generate a complementary color
-- Add feature to generate transparent colors
-- Add feature to generate color which can have readable text on it
-- Add feature to handle multiple hue values passed as a preference
-- Add feature to harmonize array of randomly generated colors by mixing in an overlay
-- Add theme options (e.g. neon, pastel, bold)
+-- CODE -------------------------------------------------
 
-- Modify the color library to accept multiple hue ranges for a color (e.g red)
-- Modify the color library to store a hue range against multiple strings (e.g. pink and fuschia map to same range)
+function randomColor() {
+	var r = Math.floor(Math.random()*255),
+			g = Math.floor(Math.random()*255),
+			b = Math.floor(Math.random()*255);
+	return [r,g,b];
+}
 
-- Expand the random number picker to across a range with a weight
+-- OUTPUT -------------------------------------------------
 
+As you can see, the generator has a few bright and vibrant colors along with plenty of muddy browns and greens and dull yellows, as well as washed out pinks and dirty browns. This because the RGB color space which our screens use needs to provide something to render the colors our eyes can see as accurately as possible. Unfortuneately, the world has lots of muddy browns.
 
-## How it works
+So, how can we generate 
+Attractive is a difficult feature to encode in an algorithm since it's subjective. However, we could expand attractive to a
+
+The solution therefore is to restrict the set of possible colors from which our function picks.
+
+The colors on your display are formed using pixels, each of which has a red, green and blue component.  When we encode a color digitally we tell the pixel how much of each constituent color to show. For example, for the color:
+
+rgb(255,0,0)
+
+This tells your display to maximize the intensity of the red channel, and to ignore the green and blue. Naturally it produces a bright red.
+
+Hex codes are a simpler representation of these three values. For example the hex code for rgba(255,0,0) is '#FF0000'. The first two digits represent the red channel in base sixteen, the next two digits the blue channel and the final two the green.
+
+The eye can distinguish around 10 million colors. Our screens can only render 1/10 of this so there's plenty we're missing out on. Would recommend seeing the work of Yves Klein in person. An example of how powerful a color that you're unused to seeing can be.
+
+## How the generator works
 
 The goal of the function is to return colors of a random hue with high luminosity. We'll use the [HSV color space](http://en.wikipedia.org/wiki/HSL_and_HSV) to determine a color since I find HSV more intuitive than RGB for working with luminosity.
 

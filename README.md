@@ -1,9 +1,9 @@
 # Random Color
 
-For generating attractive colors with an element of randomness. [See the demo](https://rawgithub.com/davidmerfield/Random-Color/master/demo/index.html).
+For generating attractive random colors. [See the demo](https://rawgithub.com/davidmerfield/Random-Color/master/demo/index.html).
 
 ```javascript
-randomColor() // returns '#F7A7D9'
+randomColor() // returns a hex code e.g. '#F7A7D9'
 ```
 
 ### Options

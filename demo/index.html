@@ -5,7 +5,7 @@
     <script src="../randomColor.js"></script>
   </head>
   <body>
-    <header>
+<!--     <header>
       <h1>Random Colors <button type="button" onclick="renderDemo()">Regenerate</button></h1>
       <p>Returns a random color with an attractive hue and saturation.</p>
       <code>
@@ -15,18 +15,18 @@
       <h4>Example outputs</h4>
       <span class="output" hue="" count="44"></span>
       <div class="clear"></div>
-    </header>
+    </header> -->
     <section>
       <h3>Green</h3>
       <code>
         randomColor({hue: 'green'})
-        <span class="comment">// Returned '<span class="randomColor" hue="green" format="hex"></span>'</span>
+        <span class="comment">// Returned '<span class="randomColor" luminosity="" hue="green" format="hex"></span>'</span>
       </code>
       <p>Returns a random green colors</p>
       <span class="output" hue="green" count="11"></span>
       <div class="clear"></div>
     </section>
-    <section>
+   <!--  <section>
       <h3> Orange</h3>
       <code>
         randomColor({hue: 'orange'})
@@ -55,7 +55,7 @@
       <p>Returns a random grey color</p>
       <span class="output" hue="monochrome" count="11"></span>
       <div class="clear"></div>
-    </section>    
+    </section> -->    
     <script>
 
 
@@ -93,6 +93,7 @@
               demo = demos[i];
 
           options['hue'] = getAttribute(demo, 'hue');
+          options['luminosity'] = getAttribute(demo, 'luminosity');
           options['format'] = getAttribute(demo, 'format');
           
           var color = randomColor(options);

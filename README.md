@@ -15,7 +15,27 @@ You can pass an options object to influence the type of color it produces. The o
 **Luminosity** – Possible values are *light, dark, bright, dull*.
 
 **Format** – Possible values are *hsv, rgb, rgbArray, and hex*.
-      
+ 
+{count: 10,distinct: true}     
+
+randomColor({hue: 'green', count: 10, distinct: true});
+
+randomColor({
+   count: 10, // returns array of 10 colors...
+   hue: 'green', // with green hues...
+);
+
+randomColor({
+   count: 10, // returns array of 10 colors...
+   hue: 'distinct', // with distinct hues...
+   luminosity: 'bright' // and bright.
+);
+
+randomColor({
+   count: 10, // returns array of 10 colors...
+   hue: {complements: 'blue'}, // with hues which complement blue
+);
+
 Here's an example with an options object. This will produce a random orange color:
 
 ```javascript

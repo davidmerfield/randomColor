@@ -32,11 +32,7 @@ function randomColor (options) {
         // Pick a random H value within this range
         return util.randomBetween(hueRange[0],hueRange[1],'integer')
 
-      } else {
-
-        // The color dictionary doesn't contain the color string
-        console.log('Warning: could not find your hue.')
-      };
+      } 
 
       // Determine if the hue preference is a
       // specific H value (e.g. 0 for red)

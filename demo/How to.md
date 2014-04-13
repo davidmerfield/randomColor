@@ -56,6 +56,8 @@ This would normalize for different colors, since there are more red hues on the 
 
 Perceived luminance is hard to represent digitally. Colors are quite complicated cultural constructs Nevertheless it's useful to generate attractive colors.
 
+When generating multiple colors, try to make them distinct. 
+
 ## Code outline
 
 If H, S or V value is passed

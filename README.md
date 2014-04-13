@@ -27,13 +27,12 @@ randomColor({
 );
 
 randomColor({
-   count: 10, // returns array of 10 colors...
-   hue: 'distinct', // with distinct hues...
-   luminosity: 'bright' // and bright.
+   count: 10, // returns array of 10 distinct colors...
+   luminosity: 'bright' // with bright luminosities.
 );
 
 randomColor({
-   count: 10, // returns array of 10 colors...
+   count: 10, // returns array of 10 distinct colors...
    hue: {complements: 'blue'}, // with hues which complement blue
 );
 

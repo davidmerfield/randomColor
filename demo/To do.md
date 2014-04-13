@@ -1,7 +1,7 @@
 # To do
 
 
-- Add feature to generate an array of X random colors with option to make them distinct
+- Add feature to generate an array of X random distinct colors
 - Add feature to generate a contrasting color
 - Add feature to generate a complementary color
 - Add feature to generate transparent colors

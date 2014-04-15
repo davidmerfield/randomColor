@@ -1,10 +1,7 @@
 # To do
 
-
-- Add feature to generate an array of X random distinct colors
-- Add feature to generate a contrasting color
+- Add feature to generate an array of distinct colors
 - Add feature to generate a complementary color
-- Add feature to generate transparent colors
 - Add feature to generate color which can have readable text on it
 - Add feature to handle multiple hue values passed as a preference
 - Add feature to harmonize array of randomly generated colors by mixing in an overlay

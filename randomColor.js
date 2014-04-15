@@ -78,6 +78,16 @@ function randomColor (options) {
       
     };
 
+    // If you've already generated a color, let's pick one which is distinct
+    if (randomColor.previousHue) {
+
+      do {
+        hue = util.randomBetween(hueRange, 'integer');
+      } while(Math.abs(hue - randomColor.previousHue) < util.distinctHue)
+
+      return hue
+    }
+
     // No valid hue preference detected, we can pick randomly!
 
     return util.randomBetween(hueRange,'integer')
@@ -145,8 +155,6 @@ function randomColor (options) {
       newSVpair();
     } while (isAttractive());
 
-    console.log(s + ', ' + v + ' passed the test!');
-
     if (options.hue === 'monochrome') {      
       // s value needs to be zero to produce a grey
       s = 0;
@@ -194,6 +202,8 @@ function randomColor (options) {
     console.log('Hex: ' + hex);
   };
 
+  randomColor.previousHue = h;
+
   return hex
 
 };
@@ -201,6 +211,7 @@ function randomColor (options) {
 function loadUtilities () {
   return {
     goldenRatio: 0.61803398874989,
+    distinctHue: 40,
     colorDictionary: {
       red: {
         hueRange: [-26, 18], // oh dear there's also red between 334, 360
@@ -255,7 +266,7 @@ function loadUtilities () {
     },
     randomBetween: function(min, max, isInteger) {
 
-        // this needs to accept multiple arrays too
+      if (typeof min === 'object') {
 
         var isInteger = max,
             max = min[1],
@@ -270,7 +281,20 @@ function loadUtilities () {
     randomPick: function(choices) {
       return choices[Math.floor(Math.random() * choices.length)]
     },
-    // this doesn't work all the time
+    shiftHue: function(h, degrees) {
+      if (typeof h === "object") {
+        for (var key in h) {
+          (h[key]+=degrees)%360
+        }
+      }
+
+      else if (typeof h === "number") {
+        (h[key]+=degrees)%360
+      } 
+
+      return h
+    },
+
     rgbHex: function(rgb){
 
       function componentToHex(c) {

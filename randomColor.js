@@ -1,8 +1,8 @@
 function randomColor (options) {
-  
+
   var h,s,v,l,
       rgb,hex,
-
+      
       util = loadUtilities();
 
   // Create empty options object if none is passed
@@ -15,6 +15,11 @@ function randomColor (options) {
 
   function pickHue () {
     
+    var hue,        
+        hueMin = 0,
+        hueMax = 360,
+        hueRange = [hueMin, hueMax];
+
     // Determine if there's a preference
     // for the random color's hue
     if (options.hue) {
@@ -25,12 +30,12 @@ function randomColor (options) {
         
         // Look up the range of hues associated
         // with the color name (e.g. [18,46] for orange)
-        var hueRange = util.colorDictionary[options.hue].hueRange;
+        hueRange = util.colorDictionary[options.hue].hueRange;
 
         // need to handle the RED exeception with negative h values
 
         // Pick a random H value within this range
-        return util.randomBetween(hueRange[0],hueRange[1],'integer')
+        return util.randomBetween(hueRange,'integer')
 
       } 
 
@@ -38,13 +43,13 @@ function randomColor (options) {
       // specific H value (e.g. 0 for red)
       if (typeof options.hue === "number") {
 
-        // Ensure H is between 0 and 360
-        if (options.hue <= 360 && options.hue >= 0) {
+        // Ensure H lies within possible values
+        if (options.hue <= hueMax && options.hue >= hueMin) {
           return options.hue 
         }
 
         // Invalid H value
-        console.log('Warning: pick H value between 0 and 360')
+        console.log('Pick a hue between' + hueMin + ' and  ' + hueMax)
       }
 
       if (options.hue === 'monochrome') {
@@ -54,7 +59,8 @@ function randomColor (options) {
     };
 
     // No valid hue preference detected, we can pick randomly!
-    return util.randomBetween(0,360,'integer')
+
+    return util.randomBetween(hueRange,'integer')
   }
 
   l = pickLuminosity(h); // Returns an array with S and V values
@@ -100,11 +106,14 @@ function randomColor (options) {
         b = color.vMin - m*100;
 
     // this picks a pair of points in rectangle in the upper right of the hsv color space...
-    function newSVpair () {
-      console.log('Constraints: s(' + color.sMin + ', ' + sMax + '), v(' + color.vMin + ', ' + vMax +')');
+    function newSVpair (log) {
       s = util.randomBetween(color.sMin, sMax,'integer');
       v = util.randomBetween(color.vMin, vMax,'integer');
-      console.log('Generated: s(' + s + '), v(' + v + ')');
+
+      if (log) {
+        console.log('Constraints: s(' + color.sMin + ', ' + sMax + '), v(' + color.vMin + ', ' + vMax +')');
+        console.log('Generated: s(' + s + '), v(' + v + ')');
+      }
     }
 
     // tests if the sv pair lies within the attractive triangle
@@ -228,9 +237,15 @@ function loadUtilities () {
 
         // this needs to accept multiple arrays too
 
-        var number = min + Math.random() * (max - min);
-        if (isInteger) {return Math.floor(number)};
-        return number
+        var isInteger = max,
+            max = min[1],
+            min = min[0];
+                    
+      }
+  
+      var number = min + Math.random() * (max - min);
+      if (isInteger) {return Math.floor(number)};
+      return number
     },
     randomPick: function(choices) {
       return choices[Math.floor(Math.random() * choices.length)]

@@ -39,6 +39,26 @@ function randomColor (options) {
 
       } 
 
+      if (options.hue.contrasts) {
+
+        console.log('contrasts passed!');
+
+        if (util.colorDictionary[options.hue.contrasts]) {
+          hueRange = util.colorDictionary[options.hue.contrasts].hueRange;          
+
+          // Add 180 degrees to each end of hue range
+          hueRange = util.shiftHue(hueRange, hueMax/2);
+
+          return util.randomBetween(hueRange,'integer')
+        
+        }
+
+        if (typeof options.hue.contrasts === "number") {
+          return util.shiftHue(options.hue.contrasts, hueMax/2);
+        }
+         
+      }
+
       // Determine if the hue preference is a
       // specific H value (e.g. 0 for red)
       if (typeof options.hue === "number") {

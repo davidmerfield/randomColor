@@ -2,12 +2,25 @@ function randomColor (options) {
 
   var h,s,v,l,
       rgb,hex,
-      
+
       util = loadUtilities();
 
   // Create empty options object if none is passed
   // This stops statements like 'if (options.hue)' throwing errors
   if (!options) {var options = {}};
+
+  // Multiple colors
+  if (options.count) {
+    var colors = [],
+        totalColors = options.count;
+        options.count = false;
+
+    while (colors.length < totalColors) {
+      colors.push(randomColor(options))
+    }
+
+    return colors
+  }
 
   // First we determine the
   // hue of our random color

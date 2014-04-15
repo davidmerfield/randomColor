@@ -1,6 +1,6 @@
 # Random Color
 
-For generating attractive random colors. [See the demo](https://rawgithub.com/davidmerfield/Random-Color/master/demo/index.html).
+For generating attractive random colors. 
 
 ```javascript
 randomColor() // returns a hex code e.g. '#F7A7D9'
@@ -18,7 +18,7 @@ You can pass an options object to influence the type of color it produces. The o
  
 ### Examples
 
-Here's are a few examples showing what you can do with the options object. [See more examples on the demo](https://rawgithub.com/davidmerfield/Random-Color/master/demo/index.html)
+Here's are a few examples showing what you can do with the options object. 
 
 ```javascript
 randomColor({

@@ -64,10 +64,9 @@ function randomColor (options) {
 
           return util.randomBetween(hueRange,'integer')
         
-        }
-
-        if (typeof options.hue.contrasts === "number") {
-          return util.shiftHue(options.hue.contrasts, hueMax/2);
+        } else {
+          var hue = util.parseHueValue(options.hue.contrasts);
+          return hue ? hue : util.randomBetween(hueMin, hueMax, 'integer')
         }
          
       }
@@ -261,6 +260,66 @@ function loadUtilities () {
         sMin: 40,
         vMin: 90
       }
+    },
+    parseHueValue: function(colorInput) {
+
+      var rgb,r,g,b,hsv,h,s,v;
+
+      if (typeof colorInput === 'object') {
+
+        if (colorInput.r && colorInput.g && colorInput.b) {
+          return util.rgbHSV(colorInput.r, colorInput.g, colorInput.b)[0];
+        };
+
+        if (colorInput.h && colorInput.s && colorInput.v) {
+          return colorInput.h;
+        }
+
+        if (colorInput.length === 3) {
+          return util.rgbHSV(colorInput[0], colorInput[1], colorInput[2])[0];
+        };
+        
+      };
+
+      if (typeof colorInput === 'number') {
+        return treatAsNumber(colorInput);
+      }
+
+      if (typeof colorInput === 'string') {
+
+        // Hex string
+        if (colorInput.charAt(0) === '#' & colorInput.length < 8) {
+          var rgb = util.hexRGB(colorInput);
+          console.log('is hex');
+          console.log(rgb);
+          
+          return Math.round((util.rgbHSV(rgb[0], rgb[1], rgb[2])[0] - 0.5)*360);
+        };
+
+        // RGB string
+        if (colorInput.slice(0,4) === 'rgb(') {
+          var rgb = colorInput.slice(4,-1).split(',');
+          for (var i in rgb) {
+            rgb[i] = parseInt(rgb[i]);
+          };
+
+          return Math.round((util.rgbHSV(rgb[0], rgb[1], rgb[2])[0] - 0.5)*360)
+        };
+
+        if (typeof parseInt(colorInput) === 'number') {
+          return treatAsNumber(parseInt(colorInput))
+        }
+
+      };
+
+      function treatAsNumber (number) {
+        if (number < 360 && number > 0) {
+          return number
+        } else {
+          return 'hue must be between 0 and 360'
+        }
+      };
+
     },
     lookupColorName: function(hue) {
 

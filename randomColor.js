@@ -80,12 +80,7 @@ function randomColor (options) {
 
         // Invalid H value
         console.log('Pick a hue between' + hueMin + ' and  ' + hueMax)
-      }
-
-      if (options.hue === 'monochrome') {
-        return 0; // The H value has no effect on the appearance of a grey
-      };
-      
+      }      
     };
 
     // If you've already generated a color, let's pick one which is distinct
@@ -120,7 +115,6 @@ function randomColor (options) {
 
 
       if (options.luminosity === 'dark') {
-        console.log('dark color requested!!!');
         vMax = color.vMin/2 + 50;
         sMax = color.sMin/2 + 50;
       };
@@ -257,6 +251,11 @@ function loadUtilities () {
         hueRange: [282, 334],
         sMin: 40,
         vMin: 90
+      },
+      monochrome: {
+        hueRange: [0, 0],
+        sMin: 0,
+        vMin: 0
       }
     },
     parseHueValue: function(colorInput) {

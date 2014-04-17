@@ -258,14 +258,23 @@ function loadUtilities () {
         vMin: 0
       }
     },
-    parseHueValue: function(colorInput) {
+    // returns a value, or range of values between 0 and 360
+    parseHue: function(colorInput) {
 
       var rgb,r,g,b,hsv,h,s,v;
 
       if (typeof colorInput === 'object') {
 
+        if (colorInput.contrasts) {
+          return this.parseHue(colorInput.contrasts)
+        };
+
+        if (colorInput.complements) {
+          return this.parseHue(colorInput.complements)
+        };
+
         if (colorInput.r && colorInput.g && colorInput.b) {
-          return util.rgbHSV(colorInput.r, colorInput.g, colorInput.b)[0];
+          return this.rgbHSV(colorInput.r, colorInput.g, colorInput.b)[0];
         };
 
         if (colorInput.h && colorInput.s && colorInput.v) {
@@ -273,7 +282,7 @@ function loadUtilities () {
         }
 
         if (colorInput.length === 3) {
-          return util.rgbHSV(colorInput[0], colorInput[1], colorInput[2])[0];
+          return this.rgbHSV(colorInput[0], colorInput[1], colorInput[2])[0];
         };
         
       };
@@ -284,13 +293,16 @@ function loadUtilities () {
 
       if (typeof colorInput === 'string') {
 
+        if (this.colorDictionary[colorInput]) {
+          var color = this.colorDictionary[colorInput];
+          return color.hueRange
+        }
+
+
         // Hex string
         if (colorInput.charAt(0) === '#' & colorInput.length < 8) {
-          var rgb = util.hexRGB(colorInput);
-          console.log('is hex');
-          console.log(rgb);
-          
-          return Math.round((util.rgbHSV(rgb[0], rgb[1], rgb[2])[0] - 0.5)*360);
+          var rgb = this.hexRGB(colorInput);
+          return Math.round((this.rgbHSV(rgb[0], rgb[1], rgb[2])[0] - 0.5)*360);
         };
 
         // RGB string
@@ -300,12 +312,13 @@ function loadUtilities () {
             rgb[i] = parseInt(rgb[i]);
           };
 
-          return Math.round((util.rgbHSV(rgb[0], rgb[1], rgb[2])[0] - 0.5)*360)
+          return Math.round((this.rgbHSV(rgb[0], rgb[1], rgb[2])[0] - 0.5)*360)
         };
 
         if (typeof parseInt(colorInput) === 'number') {
           return treatAsNumber(parseInt(colorInput))
         }
+
 
       };
 
@@ -351,14 +364,16 @@ function loadUtilities () {
       return choices[Math.floor(Math.random() * choices.length)]
     },
     shiftHue: function(h, degrees) {
+      degrees = Math.floor(degrees);
+      console.log('shifting b y '+ degrees)
       if (typeof h === "object") {
         for (var key in h) {
-          (h[key]+=degrees)%360
+          h[key] = (h[key] + degrees)%360
         }
       }
 
       else if (typeof h === "number") {
-        (h[key]+=degrees)%360
+        h = (h + degrees)%360
       } 
 
       return h

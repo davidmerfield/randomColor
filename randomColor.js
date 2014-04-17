@@ -1,7 +1,7 @@
 function randomColor (options) {
 
   var h,s,v,l,
-      rgb,hex,
+      rgb, hex, result,
 
       util = loadUtilities();
 
@@ -157,20 +157,22 @@ function randomColor (options) {
   // Represent the rgb color as a hex string
   hex = util.rgbHex(rgb); 
 
+  result = hex;
+  
   if (options.format === 'rgb'){
-    return 'rgb(' + rgb[0] + ', ' + rgb[1] + ', ' + rgb[2]+')'
+    result = 'rgb(' + rgb[0] + ', ' + rgb[1] + ', ' + rgb[2]+')'
   };
 
   if (options.format === 'rgbArray'){
-    return rgb // e.g [124,76,200]
+    result = rgb // e.g [124,76,200]
   };
 
   if (options.format === 'hsv'){
-    return 'hsv(' + h + ', ' + s + ', ' + v +')'
+    result = 'hsv(' + h + ', ' + s + ', ' + v +')'
   };
 
   if (options.format === 'hsvArray'){
-    return [h,s,v] // e.g [124,70,30]
+    result = [h,s,v] // e.g [124,70,30]
   };
 
   if (options.debug) {
@@ -184,7 +186,7 @@ function randomColor (options) {
 
   randomColor.previousHue = h;
 
-  return hex
+  return result;
 
 };
 

@@ -52,9 +52,9 @@ function randomColor (options) {
 
       } 
 
-      if (options.hue.contrasts) {
+      if (options.hue.contrasts || options.hue.complements) {
 
-        console.log('contrasts passed!');
+        var hueShift = util.randomBetween(hueMax/2 - 30,hueMax/2 + 30);
 
         if (util.colorDictionary[options.hue.contrasts]) {
           hueRange = util.colorDictionary[options.hue.contrasts].hueRange;          

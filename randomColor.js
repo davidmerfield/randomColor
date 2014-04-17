@@ -251,17 +251,11 @@ function loadUtilities () {
           return this.parseHue(colorInput.complements)
         };
 
-        if (colorInput.r && colorInput.g && colorInput.b) {
-          return this.rgbHSV(colorInput.r, colorInput.g, colorInput.b)[0];
-        };
-
-        if (colorInput.h && colorInput.s && colorInput.v) {
-          return colorInput.h;
-        }
-
         if (colorInput.length === 3) {
           return this.rgbHSV(colorInput[0], colorInput[1], colorInput[2])[0];
         };
+
+        return false
         
       };
 
@@ -300,14 +294,14 @@ function loadUtilities () {
           return treatAsNumber(parseInt(colorInput))
         }
 
-
+        return false
       };
 
       function treatAsNumber (number) {
         if (number < 360 && number > 0) {
           return number
         } else {
-          return 'hue must be between 0 and 360'
+          return false
         }
       };
 

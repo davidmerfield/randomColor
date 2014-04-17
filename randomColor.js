@@ -37,50 +37,32 @@ function randomColor (options) {
     // for the random color's hue
     if (options.hue) {
       
-      // Determine if the hue preference
-      // is a color name (e.g. 'orange')
-      if (util.colorDictionary[options.hue]) {
-        
-        // Look up the range of hues associated
-        // with the color name (e.g. [18,46] for orange)
-        hueRange = util.colorDictionary[options.hue].hueRange;
+      // Returns a value or range of values for H
+      hue = util.parseHue(options.hue);
 
-        // need to handle the RED exeception with negative h values
-
-        // Pick a random H value within this range
-        return util.randomBetween(hueRange,'integer')
-
-      } 
-
-      if (options.hue.contrasts || options.hue.complements) {
-
-        var hueShift = util.randomBetween(hueMax/2 - 30,hueMax/2 + 30);
-
-        if (options.hue.complements) {
-          hueShift = util.randomBetween(hueMax/6 - 30,hueMax/6 + 30)
-        }
-        hue = util.parseHue(options.hue);
-        hue = util.shiftHue(hueRange, hueShift, 'integer');
-
-        if (typeof hue === 'object') {
-          return util.randomBetween(hue,'integer')
-        } else {
-          return hue
-        }
+      // Determine hue range from parsed hue
+      if (typeof hue === 'object') {
+        hueRange = hue
+      } else if (!hue) {
+        hueRange = [hueMin, hueMax]
+      } else {
+        // hue can only have one possible value
+        hueRange = [hue, hue]
       }
 
-      // Determine if the hue preference is a
-      // specific H value (e.g. 0 for red)
-      if (typeof options.hue === "number") {
+      // shift possible H value around the color wheel to contrasting spot
+      if (options.hue.contrasts) {
+        hueRange = util.shiftHue(hueRange, util.randomBetween(hueMax/2 - 30,hueMax/2 + 30), 'integer');
+      }
+      
+      // shift possible H value around the color wheel to complementary spot
+      if (options.hue.complements) {
+        hueRange = util.shiftHue(hueRange, util.randomBetween(hueMax/6 - 30,hueMax/6 + 30), 'integer');
+      };
 
-        // Ensure H lies within possible values
-        if (options.hue <= hueMax && options.hue >= hueMin) {
-          return options.hue 
-        }
+      // pick from within hue range
+      return util.randomBetween(hueRange,'integer')
 
-        // Invalid H value
-        console.log('Pick a hue between' + hueMin + ' and  ' + hueMax)
-      }      
     };
 
     // If you've already generated a color, let's pick one which is distinct
@@ -113,25 +95,19 @@ function randomColor (options) {
 
     if (options.luminosity) {
 
-
       if (options.luminosity === 'dark') {
         vMax = color.vMin/2 + 50;
         sMax = color.sMin/2 + 50;
       };
 
-      if (options.luminosity === 'dull') {
-
-      };
-
-      if (options.luminosity === 'bright') {
-
+      if (options.luminosity === 'dull') {  
+        vMax = 100;
+        sMax = color.sMin/2 + 50;
       };
 
     } else {
-
       vMax = 100;
       sMax = 100;
-
     }
 
     // Used to plot a line which represents the lower boundary
@@ -298,6 +274,9 @@ function loadUtilities () {
           return color.hueRange
         }
 
+        if (colorInput === 'previous') {
+          return randomColor.previousHue
+        }
 
         // Hex string
         if (colorInput.charAt(0) === '#' & colorInput.length < 8) {

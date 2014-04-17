@@ -56,19 +56,17 @@ function randomColor (options) {
 
         var hueShift = util.randomBetween(hueMax/2 - 30,hueMax/2 + 30);
 
-        if (util.colorDictionary[options.hue.contrasts]) {
-          hueRange = util.colorDictionary[options.hue.contrasts].hueRange;          
-
-          // Add 180 degrees to each end of hue range
-          hueRange = util.shiftHue(hueRange, hueMax/2);
-
-          return util.randomBetween(hueRange,'integer')
-        
-        } else {
-          var hue = util.parseHueValue(options.hue.contrasts);
-          return hue ? hue : util.randomBetween(hueMin, hueMax, 'integer')
+        if (options.hue.complements) {
+          hueShift = util.randomBetween(hueMax/6 - 30,hueMax/6 + 30)
         }
-         
+        hue = util.parseHue(options.hue);
+        hue = util.shiftHue(hueRange, hueShift, 'integer');
+
+        if (typeof hue === 'object') {
+          return util.randomBetween(hue,'integer')
+        } else {
+          return hue
+        }
       }
 
       // Determine if the hue preference is a

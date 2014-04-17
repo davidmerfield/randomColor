@@ -6,8 +6,7 @@ function randomColor (options) {
       util = loadUtilities();
 
   // Create empty options object if none is passed
-  // This stops statements like 'if (options.hue)' throwing errors
-  if (!options) {var options = {}};
+  var options = options ? options : {};
 
   // Multiple colors
   if (options.count) {
@@ -25,6 +24,39 @@ function randomColor (options) {
   // First we determine the
   // hue of our random color
   h = pickHue();
+
+  // Returns an array with S and V values
+  l = pickLuminosity(h); 
+
+  // Split the luminosity array into S and V values 
+  s = l[0]; 
+  v = l[1];
+
+  // Convert the HSV value to an array representing the color in RGB
+  // We do this no matter which format is specified by the user because
+  // Hex is a different way of representing a rgb color
+
+  rgb = util.hsvRGB(h,s,v);
+
+  // Represent the rgb color as a hex string
+  hex = util.rgbHex(rgb); 
+
+  // Set previous hue to improve selection if called again
+  randomColor.previousHue = h;
+
+  // Return result in desired format
+  switch (options.format) {
+    case 'rgb':
+      return 'rgb(' + rgb[0] + ', ' + rgb[1] + ', ' + rgb[2]+')'
+    case 'rgbArray':
+      return rgb;
+    case 'hsv':
+      return 'hsv(' + h + ', ' + s + ', ' + v +')';
+    case 'hsvArray':
+      return [h,s,v];
+    default: 
+      return hex
+  } 
 
   function pickHue () {
     
@@ -79,8 +111,6 @@ function randomColor (options) {
 
     return util.randomBetween(hueRange,'integer')
   }
-
-  l = pickLuminosity(h); // Returns an array with S and V values
   
   function pickLuminosity (hue) {
 
@@ -143,51 +173,6 @@ function randomColor (options) {
     return [s,v]
 
   }
-
-  // Split the luminosity array into S and V values 
-  s = l[0]; 
-  v = l[1];
-
-  // Convert the HSV value to an array representing the color in RGB
-  // We do this no matter which format is specified by the user because
-  // Hex is a different way of representing a rgb color
-
-  rgb = util.hsvRGB(h,s,v);
-
-  // Represent the rgb color as a hex string
-  hex = util.rgbHex(rgb); 
-
-  result = hex;
-  
-  if (options.format === 'rgb'){
-    result = 'rgb(' + rgb[0] + ', ' + rgb[1] + ', ' + rgb[2]+')'
-  };
-
-  if (options.format === 'rgbArray'){
-    result = rgb // e.g [124,76,200]
-  };
-
-  if (options.format === 'hsv'){
-    result = 'hsv(' + h + ', ' + s + ', ' + v +')'
-  };
-
-  if (options.format === 'hsvArray'){
-    result = [h,s,v] // e.g [124,70,30]
-  };
-
-  if (options.debug) {
-    console.log('Input options: ');
-    console.log(options);
-    console.log('Output: ');
-    console.log('HSV: ' + h + ', ' + s + ', ' + v);
-    console.log('RGB: ' + rgb);
-    console.log('Hex: ' + hex);
-  };
-
-  randomColor.previousHue = h;
-
-  return result;
-
 };
 
 function loadUtilities () {

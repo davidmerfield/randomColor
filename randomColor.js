@@ -19,14 +19,11 @@ function randomColor (options) {
     return colors
   }
 
-  // First we determine the
-  // hue of our random color
+  // First decide the hue of our color
   h = pickHue();
 
-  // Returns an array with S and V values
-  l = pickLuminosity(h); 
-
-  // Split the luminosity array into S and V values 
+  // then decide luminosity based on our hue
+  l = pickLuminosity(h); // returns [s,v]
   s = l[0]; 
   v = l[1];
 

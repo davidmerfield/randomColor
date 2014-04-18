@@ -2,14 +2,12 @@ function randomColor (options) {
 
   var h,s,v,l,
       rgb, hex, result,
-
+      options = options || {},
       util = loadUtilities();
 
-  // Create empty options object if none is passed
-  var options = options ? options : {};
-
-  // Multiple colors
+  // Check if we need to generate mulitple color
   if (options.count) {
+
     var colors = [],
         totalColors = options.count;
         options.count = false;

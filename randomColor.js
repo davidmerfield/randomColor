@@ -317,7 +317,7 @@ function loadUtilities () {
       }
   
       var number = min + Math.random() * (max - min);
-      if (isInteger) {return Math.floor(number)};
+      if (isInteger) {return ~~number};
       return number
     },
     randomPick: function(choices) {

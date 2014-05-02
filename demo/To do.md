@@ -9,3 +9,6 @@
 - Modify the color library to store a hue range against multiple strings (e.g. pink and fuschia map to same range)
 
 - Expand the random number picker to across a range with a weight
+
+- Investigate selection before CSS 
+- Remap attractive triangle to rectangle

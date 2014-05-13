@@ -2,52 +2,148 @@
   <head>
     <title>Random Color</title>
     <link rel="stylesheet" href="style.css">
+    <link href='http://fonts.googleapis.com/css?family=Karla' rel='stylesheet' type='text/css'>    
     <script src="../randomColor.js"></script>
   </head>
   <body>
     <header>
-      <h1>Random Colors <button type="button" onclick="renderDemo()">Regenerate</button></h1>
-      <p>Returns a random color with an attractive hue and saturation.</p>
-      <code>
-        randomColor()
-        <span class="comment">// Returned '<span class="randomColor" hue="" format="hex"></span>'</span>
-      </code>
-      <h4>Example output</h4>
-      <span class="output" hue="" count="66"></span>
-      <div class="clear"></div>
+      <section>
+        <h1>randomColor()</h1>
+        <h2>An attractive color generator for JavaScript.</h2>
+        <a href="https://github.com/davidmerfield/RandomColor" class="button primary">Get the code on Github</a>
+      </section>
     </header>
     <section>
-      <h3>Similar colors</h3>
-      <code>
-        randomColor({hue: 'orange'})
-        <span class="comment">// Returned '<span class="randomColor" hue="orange" format="hex"></span>'</span>
-      </code>
-      <p>Returns a random orange color</p>
-      <span class="output" hue="orange" count="11"></span>
-      <div class="clear"></div>
-    </section>    
-    <section>
-      <h3>Contrasting colors</h3>
-      <code>
-        randomColor({hue: {contrasts: 'orange'}})
-        <span class="comment">// Returned '<span class="randomColor" hue="orange" contrasts="true" format="hex"></span>'</span>
-      </code>
-      <p>Returns a color which contrasts with orange</p>
-      <span class="output" hue="orange" contrasts="true" count="11"></span>
-      <div class="clear"></div>
+      <h3>Examples</h3>   
+      <section class="tab-labels">
+        <a class="tab selected" href="#" id="basic">Basic usage</a>
+        <a class="tab" href="#" id="similar">Similar colors</a>
+        <a class="tab" href="#" id="contrasting">Contrasting colors</a>
+      </section>
+      <section class="tab-content" id="demo-tabs">
+        <section id="basic-tab" class="selected">
+          <p>Returns a random color.</p>          
+          <code>
+            randomColor()
+            <span class="comment">// Returned '<span class="randomColor" hue="" format="hex"></span>'</span>
+          </code>
+          <span class="output" hue="" count="48"></span>        
+        </section>
+        <section id="similar-tab">
+          <p>Returns a random color in the hue range specified in the options object.</p>
+          <code>
+            randomColor({hue: 'orange'})
+            <span class="comment">// Returned '<span class="randomColor" hue="orange" format="hex"></span>'</span>
+          </code>
+          <span class="output" hue="orange" count="24"></span>
+        </section>
+        <section id="contrasting-tab">
+          <p>Returns a color which contrasts with orange</p>
+          <code>
+            randomColor({hue: {contrasts: 'orange'}})
+            <span class="comment">// Returned '<span class="randomColor" hue="orange" contrasts="true" format="hex"></span>'</span>
+          </code>
+          <span class="output" hue="orange" contrasts="true" count="24"></span>
+        </section>
     </section>
+    <hr>    
     <section>
-      <h3> Monochrome</h3>
+      <h3>Why does this exist?</h3>
+      <p>Generating random colors is simple. There are lots of neat one-liners for producting a hex code at random. Here's one from Paul Irish:</p>
       <code>
-        randomColor({hue: 'monochrome'})
-        <span class="comment">// Returned '<span class="randomColor" hue="monochrome" format="hex"></span>'</span>
+        '#'+Math.floor(Math.random()*16777215).toString(16);
       </code>
-      <p>Returns a random grey color</p>
-      <span class="output" hue="monochrome" count="11"></span>
-      <div class="clear"></div>
+      <p>If we run this code a few times we get colors that look like this:</p>
+      <span class="output" hue="" ugly="true" count="48"></span>
+      <p>Since all the code does is pick at random in the 24bit color space, we naturally end up with lots of browns and greys and murky greens.</p>
+      <p>So I wrote a library which by default would generate bright and attractive colors at random. But I also wanted options to control the hue and brightness of the colors too.</p>
+    </section>
+    <hr>
+    <section>
+      <h3>How could I use this?</h3>
+      <p>Random colors might be useful for data visualizations, generative art, video games or just making your UI slightly more interesting</p>
     </section>    
+    <hr>    
+    <section>
+      <h3>How does it work?</h3>
+      <p>
+      The goal of the function is to return colors of a random hue with high luminosity. We'll use the [HSV color space](http://en.wikipedia.org/wiki/HSL_and_HSV) to determine a color since I find HSV more intuitive than RGB for working with luminosity.
+    </p>
+    <h4>1. Pick a hue</h4>
+      <p>First we pick a hue value (<em>H</em>) at random. <em>H</em> corresponds to the angle on the surface of the HSV cylinder. </p>
+
+      <p>By default, <em>H</em> is picked randomly between 0 and 360. If a hue preference is specified then the range of possible <em>H</em> values is restricted. For example, we'd classify orange hues as lying between an <em>H</em> value of 18 and 46.</p>
+
+      <h4>2. Pick a luminosity</h4>
+
+      <p>If you look at a representation of the HSV color space, there's roughly a region of attractive colors to the top right for each H value between 0 and 360. </p>
+
+      <img src="attractive_triangle.png" />
+      
+      <p>Pick lighter colors from the top left of this region. Pick darker colors from the lower right of this triangle.<p>
+
+      <p>If 'dull' pick outside the attractive triangle</p>
+
+      <p>The attractive triangle will vary in area, but since hue is picked randomly the distribution of colors should be even, though the distribution of luminosities will vary at different hues.</p>
+
+      <p>I could pick a random color from the dictionary first, then a random hue within that hue range.</p>
+
+      <p>This would normalize for different colors, since there are more red hues on the HSV spectrum than yellow hues. This is super cultural.</p>
+
+      <p>Perceived luminance is hard to represent digitally. Colors are quite complicated cultural constructs Nevertheless it's useful to generate attractive colors.</p>
+
+      <p>When generating multiple colors, try to make them distinct. </p>
+
+      <a href="#" class="button" onclick="renderDemo()">Regenerate demos</a>          
+   
     <script>
 
+      var tabLabels = document.querySelectorAll(".tab");
+
+      for (var i in tabLabels) {
+        var tabLabel = tabLabels[i];
+        tabLabel.onclick = function(e){
+          
+          var tabID = e.target.id;
+
+          var tabContents = document.getElementById('demo-tabs'),
+              tabTo = tabContents.childNodes;
+
+          for (var h in tabTo) {
+
+            var tabBar = tabTo[h];
+
+            if (tabBar.nodeName === 'SECTION') {
+              tabBar.setAttribute('class', '')
+            }
+
+            console.log(tabBar.id);
+            console.log(tabID);
+
+            if (tabBar.id === tabID + '-tab') {
+              tabBar.setAttribute('class', 'selected');
+            }
+          }
+
+          var parent = e.target.parentNode,
+              siblings = parent.childNodes;
+          
+          for (var k in siblings){
+            var otherTab = siblings[k];
+            if (otherTab.nodeName === "A") {
+              otherTab.setAttribute("class", "tab");
+            }
+          };
+
+          e.srcElement.setAttribute("class", "tab selected");
+          return false
+        };
+
+      };
+
+      var normalRandom = function () {
+        return '#'+Math.floor(Math.random()*16777215).toString(16);
+      };
 
       var createSwatches = function() {
         
@@ -56,6 +152,7 @@
         for (var i in outputs) {
 
           var output = outputs[i],
+              ugly = getAttribute(output, 'ugly'),
               count = parseInt(getAttribute(output, 'count')),
               contrasts = false,
               hue = getAttribute(output, 'hue');
@@ -69,6 +166,7 @@
             var swatch = document.createElement('span');
                 swatch.className = "swatch randomColor";
                 swatch.setAttribute('hue', hue);
+                swatch.setAttribute('ugly', ugly);
 
             if (contrasts) {
                 swatch.setAttribute('contrasts', 'true')
@@ -94,7 +192,6 @@
           var options = {},
               demo = demos[i];
 
-          console.log(getAttribute(demo, 'contrasts'));
 
           if (getAttribute(demo, 'contrasts') === 'true') {
             options['hue'] = {contrasts: getAttribute(demo, 'hue')}
@@ -105,11 +202,17 @@
           options['luminosity'] = getAttribute(demo, 'luminosity');
           options['format'] = getAttribute(demo, 'format');
           
+          var isUgly = getAttribute(demo, "ugly");
+
           var color = randomColor(options);
 
           if (demo.className === 'swatch randomColor') {
             demo.style.background = color;
-          } 
+          };
+
+          if (isUgly === 'true') {
+            demo.style.background = normalRandom();
+          }
 
           // Append a small color swatch to text demo
           // else {

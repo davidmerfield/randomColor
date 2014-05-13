@@ -1,8 +1,24 @@
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, b, ul, ol, li, section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  position: relative;
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box; 
+}
+
+.hide {display: none!important;}
+.clear {width: 100%;clear: both;height: 0}
+
 body {
   width:  100%;
   height: 100%;
   margin: 0px;
-  font-family: sans-serif;
+  font: normal 1em / 1.33em 'Source Sans Pro', sans-serif;
 }
 
 .swatch {
@@ -13,36 +29,193 @@ body {
   text-indent: -1000px;
   float: left;
   background: #000;
-  margin: 12px 12px 0 0; 
+  margin: 6px 6px 0 0; 
   font-size: 0.7em;
   font-family: monospace;
 }
 
+
+hr {
+  border: none;
+  max-width: 10em;
+  margin: 2em auto;
+  border-top: 3px solid #e1e1e1;
+}
 code {
   padding: 1em;
   margin: 1em 0;
   display: block;
   position: relative;
+  clear: both;
   line-height: 1.33em;
-  background: rgba(0,0,0,0.05);
+  background: #f2f2f2;
   border: 1px solid rgba(0,0,0,0.1);
   border-radius: 4px;
 }
 
-.comment {color: #888}
+/*
+code:after {
+  content: "";
+  position: absolute;
+  bottom: -1em;
+  left: 50%;
+  margin-left: -0.5em;
+  width: 0; 
+  height: 0; 
+  border-left: 1em solid transparent;
+  border-right: 1em solid transparent;  
+  border-top: 1em solid #f2f2f2;
+}
 
+code:before {
+  content: "";
+  position: absolute;
+  bottom: -1em;
+  left: 50%;
+  margin-left: -0.5em;
+  width: 0; 
+  height: 0; 
+  border-left: 1em solid transparent;
+  border-right: 1em solid transparent;  
+  border-top: 1em solid #000;
+  margin-top: 2px
+}*//*
+.output {
+  height: 3.33em;
+  overflow: hidden;
+  width: 100%;
+  display: block;
+}*/
+
+.output:after {
+  content: "";
+  width: 100%;
+  height: 0;
+  margin-bottom: 1em;
+  clear: both;
+  display: block;
+}
+.comment {color: #888;font-weight: normal;}
+
+h1 .comment {color: #999}
+
+.centered {text-align: center;}
 .clear {
   width: 100%;
   clear: both;
 }
 
-header,
 section {
   width: 660px;
   margin: 2em auto
 }
 
 section {
-  border-top: 1px solid rgba(0,0,0,0.2);
   padding: 1em 0;
+}
+
+header {
+  padding-top: 2em
+}
+
+header:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  height: 80%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0) 0%,rgba(255,255,255,1) 100%);  
+}
+
+h1 {
+  font-size: 3em;
+  font-weight: bold;
+  margin-bottom: 0.66em;
+  color: #111;
+}
+
+h2 {
+  font-size: 1.33em;
+  color: #444
+}
+
+h3 {
+  font-size: 1.33em;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+
+.tab-labels {
+  padding: 0;
+  margin-bottom: 0;
+  border-bottom: 1px solid rgba(0,0,0,0.2)
+}
+
+.tab-labels a {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  margin-bottom: 0.66em;
+  margin-top: 2em;  
+  color: #222;
+  background-color: #f4f4f4;
+  text-decoration: none;
+  padding: 0.33em 0.66em;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  display: inline-block;
+  margin: 0 0 0 0.5em;
+  font-weight: normal;
+}
+
+.tab-labels a.selected {
+  background-color: #fff;
+  position: relative;
+  top: 1px;
+}
+
+.tab-content {
+  margin-top: 0;
+  padding: 0;
+}
+
+.tab-content > * {display: none;padding-top: 0}
+
+.tab-content .selected {display: block;}
+
+h4, .h4 {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  margin-bottom: 0.66em;
+  margin-top: 2em
+}
+
+p {
+  margin-bottom: 1em
+}
+
+.button {
+  display: inline-block;
+  padding: 0.33em 1em;
+  margin: 3em 0 0.33em;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+  box-shadow: inset 0 1px 0 1px rgba(255,255,255,.15);  
+  color: #111;
+  border: 2px solid #999;
+  background-color: #eee;
+  text-decoration: none;
+  border-radius: 4px;
+  background-color: #ccc;
+  margin-right: 0.5em
+}
+
+.primary {
+  background-color: #ff8a00;
+  color: #fff;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.3);
+  border: solid 2px #d87500;
+
 }

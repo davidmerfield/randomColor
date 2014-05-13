@@ -1,4 +1,4 @@
-function randomColor (options) {
+var randomColor = function (options) {
 
   var h,s,v,l,
       rgb, hex, result,
@@ -176,7 +176,7 @@ function loadUtilities () {
     distinctHue: 40,
     colorDictionary: {
       red: {
-        hueRange: [-26, 18], // oh dear there's also red between 334, 360
+        hueRange: [-26, 18],
         sMin: 47,
         vMin: 70
       },
@@ -320,7 +320,6 @@ function loadUtilities () {
     },
     shiftHue: function(h, degrees) {
       degrees = Math.floor(degrees);
-      console.log('shifting b y '+ degrees)
       if (typeof h === "object") {
         for (var key in h) {
           h[key] = (h[key] + degrees)%360

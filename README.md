@@ -6,7 +6,7 @@ For generating attractive random colors.
 randomColor() // returns a hex code e.g. '#F7A7D9'
 ```
 
-See more examples on [the live demo](http://davidmerfield.github.io/random-color/).
+See more examples on [the live demo](http://llllll.li/random-color/).
 
 ### Options
 

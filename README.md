@@ -44,4 +44,4 @@ randomColor({
 
 ### License
 
-This projected is licensed under the terms of the MIT license."
+This projected is licensed under the terms of the MIT license.

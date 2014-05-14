@@ -1,0 +1,81 @@
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, b, ul, ol, li, section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  position: relative;
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box; 
+  box-sizing: border-box; 
+}
+
+body {
+  width:  100%;
+  height: 100%;
+  margin: 0px;
+  font: normal 1em / 1.33em 'Source Sans Pro', sans-serif;
+}
+
+.swatch {
+  width: 3.43em;
+  height: 3.43em;
+  display: block;
+  text-indent: -1000px;
+  float: left;
+  overflow: hidden;
+  background: #000;
+  margin: 0 0.5em 0.5em 0;
+}
+
+.swatch:nth-child(9n) {
+  margin-right: 0
+}
+
+section .output {
+  background: #fff;
+  display: block;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 0 0 4px 4px;
+  padding: 0.5em 0.5em 0;
+  margin-top: -1em
+}
+
+
+code {
+  padding: 1em;
+  margin: 1em 0;
+  display: block;
+  position: relative;
+  clear: both;
+  line-height: 1.33em;
+  background: #f2f2f2;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 4px;
+  white-space: pre;
+}
+
+.output:after {
+  content: "";
+  width: 100%;
+  height: 0;
+  clear: both;
+  display: block;
+}
+
+section {
+  width: 36em;
+  margin: 2em auto;
+  padding: 1em 0;
+  z-index: 0
+}
+
+
+h4 {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.66em;
+  margin-top: 2em;
+  color: #000
+}

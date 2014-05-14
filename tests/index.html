@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+  <head>
+    <title>Random Color</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="./tests.js"></script>
+    <script src="../randomColor.js"></script>
+  </head>
+  <body>
+    <section>
+      <button onclick="renderDemo()">Reload</button>
+      <br />
+      <code>randomColor();</code>
+      <span class="output" count="1"></span>
+      <br />
+      <h4>Multiple colors</h4>
+      <code>randomColor({count: 36});</code>
+      <span class="output" count="36"></span>
+      <br />
+      <h4>Similar colors</h4>
+      <code>randomColor({hue: 'orange', count: 18});</code>
+      <span class="output" hue="orange" count="18"></span>
+      <br />
+      <h4>Contrasting colors</h4>
+      <code>randomColor({hue: {contrasts: 'orange'}, count: 18});</code>
+      <span class="output" hue="orange" contrasts="true" count="18" style="background: orange"></span>
+      <br />
+    </section>
+    <script>
+      createSwatches();
+      renderDemo();
+    </script>
+  </body>
+</html>

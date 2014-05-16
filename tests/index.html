@@ -13,18 +13,36 @@
       <span class="output" count="1"></span>
       <br />
       <h4>Multiple colors</h4>
-      <code>randomColor({count: 36});</code>
-      <span class="output" count="36"></span>
+      <code>randomColor({count: 54});</code>
+      <span class="output" count="54"></span>
       <br />
       <h4>Similar colors</h4>
+      <code>randomColor({hue: 'red', count: 18});</code>
+      <span class="output" hue="red" count="18"></span>
+      <br />
       <code>randomColor({hue: 'orange', count: 18});</code>
       <span class="output" hue="orange" count="18"></span>
       <br />
-      <h4>Contrasting colors</h4>
+      <code>randomColor({hue: 'yellow', count: 18});</code>
+      <span class="output" hue="yellow" count="18"></span>
+      <br />
+      <code>randomColor({hue: 'green', count: 18});</code>
+      <span class="output" hue="green" count="18"></span>
+      <br />
+      <code>randomColor({hue: 'blue', count: 18});</code>
+      <span class="output" hue="blue" count="18"></span>
+      <br />
+      <code>randomColor({hue: 'purple', count: 18});</code>
+      <span class="output" hue="purple" count="18"></span>
+      <br />
+      <code>randomColor({hue: 'pink', count: 18});</code>
+      <span class="output" hue="pink" count="18"></span>
+      <br />
+<!--       <h4>Contrasting colors</h4>
       <code>randomColor({hue: {contrasts: 'orange'}, count: 18});</code>
       <span class="output" hue="orange" contrasts="true" count="18" style="background: orange"></span>
       <br />
-    </section>
+ -->    </section>
     <script>
       createSwatches();
       renderDemo();

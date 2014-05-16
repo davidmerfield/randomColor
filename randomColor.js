@@ -136,10 +136,18 @@ var randomColor = function (options) {
 
   };
 
-    return [s,v]
+  function setFormat (hsv, options) {
 
-  }
-};
+    switch (options.format) {
+      
+      case 'hsvArray':
+        return hsv;
+      
+      case 'hsv':
+        return colorString('hsv', hsv);
+      
+      case 'rgbArray':
+        return HSVtoRGB(hsv);
 
 function loadUtilities () {
   return {

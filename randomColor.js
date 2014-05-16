@@ -80,78 +80,61 @@ var randomColor = function (options) {
       // update the hue range to reflect this
       hueRange = getHueRange(options.hue);
 
-    // If you've already generated a color, let's pick one which is distinct
-    if (randomColor.previousHue) {
+      console.log('hue range is ' + hueRange);
 
-      do {
-        hue = util.randomBetween(hueRange, 'integer');
-      } while(Math.abs(hue - randomColor.previousHue) < util.distinctHue)
+    };
 
-      return hue
-    }
+    hue = randomWithin(hueRange);
 
-    // No valid hue preference detected, we can pick randomly!
+    // Handle the red outlier
+    if (hue < 0) {hue = 360 + hue};
 
-    return util.randomBetween(hueRange,'integer')
-  }
-  
-  function pickLuminosity (hue) {
+    return hue
+    
+  };
 
-    // luminosity is tough to represent as a pair of values but
-    // s and v will do for our purposes
-    var s,v, sMax, vMax;
+  // Then use H to determine saturation (S)
+  S = pickSaturation(H, options);
 
-    // We look up the color from the randomly generated hue value
-    // to determine the s and v values which are attractive
-    var colorName = util.lookupColorName(hue),
-        color = util.colorDictionary[colorName];
+  function pickSaturation (hue, options) {
 
-    if (options.luminosity) {
+    var saturationRange = getColorInfo(hue).saturationRange;
 
-      if (options.luminosity === 'dark') {
-        vMax = color.vMin/2 + 50;
-        sMax = color.sMin/2 + 50;
-      };
+    var sMin = saturationRange[0],
+        sMax = saturationRange[1];
+    
+    switch (options.luminosity) {
+      case 'dark':
+        sMin = 55;
+      case 'light':
+        sMax = 55;
+    };
 
-      if (options.luminosity === 'dull') {  
-        vMax = 100;
-        sMax = color.sMin/2 + 50;
-      };
+    return randomWithin([sMin, sMax]);
 
-    } else {
-      vMax = 100;
-      sMax = 100;
-    }
+  };
 
-    // Used to plot a line which represents the lower boundary
-    // of the attractive triangle
-    var m = (100 - color.sMin)/(color.vMin - 100);
-        b = color.vMin - m*100;
+  // Then use S and H to determine brightness (B).
+  B = pickBrightness(H, S, options);
 
-    // this picks a pair of points in rectangle in the upper right of the hsv color space...
-    function newSVpair (log) {
-      s = util.randomBetween(color.sMin, sMax,'integer');
-      v = util.randomBetween(color.vMin, vMax,'integer');
+  function pickBrightness (H, S, options) {
+    
+    var brightness,
+        bMin = getMinimumBrightness(H, S),
+        bMax = 100;
 
-      if (log) {
-        console.log('Constraints: s(' + color.sMin + ', ' + sMax + '), v(' + color.vMin + ', ' + vMax +')');
-        console.log('Generated: s(' + s + '), v(' + v + ')');
-      }
-    }
+    switch (options.luminosity) {
+      case 'dark':
+        bMax = (bMax + bMin)/2
+      case 'light':
+        bMin = (bMax + bMin)/2
+    };
 
-    // tests if the sv pair lies within the attractive triangle
-    function isAttractive () {
-      return v < m*s + b
-    }
+    console.log(bMin);
 
-    do {
-      newSVpair();
-    } while (isAttractive());
+    return randomWithin([bMin, bMax]);
 
-    if (options.hue === 'monochrome') {      
-      // s value needs to be zero to produce a grey
-      s = 0;
-    }
+  };
 
     return [s,v]
 

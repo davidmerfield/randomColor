@@ -4,19 +4,67 @@ var randomColor = function (options) {
       
       H,S,B,
 
-  // Check if we need to generate mulitple color
-  if (options.count) {
+      colorDictionary = {};
 
-    var colors = [],
-        totalColors = options.count;
-        options.count = false;
+      function defineColor (name, hueRange, lowerBounds) {
 
-    while (colors.length < totalColors) {
-      colors.push(randomColor(options))
-    }
+        var sMin = lowerBounds[0][0],
+            sMax = lowerBounds[lowerBounds.length - 1][0],
 
-    return colors
-  }
+            bMin = lowerBounds[lowerBounds.length - 1][1],
+            bMax = lowerBounds[0][1];
+
+        colorDictionary[name] = {
+          hueRange: hueRange,
+          lowerBounds: lowerBounds,
+          saturationRange: [sMin, sMax],
+          brightnessRange: [bMin, bMax]
+        };
+
+      };
+
+      defineColor(
+        'red',
+        [-26,18],
+        [[20,100],[30,92],[40,89],[50,85],[60,78],[70,70],[80,60],[90,55],[100,50]]
+      );
+
+      defineColor(
+        'orange',
+        [19,46],
+        [[20,100],[30,93],[40,88],[50,86],[60,85],[70,70],[100,70]]
+      );
+
+      defineColor(
+        'yellow',
+        [47,62],
+        [[25,100],[40,94],[50,89],[60,86],[70,84],[80,82],[90,80],[100,75]]
+      );
+
+      defineColor(
+        'green',
+        [63,158],
+        [[30,100],[40,90],[50,85],[60,81],[70,74],[80,64],[90,50],[100,40]]
+      );
+
+      defineColor(
+        'blue',
+        [159, 257],
+        [[20,100],[30,86],[40,80],[50,74],[60,60],[70,52],[80,44],[90,39],[100,35]]
+      );
+
+      defineColor(
+        'purple',
+        [258, 282],
+        [[20,100],[30,87],[40,79],[50,70],[60,65],[70,59],[80,52],[90,45],[100,42]]
+      );
+
+      defineColor(
+        'pink',
+        [283, 334],
+        [[20,100],[30,90],[40,86],[60,84],[80,80],[90,75],[100,73]]
+      );
+
 
   // First decide the hue of our color
   h = pickHue();

@@ -1,9 +1,8 @@
 var randomColor = function (options) {
 
-  var h,s,v,l,
-      rgb, hex, result,
-      options = options || {},
-      util = loadUtilities();
+  var options = options || {},
+      
+      H,S,B,
 
   // Check if we need to generate mulitple color
   if (options.count) {

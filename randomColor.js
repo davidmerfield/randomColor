@@ -65,79 +65,20 @@ var randomColor = function (options) {
         [[20,100],[30,90],[40,86],[60,84],[80,80],[90,75],[100,73]]
       );
 
+  // First we pick a hue (H)
+  H = pickHue(options);
 
-  // First decide the hue of our color
-  h = pickHue();
-
-  // then decide luminosity based on our hue
-  l = pickLuminosity(h); // returns [s,v]
-  s = l[0]; 
-  v = l[1];
-
-  // Convert the HSV value to an array representing the color in RGB
-  // We do this no matter which format is specified by the user because
-  // Hex is a different way of representing a rgb color
-
-  rgb = util.hsvRGB(h,s,v);
-
-  // Represent the rgb color as a hex string
-  hex = util.rgbHex(rgb); 
-
-  // Set previous hue to improve selection if called again
-  randomColor.previousHue = h;
-
-  // Return result in desired format
-  switch (options.format) {
-    case 'rgb':
-      return 'rgb(' + rgb[0] + ', ' + rgb[1] + ', ' + rgb[2]+')'
-    case 'rgbArray':
-      return rgb;
-    case 'hsv':
-      return 'hsv(' + h + ', ' + s + ', ' + v +')';
-    case 'hsvArray':
-      return [h,s,v];
-    default: 
-      return hex
-  } 
-
-  function pickHue () {
+  function pickHue (options) {
     
-    var hue,        
-        hueMin = 0,
-        hueMax = 360,
-        hueRange = [hueMin, hueMax];
+    var hueRange = [0, 360];
 
-    // Determine if there's a preference
-    // for the random color's hue
-    if (options.hue) {
-      
-      // Returns a value or range of values for H
-      hue = util.parseHue(options.hue);
+    if (options.hue !== 'undefined') {
 
-      // Determine hue range from parsed hue
-      if (typeof hue === 'object') {
-        hueRange = hue
-      } else if (!hue) {
-        hueRange = [hueMin, hueMax]
-      } else {
-        // hue can only have one possible value
-        hueRange = [hue, hue]
-      }
+      console.log('YES, options.hue is ' + options.hue);
 
-      // shift possible H value around the color wheel to contrasting spot
-      if (options.hue.contrasts) {
-        hueRange = util.shiftHue(hueRange, util.randomBetween(hueMax/2 - 30,hueMax/2 + 30), 'integer');
-      }
-      
-      // shift possible H value around the color wheel to complementary spot
-      if (options.hue.complements) {
-        hueRange = util.shiftHue(hueRange, util.randomBetween(hueMax/6 - 30,hueMax/6 + 30), 'integer');
-      };
-
-      // pick from within hue range
-      return util.randomBetween(hueRange,'integer')
-
-    };
+      // If there's a preference for the color's hue
+      // update the hue range to reflect this
+      hueRange = getHueRange(options.hue);
 
     // If you've already generated a color, let's pick one which is distinct
     if (randomColor.previousHue) {

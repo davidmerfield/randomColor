@@ -16,6 +16,9 @@ You can pass an options object to influence the type of color it produces. The o
 - A string representing a color name (e.g. 'orange'). Possible color names are *red, orange, yellow, green, blue, purple, pink and monochrome*. 
 - An integer between 0 and 360. This corresponds to an H value in the HSV color space. 
 
+**Luminosity** – Controls the luminosity of the generated color. You can pass:
+- a string containing *bright, light* or *dark*. 
+- An array in the format [S,B], where S and B are integers representing saturation and brightness values in the HSB color space.
 
 **Count** – An integer which specifies the number of colors to generate.
 

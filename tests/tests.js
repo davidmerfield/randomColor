@@ -1,41 +1,25 @@
-
-
-var normalRandom = function () {
-  return '#'+Math.floor(Math.random()*16777215).toString(16);
-};
-
 var createSwatches = function() {
   
   var outputs = document.querySelectorAll(".output");
 
-  for (var i in outputs) {
+  for (var i = 0; i < outputs.length; i++){
 
     var output = outputs[i],
-        ugly = getAttribute(output, 'ugly'),
-        count = parseInt(getAttribute(output, 'count')),
-        contrasts = false,
-        hue = getAttribute(output, 'hue');
+        numberOfSwatches = getAttribute(output, 'count'),
+        attributes = output.attributes;
 
-    if (getAttribute(output, 'contrasts') === 'true') {
-      var contrasts = true
-    };
-
-    for (var i = 0; i < count;i++){
+    for (var j = 0; j < numberOfSwatches; j++){
 
       var swatch = document.createElement('span');
-          swatch.className = "swatch randomColor";
-          swatch.setAttribute('hue', hue);
-          swatch.setAttribute('ugly', ugly);
 
-      if (contrasts) {
-          swatch.setAttribute('contrasts', 'true')
-      }
-      
-      // this should be chunked into a 
-      // document  fragment
+      for (var k = 0; k < attributes.length; k++) {
+        swatch.setAttribute(attributes[k].name, attributes[k].value);
+      };
+
+      swatch.className = "swatch";        
       output.appendChild(swatch);
 
-    }
+    };
 
   };
 
@@ -43,41 +27,24 @@ var createSwatches = function() {
 
 var renderDemo = function() {
 
-  var demos = document.querySelectorAll(".randomColor");
+  var demos = document.querySelectorAll(".swatch");
 
   for (var i in demos) {
-    var options = {},
-        demo = demos[i];
-
-
-    if (getAttribute(demo, 'contrasts') === 'true') {
-      options['hue'] = {contrasts: getAttribute(demo, 'hue')}
-    } else {
-      options['hue'] = getAttribute(demo, 'hue');
-    };
-
-    options['luminosity'] = getAttribute(demo, 'luminosity');
-    options['format'] = getAttribute(demo, 'format');
     
-    var isUgly = getAttribute(demo, "ugly");
+    var options = {},
+        demo = demos[i],
+        demoProperties = demo.attributes;
+
+    for (var j = 0; j < demoProperties.length; j++) {
+      options[demoProperties[j].name] = demoProperties[j].value
+    };
 
     var color = randomColor(options);
 
-    if (demo.className === 'swatch randomColor') {
-      demo.style.background = color;
-    };
-
-    if (isUgly === 'true') {
-      demo.style.background = normalRandom();
-    }
-
-    // Append a small color swatch to text demo
-    // else {
-    //   demo.style.color = color;
-    // }
-
+    demo.style.background = color;
     demo.innerHTML = color.toString();
-  }
+
+  };
 };
 
 function getAttribute(node, attribute) {
@@ -86,4 +53,4 @@ function getAttribute(node, attribute) {
       return node.attributes[i].value
     }
   };
-}
+};

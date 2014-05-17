@@ -62,61 +62,74 @@ var randomColor = function (options) {
 
   };
 
-      // If there's a preference for the color's hue
-      // update the hue range to reflect this
-      hueRange = getHueRange(options.hue);
+  // First we pick a hue (H)
+  H = pickHue(options);
 
-      console.log('hue range is ' + hueRange);
+  // Then use H to determine saturation (S)
+  S = pickSaturation(H, options);
 
-    };
+  // Then use S and H to determine brightness (B).
+  B = pickBrightness(H, S, options);
+
+  // Then we return the HSB color in the desired format
+  return setFormat([H,S,B], options)
+
+  function pickHue (options) {
+    
+    var hueRange = getHueRange(options.hue);
 
     hue = randomWithin(hueRange);
 
-    // Handle the red outlier
+    // Instead of storing red as two seperate ranges, 
+    // we group them, using negative numbers
     if (hue < 0) {hue = 360 + hue};
 
     return hue
     
   };
 
-  // Then use H to determine saturation (S)
-  S = pickSaturation(H, options);
-
   function pickSaturation (hue, options) {
 
-    var saturationRange = getColorInfo(hue).saturationRange;
+    var saturationRange = getSaturationRange(hue);
 
     var sMin = saturationRange[0],
         sMax = saturationRange[1];
     
     switch (options.luminosity) {
-      case 'dark':
+      case 'bright':
         sMin = 55;
+      case 'dark':
+        sMin = sMax - 10;
       case 'light':
         sMax = 55;
-    };
+   };
+
+   switch (options.hue) {
+      case 'monochrome':
+        return 0
+   };
 
     return randomWithin([sMin, sMax]);
 
   };
 
-  // Then use S and H to determine brightness (B).
-  B = pickBrightness(H, S, options);
-
   function pickBrightness (H, S, options) {
     
+    switch(options.hue) {
+      case 'monochrome':
+        return randomWithin([0,100])
+    };
+
     var brightness,
         bMin = getMinimumBrightness(H, S),
         bMax = 100;
 
     switch (options.luminosity) {
       case 'dark':
-        bMax = (bMax + bMin)/2
+        bMax = bMin + 10
       case 'light':
         bMin = (bMax + bMin)/2
     };
-
-    console.log(bMin);
 
     return randomWithin([bMin, bMax]);
 
@@ -144,10 +157,6 @@ var randomColor = function (options) {
 
   };
 
-  // Then we return the HSB color in the desired format
-  return setFormat([H,S,B], options)
-
-
   function getMinimumBrightness(H, S) {
     
     var lowerBounds = getColorInfo(H).lowerBounds;
@@ -170,26 +179,6 @@ var randomColor = function (options) {
     };
   };
 
-  function getColorInfo  (hue) {
-
-    // Maps red colors to make picking hue easier
-    if (hue > 334 && hue < 360) {
-      hue-= 360
-    };
-
-    for (var colorName in colorDictionary) {
-       color = colorDictionary[colorName];
-       if (hue >= color.hueRange[0] &&
-           hue <= color.hueRange[1]) {
-          return colorDictionary[colorName]
-       }     
-    } return 'Color not found'
-  };
-
-  function randomWithin (range) {
-    return ~~(range[0] + Math.random()*(range[1] - range[0]))
-  };
-
   function getHueRange (colorInput) {
 
     if (typeof parseInt(colorInput) === 'number') {
@@ -206,13 +195,40 @@ var randomColor = function (options) {
 
       if (colorDictionary[colorInput]) {
         var color = colorDictionary[colorInput];
-        return color.hueRange
+        if (color.hueRange) {return color.hueRange}
       }
     };
 
     return [0,360]
 
   };
+
+  function getSaturationRange (hue) {
+    return getColorInfo(hue).saturationRange;
+  };
+
+  function getColorInfo (hue) {
+
+    // Maps red colors to make picking hue easier
+    if (hue >= 334 && hue <= 360) {
+      hue-= 360
+    };
+
+    for (var colorName in colorDictionary) {
+       color = colorDictionary[colorName];
+       if (color.hueRange &&
+           hue >= color.hueRange[0] &&
+           hue <= color.hueRange[1]) {
+          return colorDictionary[colorName]
+       }     
+    } return 'Color not found'
+  };
+
+  function randomWithin (range) {
+    return Math.floor(range[0] + Math.random()*(range[1] + 1 - range[0]));
+  };
+
+
 
   function shiftHue (h, degrees) {
     return (h + degrees)%360
@@ -233,6 +249,23 @@ var randomColor = function (options) {
     
     console.log('hex is ' + hex);
     return hex;
+
+  };
+
+  function defineColor (name, hueRange, lowerBounds) {
+
+    var sMin = lowerBounds[0][0],
+        sMax = lowerBounds[lowerBounds.length - 1][0],
+
+        bMin = lowerBounds[lowerBounds.length - 1][1],
+        bMax = lowerBounds[0][1];
+
+    colorDictionary[name] = {
+      hueRange: hueRange,
+      lowerBounds: lowerBounds,
+      saturationRange: [sMin, sMax],
+      brightnessRange: [bMin, bMax]
+    };
 
   };
 
@@ -275,9 +308,14 @@ var randomColor = function (options) {
 
   function hsvRGB (hsv) {
     
-
+    // this doesn't work for the values of 0 and 360
+    // here's the hacky fix
+    var h = hsv[0];
+    if (h === 0) {h = 1};
+    if (h === 360) {h = 359};
+    
     // Rebase the h,s,v values
-    var h = hsv[0]/360,
+    var h = h/360,
         s = hsv[1]/100,
         v = hsv[2]/100;
 
@@ -286,9 +324,9 @@ var randomColor = function (options) {
       p = v * (1 - s),
       q = v * (1 - f*s),
       t = v * (1 - (1 - f)*s),
-      r = 255,
-      g = 255,
-      b = 255;
+      r = 256,
+      g = 256,
+      b = 256;
 
     switch(h_i) {
       case 0: r = v, g = t, b = p;  break;

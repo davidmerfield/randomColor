@@ -1,5 +1,6 @@
 <!DOCTYPE html>
   <head>
+    <meta charset="utf-8">
     <title>Random Color</title>
     <link rel="stylesheet" href="style.css">
     <script src="./tests.js"></script>
@@ -12,10 +13,25 @@
       <code>randomColor();</code>
       <span class="output" count="1"></span>
       <br />
-      <h4>Multiple colors</h4>
+      <h4>Random colors</h4>
+      <code>randomColor({hue: 'random',luminosity: 'random',count: 54});</code>
+      <span class="output" count="54" hue="random" luminosity="random"></span>
+      <br />
+      <h4>Attractive colors</h4>
       <code>randomColor({count: 54});</code>
       <span class="output" count="54"></span>
       <br />
+      <h4>Light colors</h4>
+      <code>randomColor({count: 27});</code>
+      <span class="output" luminosity="light" count="27"></span>
+      <br />
+      <h4>Bright colors</h4>
+      <code>randomColor({count: 27});</code>
+      <span class="output" luminosity="bright" count="27"></span>
+      <br />
+      <h4>Dark colors</h4>
+      <code>randomColor({count: 27});</code>
+      <span class="output" luminosity="dark" count="27"></span>
       <h4>Similar colors</h4>
       <code>randomColor({hue: 'red', count: 18});</code>
       <span class="output" hue="red" count="18"></span>
@@ -37,6 +53,9 @@
       <br />
       <code>randomColor({hue: 'pink', count: 18});</code>
       <span class="output" hue="pink" count="18"></span>
+      <br />
+      <code>randomColor({hue: 'monochrome', count: 18});</code>
+      <span class="output" hue="monochrome" count="18"></span>
       <br />
 <!--       <h4>Contrasting colors</h4>
       <code>randomColor({hue: {contrasts: 'orange'}, count: 18});</code>

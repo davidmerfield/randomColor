@@ -6,22 +6,11 @@ var randomColor = function (options) {
 
       colorDictionary = {};
 
-      function defineColor (name, hueRange, lowerBounds) {
-
-        var sMin = lowerBounds[0][0],
-            sMax = lowerBounds[lowerBounds.length - 1][0],
-
-            bMin = lowerBounds[lowerBounds.length - 1][1],
-            bMax = lowerBounds[0][1];
-
-        colorDictionary[name] = {
-          hueRange: hueRange,
-          lowerBounds: lowerBounds,
-          saturationRange: [sMin, sMax],
-          brightnessRange: [bMin, bMax]
-        };
-
-      };
+      defineColor(
+        'monochrome',
+        null,
+        [[0,0],[100,0]]
+      );
 
       defineColor(
         'red',

@@ -17,7 +17,7 @@ You can pass an options object to influence the type of color it produces. The o
 - An integer between 0 and 360. This corresponds to an H value in the HSV color space. 
 
 **Luminosity** – Controls the luminosity of the generated color. You can pass:
-- a string containing *bright, light* or *dark*. 
+- a string containing *bright, light* or *dark*.
 - An array in the format [S,B], where S and B are integers representing saturation and brightness values in the HSB color space.
 
 **Count** – An integer which specifies the number of colors to generate.
@@ -29,15 +29,25 @@ You can pass an options object to influence the type of color it produces. The o
 Here's are a few examples showing what you can do with the options object. 
 
 ```javascript
+// An array of ten green colors
 randomColor({
-   count: 10, // returns array of 10 colors...
-   hue: 'green', // with green hues...
+   count: 10,
+   hue: 'green'
 );
 
+// A light blue
 randomColor({
-   hue: {contrasts: 'blue'}, // returns a color which contrasts with blue
+   luminosity: 'light',
+   hue: 'blue' 
 );
 
+// A 'truly random' color
+randomColor({
+   luminosity: 'random',
+   hue: 'random'
+);
+
+// A bright color in RGB
 randomColor({
    luminosity: 'bright', // returns a bright color
    format: 'rgb' // in rgb, e.g. 'rgb(225,200,20)'

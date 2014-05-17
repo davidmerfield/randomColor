@@ -54,16 +54,13 @@ var randomColor = function (options) {
         [[20,100],[30,90],[40,86],[60,84],[80,80],[90,75],[100,73]]
       );
 
-  // First we pick a hue (H)
-  H = pickHue(options);
+  // If the user wants a truly random color then give it to them
+  if (options.hue === 'random' && options.luminosity === 'random') {
 
-  function pickHue (options) {
-    
-    var hueRange = [0, 360];
+    return '#'+ ('000000' + (Math.random()*0xFFFFFF<<0).toString(16)).slice(-6);
 
-    if (options.hue !== 'undefined') {
 
-      console.log('YES, options.hue is ' + options.hue);
+  };
 
       // If there's a preference for the color's hue
       // update the hue range to reflect this

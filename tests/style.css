@@ -42,7 +42,6 @@ section .output {
   margin-top: -1em
 }
 
-
 code {
   padding: 1em;
   margin: 1em 0;
@@ -71,6 +70,46 @@ section {
   z-index: 0
 }
 
+header {
+  background: #fff; 
+  position: relative; 
+  overflow: hidden;
+  z-index: 1;
+  height: 3em;
+}
+
+header .output {
+  position: absolute;
+  top: 0;
+  left: -10em;
+  right: -10em;
+  bottom: 0;
+}
+header .output .swatch {
+  margin: 0;
+  width: 1em;
+  height: 1em;
+}
+
+
+h1 {
+  font-size: 3em;
+  font-weight: bold;
+  margin-bottom: 0.66em;
+  margin-top: 1em;
+  color: #111;
+}
+
+h2 {
+  font-size: 1.5em;
+  color: #444
+}
+
+h3 {
+  font-size: 1.33em;
+  font-weight: bold;
+  margin-bottom: 1em
+}
 
 h4 {
   text-transform: uppercase;
@@ -79,3 +118,22 @@ h4 {
   margin-top: 2em;
   color: #000
 }
+
+.button {
+  display: inline-block;
+  padding: 0.5em;
+  margin: 3em 0.66em 0.33em 0;
+  text-decoration: none;
+  font-weight: bold;
+  color: #111;
+  box-shadow: inset 0 0 0 0.17em #219AD3;
+  color: #219AD3;
+  text-transform: uppercase;
+  border-radius: 0.33em;
+  padding: 0.75em 1em 0.7em;  
+}
+
+.primary {
+}
+
+.comment {color: #888;font-weight: normal;}

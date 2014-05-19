@@ -7,31 +7,25 @@
     <script src="../randomColor.js"></script>
   </head>
   <body>
+    <header>
+      <span class="output" hue="" count="1700"></span>              
+    </header> 
     <section>
-      <button onclick="renderDemo()">Reload</button>
+      <h1>randomColor</h1>
+      <h2>An attractive color generator for JavaScript.</h2>
+      <a href="https://github.com/davidmerfield/RandomColor" class="button primary">Get this on Github &nbsp;&rarr;</a>      
+    </section>    
+    <section>
+      <h3>Examples</h3>   
+      <h4>Basic usage</h4>
+      <p>Once you've included <a href="https://github.com/davidmerfield/RandomColor">randomColor.js</a> on your page, calling randomColor() will return a random, attractive color as a hex string.</p>
+      <code>randomColor(); <span class="comment">// Returned a hex string for an attractive color</span></code>
+      <p>You can also pass an options object to randomColor. This allows you to specify the hue, luminosity and the number of colors to generate.</p>
       <br />
-      <code>randomColor();</code>
-      <span class="output" count="1"></span>
-      <br />
-      <h4>Random colors</h4>
-      <code>randomColor({hue: 'random',luminosity: 'random',count: 54});</code>
-      <span class="output" count="54" hue="random" luminosity="random"></span>
-      <br />
-      <h4>Attractive colors</h4>
-      <code>randomColor({count: 54});</code>
+      <h4>Multiple colors</h4>
+      <code>randomColor({count: 54}); <span class="comment">// Returns an array of 54 attractive colors</span></code>
       <span class="output" count="54"></span>
       <br />
-      <h4>Light colors</h4>
-      <code>randomColor({count: 27});</code>
-      <span class="output" luminosity="light" count="27"></span>
-      <br />
-      <h4>Bright colors</h4>
-      <code>randomColor({count: 27});</code>
-      <span class="output" luminosity="bright" count="27"></span>
-      <br />
-      <h4>Dark colors</h4>
-      <code>randomColor({count: 27});</code>
-      <span class="output" luminosity="dark" count="27"></span>
       <h4>Similar colors</h4>
       <code>randomColor({hue: 'red', count: 18});</code>
       <span class="output" hue="red" count="18"></span>
@@ -57,11 +51,24 @@
       <code>randomColor({hue: 'monochrome', count: 18});</code>
       <span class="output" hue="monochrome" count="18"></span>
       <br />
-<!--       <h4>Contrasting colors</h4>
-      <code>randomColor({hue: {contrasts: 'orange'}, count: 18});</code>
-      <span class="output" hue="orange" contrasts="true" count="18" style="background: orange"></span>
+      <h4>Light colors</h4>
+      <code>randomColor({luminosity: 'light',count: 27});</code>
+      <span class="output" luminosity="light" count="27"></span>
       <br />
- -->    </section>
+      <h4>Bright colors</h4>
+      <code>randomColor({luminosity: 'bright', count: 27});</code>
+      <span class="output" luminosity="bright" count="27"></span>
+      <br />
+      <h4>Dark colors</h4>
+      <code>randomColor({luminosity: 'dark', count: 27});</code>
+      <span class="output" luminosity="dark" count="27"></span>
+      <br />
+      <h4>Truly random colors</h4>
+      <code>randomColor({hue: 'random',luminosity: 'random',count: 54});</code>
+      <span class="output" count="54" hue="random" luminosity="random"></span>
+      <br />
+      <a href="https://github.com/davidmerfield/RandomColor" class="button primary">Get this on Github &nbsp;&rarr;</a>      
+    </section>
     <script>
       createSwatches();
       renderDemo();

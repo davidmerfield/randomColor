@@ -35,30 +35,42 @@ var createSwatches = function() {
 
 var renderDemo = function() {
 
-  var logoNodes = logo.childNodes;
+  var logoNodes = logo.childNodes,
+      shapes = [];
 
   for (var i in logoNodes) {
     var n = logoNodes[i];
     if(n.attributes) {
-      n.setAttribute('fill', randomColor())
+      shapes.push(n);
     };
   };
 
+  var backgrounds = randomColor({count: shapes.length});
+
+  for (var i in shapes) {var shape = shapes[i];shape.setAttribute('fill', backgrounds[i])};
+
   var demos = document.querySelectorAll(".swatch");
+  
 
   for (var i in demos) {
     
     var options = {},
         demo = demos[i],
         demoProperties = demo.attributes;
-
-    for (var j = 0; j < demoProperties.length; j++) {
-      options[demoProperties[j].name] = demoProperties[j].value
+    
+    if (demoProperties) {
+      for (var j = 0; j < demoProperties.length; j++) {
+        options[demoProperties[j].name] = demoProperties[j].value
+      };
     };
+
+    if (options.count) {options.count = false};
 
     var color = randomColor(options);
 
-    demo.style.background = color;
+    if(demo.style) {
+      demo.style.background = color;      
+    }
     demo.innerHTML = color.toString();
 
   };

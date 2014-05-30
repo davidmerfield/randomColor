@@ -54,6 +54,19 @@ var randomColor = function (options) {
         [[20,100],[30,90],[40,86],[60,84],[80,80],[90,75],[100,73]]
       );
 
+  if (options.count) {
+
+    var totalColors = options.count;
+        options.count = false,
+        colors = [];
+
+    while (totalColors > colors.length) {
+      colors.push(randomColor(options))
+    };
+
+    return colors
+  };
+
   // If the user wants a truly random color then give it to them
   if (options.hue === 'random' && options.luminosity === 'random') {
     return '#'+ ('000000' + (Math.random()*0xFFFFFF<<0).toString(16)).slice(-6);
@@ -233,8 +246,6 @@ var randomColor = function (options) {
 
   function HSVtoHex (hsv){
 
-    console.log('Converting ' + hsv);
-
     var rgb = hsvRGB(hsv);
 
     function componentToHex(c) {
@@ -244,7 +255,6 @@ var randomColor = function (options) {
 
     var hex = "#" + componentToHex(rgb[0]) + componentToHex(rgb[1]) + componentToHex(rgb[2]);
     
-    console.log('hex is ' + hex);
     return hex;
 
   };
@@ -334,7 +344,6 @@ var randomColor = function (options) {
       case 5: r = v, g = p, b = q;  break;
     }
     var result = [Math.floor(r*255), Math.floor(g*255), Math.floor(b*255)];
-    console.log('rgb is ' + result);
     return result;
   };
 
@@ -349,15 +358,3 @@ var randomColor = function (options) {
 
 
 
-// if (options.count) {
-
-//   var totalColors = options.count;
-//       options.count = false,
-//       colors = [];
-
-//   while (totalColors > colors.length) {
-//     colors.push(randomColor(options))
-//   };
-
-//   return colors
-// };

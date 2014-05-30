@@ -49,8 +49,8 @@ code {
   position: relative;
   clear: both;
   line-height: 1.33em;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
-  border-top: 1px solid rgba(0,0,0,0.1);
+  background: linear-gradient(to bottom, rgba(0,0,0,0.025) 50%,rgba(0,0,0,0) 100%);
+  border-top: 1px solid rgba(0,0,0,0.15);
   white-space: pre;
 }
 
@@ -120,6 +120,7 @@ h4 {
   color: #fff;
   background: #f9951d;
   border-radius: 4em;
+  font-size: 1.1566em;
   padding: 0.75em 2em 0.7em;  
 }
 

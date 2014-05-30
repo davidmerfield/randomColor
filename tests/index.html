@@ -2,29 +2,140 @@
   <head>
     <meta charset="utf-8">
     <title>Random Color</title>
+    <link href='http://fonts.googleapis.com/css?family=Karla:400,700,400italic,700italic' rel='stylesheet' type='text/css'>    
+    <link href='http://fonts.googleapis.com/css?family=Lora:400,400italic' rel='stylesheet' type='text/css'>    
     <link rel="stylesheet" href="style.css">
     <script src="./tests.js"></script>
     <script src="../randomColor.js"></script>
   </head>
   <body>
     <header>
-      <span class="output" hue="" count="1700"></span>              
-    </header> 
+<!--       <span class="output" hue="" count="1700"></span>              
+ -->    </header> 
     <section>
+      <svg id="logo" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+         width="372.069px" height="377.911px" viewBox="0 0 372.069 377.911" enable-background="new 0 0 372.069 377.911"
+         xml:space="preserve">
+      <polygon fill="#0B0A0A" points="109.388,191.874 113.578,204.523 101.558,208.503 97.368,195.843 84.708,200.034 80.728,188.003 
+        93.388,183.813 89.198,171.163 101.228,167.184 105.418,179.843 118.078,175.653 122.048,187.684 "/>
+      <rect x="210.224" y="124.437" fill="#0B0A0A" width="19.668" height="47.667"/>
+      <rect x="352.401" y="170.298" fill="#0B0A0A" width="19.668" height="47.667"/>
+      <rect x="129.466" y="194.132" fill="#0B0A0A" width="8.629" height="20.91"/>
+      <rect x="87.526" y="99.51" transform="matrix(0.8063 0.5914 -0.5914 0.8063 83.4148 -33.0674)" fill="#0B0A0A" width="9.355" height="22.671"/>
+      <rect x="63.719" y="34.345" transform="matrix(0.5197 0.8544 -0.8544 0.5197 85.0339 -34.8963)" fill="#0B0A0A" width="19.667" height="47.667"/>
+      <rect x="139.597" y="218.393" transform="matrix(0.9575 0.2883 -0.2883 0.9575 74.9766 -36.9048)" fill="#0B0A0A" width="46.333" height="35.333"/>
+      <rect x="82.115" y="134.309" transform="matrix(0.9912 0.1324 -0.1324 0.9912 20.3688 -11.8209)" fill="#0B0A0A" width="33.886" height="25.842"/>
+      <polygon fill="#0B0A0A" points="19.937,164.056 18.267,209.634 0,198.392 0.896,173.931 "/>
+      <polygon fill="#0B0A0A" points="204.372,207.308 158.765,207.308 169.329,188.642 193.808,188.642 "/>
+      <rect x="239.826" y="136.335" transform="matrix(0.6749 0.7379 -0.7379 0.6749 187.4052 -136.081)" fill="#0B0A0A" width="16.648" height="16.647"/>
+      <rect x="75" y="258.415" fill="#0B0A0A" width="22.452" height="22.453"/>
+      <polygon fill="#0B0A0A" points="198.392,147.179 176.39,139.179 176.39,113.178 198.392,121.178 "/>
+      <polygon fill="#0B0A0A" points="107.016,94.532 97.452,77.967 107.016,61.401 126.146,61.401 135.708,77.967 126.146,94.532 "/>
+      <polygon fill="#0B0A0A" points="93.116,251.077 83.551,234.511 93.116,217.946 112.245,217.946 121.808,234.511 112.245,251.077 "/>
+      <polygon fill="#0B0A0A" points="9.968,151.192 26.534,122.5 43.1,151.192 "/>
+      <polygon fill="#0B0A0A" points="218.938,2.984 196.892,22.131 177.843,0 "/>
+      <polygon fill="#0B0A0A" points="101.207,126.524 121.808,105.832 142.409,126.524 "/>
+      <rect x="115.254" y="-0.927" transform="matrix(0.3579 0.9338 -0.9338 0.3579 98.0045 -96.2249)" fill="#0B0A0A" width="7.423" height="48.142"/>
+      <rect x="56.568" y="114.442" transform="matrix(0.9756 0.2197 -0.2197 0.9756 34.7409 -9.9796)" fill="#0B0A0A" width="11.334" height="73.5"/>
+      <circle fill="#0B0A0A" cx="184.308" cy="166.184" r="12.209"/>
+      <path fill="#0B0A0A" d="M35.078,211.022c-14.997,0-27.153,12.157-27.153,27.157c0,14.996,12.157,27.155,27.153,27.155
+        c15,0,27.156-12.159,27.156-27.155H35.078V211.022z"/>
+      <ellipse fill="#0B0A0A" cx="35.485" cy="182.104" rx="8.545" ry="12.692"/>
+      <ellipse transform="matrix(0.9086 0.4178 -0.4178 0.9086 80.3304 -47.3087)" fill="#0B0A0A" cx="148.233" cy="159.846" rx="14.571" ry="21.644"/>
+      <path fill="#0B0A0A" d="M54.232,297.929c-5.64,6.166-15.211,6.592-21.376,0.951c-6.165-5.639-6.591-15.209-0.95-21.375
+        c5.64-6.165,34.373-15.16,34.373-15.16S59.872,291.764,54.232,297.929z"/>
+      <path fill="#0B0A0A" d="M185.052,25.542c5.045,6.663,3.732,16.152-2.93,21.197c-6.66,5.043-16.15,3.732-21.195-2.931
+        c-5.043-6.661-8.695-36.547-8.695-36.547S180.009,18.881,185.052,25.542z"/>
+      <path fill="#0B0A0A" d="M62.235,226.927c-8.769,0-15.904-7.134-15.904-15.903s7.135-15.904,15.904-15.904
+        c8.769,0,15.902,7.135,15.902,15.904S71.004,226.927,62.235,226.927z M62.235,202.384c-4.764,0-8.638,3.876-8.638,8.64
+        c0,4.763,3.875,8.639,8.638,8.639c4.763,0,8.638-3.876,8.638-8.639C70.873,206.26,66.998,202.384,62.235,202.384z"/>
+      <path fill="#0B0A0A" d="M39.569,122.534c-10.863,0-19.701-8.838-19.701-19.702S28.706,83.13,39.569,83.13
+        c10.863,0,19.7,8.838,19.7,19.702S50.432,122.534,39.569,122.534z M39.569,92.13c-5.901,0-10.701,4.801-10.701,10.702
+        c0,5.901,4.8,10.702,10.701,10.702c5.9,0,10.7-4.801,10.7-10.702C50.269,96.931,45.469,92.13,39.569,92.13z"/>
+      <polygon fill="#0B0A0A" points="164.071,97.207 175.759,100.84 165.765,107.907 165.921,120.146 156.112,112.825 144.521,116.756 
+        148.452,105.165 141.132,95.355 153.37,95.512 160.437,85.519 "/>
+      <circle fill="#0B0A0A" cx="112.581" cy="43.327" r="7.209"/>
+      <circle fill="#0B0A0A" cx="76.488" cy="90.176" r="12.209"/>
+      <polygon fill="#0B0A0A" points="160.845,59.416 162.581,72.303 150.862,77.938 141.882,68.534 148.05,57.087 "/>
+      <rect x="310.964" y="196.522" transform="matrix(0.7072 0.7071 -0.7071 0.7072 249.7471 -162.2928)" fill="#0B0A0A" width="19.668" height="47.667"/>
+      <rect x="252.177" y="92.149" transform="matrix(0.1518 0.9884 -0.9884 0.1518 320.1519 -166.1016)" fill="#0B0A0A" width="9.354" height="22.671"/>
+      <rect x="271.074" y="29.222" transform="matrix(-0.2367 0.9716 -0.9716 -0.2367 398.934 -207.3159)" fill="#0B0A0A" width="19.667" height="47.668"/>
+      <rect x="210.128" y="93.889" transform="matrix(0.6072 0.7945 -0.7945 0.6072 168.919 -135.9201)" fill="#0B0A0A" width="23.621" height="18.014"/>
+      <rect x="316.31" y="111.822" transform="matrix(-0.0445 0.999 -0.999 -0.0445 459.096 -198.8243)" fill="#0B0A0A" width="16.647" height="16.647"/>
+      <polygon fill="#0B0A0A" points="306.249,204.263 296.349,183.049 314.733,164.663 324.634,185.878 "/>
+      <polygon fill="#0B0A0A" points="278.864,102.424 283.813,83.947 302.292,78.997 315.817,92.523 310.866,110.999 292.39,115.95 "/>
+      <polygon fill="#0B0A0A" points="168.159,85.801 190.71,61.527 200.456,93.193 "/>
+      <polygon fill="#0B0A0A" points="124.659,294.587 109.532,269.611 134.573,254.595 "/>
+      <polygon fill="#0B0A0A" points="252.134,120.938 281.333,120.874 281.269,150.072 "/>
+      <rect x="219.635" y="190.178" transform="matrix(0.5344 0.8452 -0.8452 0.5344 296.7156 -84.7728)" fill="#0B0A0A" width="11.334" height="73.499"/>
+      <ellipse transform="matrix(0.347 0.9379 -0.9379 0.347 337.6689 -129.487)" fill="#0B0A0A" cx="261.825" cy="177.752" rx="14.571" ry="21.642"/>
+      <path fill="#0B0A0A" d="M297.769,226.579c-1.145,8.277-8.781,14.061-17.061,12.916c-8.275-1.144-14.059-8.781-12.914-17.06
+        c1.145-8.276,19.693-31.991,19.693-31.991S298.913,218.302,297.769,226.579z"/>
+      <path fill="#0B0A0A" d="M211.37,74.532c-7.68-7.682-7.68-20.18,0.002-27.862c7.682-7.682,20.18-7.682,27.861-0.001
+        s7.68,20.18-0.002,27.861C231.55,82.212,219.052,82.213,211.37,74.532z M232.87,53.033c-4.174-4.173-10.961-4.172-15.135,0
+        c-4.172,4.173-4.174,10.961,0,15.134c4.172,4.172,10.961,4.171,15.133-0.001C237.042,63.994,237.042,57.205,232.87,53.033z"/>
+      <polygon fill="#0B0A0A" points="317.317,144.659 323.013,155.493 310.948,153.423 302.405,162.188 300.646,150.075 289.669,144.658 
+        300.646,139.243 302.405,127.13 310.948,135.894 323.013,133.825 "/>
+      <circle fill="#0B0A0A" cx="319.007" cy="70.151" r="7.209"/>
+      <circle fill="#0B0A0A" cx="260.357" cy="77.757" r="12.21"/>
+      <polygon fill="#0B0A0A" points="345.167,88.279 337.284,98.62 325.013,94.318 325.312,81.319 337.767,77.585 "/>
+      <polygon fill="#0B0A0A" points="316.599,287.394 325.487,297.333 316.048,305.773 307.157,295.843 297.218,304.733 288.778,295.294 
+        298.708,286.403 289.817,276.464 299.269,268.014 308.157,277.954 318.089,269.063 326.538,278.503 "/>
+      <rect x="236.04" y="314.709" transform="matrix(0.2207 -0.9753 0.9753 0.2207 -130.4157 488.864)" fill="#0B0A0A" width="9.354" height="22.672"/>
+      <rect x="254.402" y="292.321" transform="matrix(-0.274 -0.9617 0.9617 -0.274 52.1384 649.8406)" fill="#0B0A0A" width="33.886" height="25.841"/>
+      <polygon fill="#0B0A0A" points="239.056,263.814 281.515,247.16 278.495,268.396 255.708,277.333 "/>
+      <polygon fill="#0B0A0A" points="219.849,318.97 208.476,334.35 189.468,332.188 181.837,314.649 193.21,299.271 212.216,301.43 "/>
+      <polygon fill="#0B0A0A" points="362.173,254.847 350.798,270.228 331.794,268.066 324.161,250.526 335.534,235.147 354.54,237.308 
+        "/>
+      <polygon fill="#0B0A0A" points="232.216,202.881 211.261,200.499 223.8,183.544 "/>
+      <polygon fill="#0B0A0A" points="251.501,311.532 224.308,300.897 235.062,273.752 "/>
+      <rect x="190.848" y="328.696" transform="matrix(-0.1878 -0.9822 0.9822 -0.1878 -125.5141 627.1097)" fill="#0B0A0A" width="11.334" height="73.502"/>
+      <path fill="#0B0A0A" d="M244.304,37.956c8.494-3.885,12.229-13.918,8.342-22.413c-3.885-8.493-13.918-12.229-22.41-8.344
+        c-8.494,3.886-12.229,13.92-8.344,22.413l15.379-7.035L244.304,37.956z"/>
+      <ellipse transform="matrix(-0.3989 -0.917 0.917 -0.3989 126.6636 567.7375)" fill="#0B0A0A" cx="249.4" cy="242.356" rx="8.545" ry="12.692"/>
+      <path fill="#0B0A0A" d="M364.515,141.924c3.5,8.041-0.195,17.43-8.236,20.929s-17.43-0.196-20.93-8.238
+        c-3.498-8.039,0.197-17.428,8.24-20.926C351.63,130.189,361.017,133.884,364.515,141.924z M342.011,151.716
+        c1.9,4.369,7,6.375,11.369,4.475c4.367-1.9,6.375-7,4.475-11.368c-1.9-4.366-7-6.373-11.367-4.473
+        C342.118,142.251,340.11,147.351,342.011,151.716z"/>
+      <circle fill="#0B0A0A" cx="244.939" cy="348.72" r="7.209"/>
+      <circle fill="#0B0A0A" cx="271.344" cy="341.509" r="12.21"/>
+      <circle fill="#0B0A0A" cx="205.61" cy="274.333" r="18.356"/>
+      <polygon fill="#0B0A0A" points="118.983,310.237 130.106,303.502 139.948,311.999 134.911,323.985 121.953,322.897 "/>
+      <polygon fill="#0B0A0A" points="166.478,282.604 169.798,295.514 157.538,298.673 154.208,285.764 141.298,289.083 138.138,276.823 
+        151.058,273.493 147.728,260.583 159.987,257.423 163.317,270.343 176.228,267.014 179.388,279.284 "/>
+      <polygon fill="#0B0A0A" points="311.798,329.297 290.843,326.915 303.382,309.96 "/>
+      <rect x="57.387" y="299.144" transform="matrix(0.3332 -0.9429 0.9429 0.3332 -244.9943 287.2017)" fill="#0B0A0A" width="46.332" height="35.334"/>
+      <path fill="#0B0A0A" d="M144.485,340.776c5.27,6.484,4.285,16.014-2.199,21.283s-16.014,4.284-21.284-2.201
+        c-5.27-6.484-9.944-36.228-9.944-36.228S139.216,334.292,144.485,340.776z"/>
+      <ellipse transform="matrix(-0.3989 -0.917 0.917 -0.3989 -71.4346 592.4343)" fill="#0B0A0A" cx="158.445" cy="319.629" rx="8.545" ry="12.692"/>
+      <polygon fill="#0B0A0A" points="195.536,340.003 180.335,357.807 155.981,348.696 171.183,330.894 "/>
+      <circle fill="#0B0A0A" cx="203.372" cy="35.223" r="7.209"/>
+      <polygon fill="#0B0A0A" points="144.581,44.653 147.006,54.08 138.055,56.386 135.623,46.961 126.197,49.384 123.89,40.433 
+        133.322,38.002 130.892,28.576 139.843,26.269 142.273,35.702 151.7,33.271 154.007,42.23 "/>
+      </svg>
+
       <h1>randomColor</h1>
-      <h2>An attractive color generator for JavaScript.</h2>
-      <a href="https://github.com/davidmerfield/RandomColor" class="button primary">Get this on Github &nbsp;&rarr;</a>      
+      <h2>A color generator for JavaScript.</h2>
+      <a href="https://github.com/davidmerfield/RandomColor" class="button primary">Get this on GitHub &nbsp;&rarr;</a>      
     </section>    
     <section>
-      <h3>Examples</h3>   
-      <h4>Basic usage</h4>
-      <p>Once you've included <a href="https://github.com/davidmerfield/RandomColor">randomColor.js</a> on your page, calling randomColor() will return a random, attractive color as a hex string.</p>
-      <code>randomColor(); <span class="comment">// Returned a hex string for an attractive color</span></code>
-      <p>You can also pass an options object to randomColor. This allows you to specify the hue, luminosity and the number of colors to generate.</p>
+      <h3>Why does this exist?</h3>   
+      <p>You can generate random colors with <a href="http://www.paulirish.com/2009/random-hex-color-code-snippets/">one neat line of JavaScript</a>. However, the one-liner naturally produces lots of browns and greys and murky yellows.</p>
+      <br/>
+      <p>randomColor generates <b>attractive colors</b> by default. More specifically, randomColor produces bright colors with a reasonably high saturation. This makes randomColor particularly useful for <b>data visualizations</b> and <b>generative art</b>.</p>
       <br />
-      <h4>Multiple colors</h4>
-      <code>randomColor({count: 54}); <span class="comment">// Returns an array of 54 attractive colors</span></code>
+      <br />
+      <br />
+      <h3>Examples</h3>   
+      <p>Once you've included <a href="https://github.com/davidmerfield/RandomColor">randomColor.js</a> on your page, calling randomColor() will return a random, attractive color. Below is the output of randomColor called 54 times.</p>
+
+      <code>randomColor(); <span class="comment">// Returned a hex string for an attractive color</span></code>
       <span class="output" count="54"></span>
+      <br />
+      <br />
+      <br />
+      <h3>Extras</h3>   
+      <p>You can also pass an options object to randomColor. This allows you to specify the hue, luminosity and the number of colors to generate.</p>
       <br />
       <h4>Similar colors</h4>
       <code>randomColor({hue: 'red', count: 18});</code>

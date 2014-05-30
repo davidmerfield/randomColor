@@ -56,10 +56,7 @@ var randomColor = function (options) {
 
   // If the user wants a truly random color then give it to them
   if (options.hue === 'random' && options.luminosity === 'random') {
-
     return '#'+ ('000000' + (Math.random()*0xFFFFFF<<0).toString(16)).slice(-6);
-
-
   };
 
   // First we pick a hue (H)

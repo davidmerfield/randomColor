@@ -12,11 +12,9 @@ See more examples on [the demo](http://llllll.li/randomColor/).
 
 You can pass an options object to influence the type of color it produces. The options object accepts the following properties:
 
-**Hue** – Controls the hue of the generated color. You can pass:
-- A string representing a color name (e.g. 'orange'). Possible color names are *red, orange, yellow, green, blue, purple, pink and monochrome*. 
+**Hue** – Controls the hue of the generated color. You can pass a string representing a color name (e.g. 'orange'). Possible color names are *red, orange, yellow, green, blue, purple, pink and monochrome*. 
 
-**Luminosity** – Controls the luminosity of the generated color. You can pass:
-- a string containing *bright, light* or *dark*.
+**Luminosity** – Controls the luminosity of the generated color. You can pass a string containing *bright, light* or *dark*.
 
 **Count** – An integer which specifies the number of colors to generate.
 

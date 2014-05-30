@@ -9,24 +9,26 @@ html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, b, ul, ol, li, section {
   -webkit-box-sizing: border-box; 
   -moz-box-sizing: border-box; 
   box-sizing: border-box; 
+  text-rendering: optimizeLegibility;
 }
 
 body {
   width:  100%;
   height: 100%;
   margin: 0px;
-  font: normal 1em / 1.33em 'Source Sans Pro', sans-serif;
+  font: normal 1em / 1.33em 'Karla', sans-serif;
 }
 
 .swatch {
-  width: 3.43em;
-  height: 3.43em;
+  width: 3em;
+  height: 3em;
+  border-radius: 50%;
   display: block;
   text-indent: -1000px;
   float: left;
   overflow: hidden;
   background: #000;
-  margin: 0 0.5em 0.5em 0;
+  margin: 0 1em 1em 0;
 }
 
 .swatch:nth-child(9n) {
@@ -36,22 +38,19 @@ body {
 section .output {
   background: #fff;
   display: block;
-  border: 1px solid rgba(0,0,0,0.1);
-  border-radius: 0 0 4px 4px;
   padding: 0.5em 0.5em 0;
-  margin-top: -1em
+  margin: 1em 0
 }
 
 code {
   padding: 1em;
-  margin: 1em 0;
+  margin: 2em 0 0;
   display: block;
   position: relative;
   clear: both;
   line-height: 1.33em;
-  background: #f2f2f2;
-  border: 1px solid rgba(0,0,0,0.1);
-  border-radius: 4px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
+  border-top: 1px solid rgba(0,0,0,0.1);
   white-space: pre;
 }
 
@@ -72,43 +71,37 @@ section {
 
 header {
   background: #fff; 
-  position: relative; 
-  overflow: hidden;
-  z-index: 1;
-  height: 3em;
+  width: 36em;
+  height: 0em;
+  margin: 1em auto;
 }
 
-header .output {
-  position: absolute;
-  top: 0;
-  left: -10em;
-  right: -10em;
-  bottom: 0;
-}
-header .output .swatch {
-  margin: 0;
-  width: 1em;
-  height: 1em;
-}
+#logo {width: 24em;position: relative;left: -9em;margin-bottom: 1em}
 
+p {
+  font-size: 1.1566em;line-height: 1.5em;color: #787878}
+p b {font-weight: bold;color: #454545;}
+h1, h2 {
+  font-size: 2em;
+  line-height: 1.33em;
+}
 
 h1 {
-  font-size: 3em;
+  color: #000;
   font-weight: bold;
-  margin-bottom: 0.66em;
-  margin-top: 1em;
-  color: #111;
+  margin-top: 1em
 }
 
 h2 {
-  font-size: 1.5em;
-  color: #444
+  color: #787878;
+  font-weight: normal;
 }
 
 h3 {
-  font-size: 1.33em;
+  font-size: 1.1566em;
   font-weight: bold;
-  margin-bottom: 1em
+  margin-bottom: 1em;
+  color: #000
 }
 
 h4 {
@@ -121,16 +114,13 @@ h4 {
 
 .button {
   display: inline-block;
-  padding: 0.5em;
   margin: 3em 0.66em 0.33em 0;
   text-decoration: none;
-  font-weight: bold;
   color: #111;
-  box-shadow: inset 0 0 0 0.17em #219AD3;
-  color: #219AD3;
-  text-transform: uppercase;
-  border-radius: 0.33em;
-  padding: 0.75em 1em 0.7em;  
+  color: #fff;
+  background: #f9951d;
+  border-radius: 4em;
+  padding: 0.75em 2em 0.7em;  
 }
 
 .primary {

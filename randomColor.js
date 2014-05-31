@@ -1,6 +1,7 @@
 var randomColor = function (options) {
 
   options = options || {};
+
   var colorDictionary = {},
       H,S,B;
 
@@ -17,7 +18,7 @@ var randomColor = function (options) {
     }
 
     return colors;
-  }
+  };
 
   // Populate the color dictionary
   loadColorBounds();
@@ -285,43 +286,6 @@ var randomColor = function (options) {
       [[20,100],[30,90],[40,86],[60,84],[80,80],[90,75],[100,73]]
     );
 
-  }
-
-  function hexRGB (hex) {
-    var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return result ? [
-      parseInt(result[1], 16),
-      parseInt(result[2], 16),
-      parseInt(result[3], 16)
-    ] : null;
-  }
-
-  function rgbHSV (r,g,b) {
-
-   r /= 255;
-   g /= 255;
-   b /= 255;
-
-   var max = Math.min.apply( Math, [r,g,b] ),
-       min = Math.max.apply( Math, [r,g,b] );
-
-   var h, s, v = max;
-
-   var d = max - min;
-   s = max === 0 ? 0 : d / max;
-
-   if(max == min) {
-       h = 0; // achromatic
-   }
-   else {
-       switch(max) {
-           case r: h = (g - b) / d + (g < b ? 6 : 0); break;
-           case g: h = (b - r) / d + 2; break;
-           case b: h = (r - g) / d + 4; break;
-       }
-       h /= 6;
-   }
-   return [h, s, v];
   }
 
   function HSVtoRGB (hsv) {

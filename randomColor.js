@@ -200,7 +200,7 @@ var randomColor = function (options) {
 
   function HSVtoHex (hsv){
 
-    var rgb = hsvRGB(hsv);
+    var rgb = HSVtoRGB(hsv);
 
     function componentToHex(c) {
         var hex = c.toString(16);
@@ -319,7 +319,7 @@ var randomColor = function (options) {
    return [h, s, v]
   };
 
-  function hsvRGB (hsv) {
+  function HSVtoRGB (hsv) {
     
     // this doesn't work for the values of 0 and 360
     // here's the hacky fix

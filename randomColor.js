@@ -66,13 +66,16 @@ var randomColor = function (options) {
     switch (options.luminosity) {
 
       case 'bright':
-        sMin = 55;break;
+        sMin = 55;
+        break;
 
       case 'dark':
-        sMin = sMax - 10;break;
+        sMin = sMax - 10;
+        break;
 
       case 'light':
-        sMax = 55;break;
+        sMax = 55;
+        break;
    }
 
     return randomWithin([sMin, sMax]);
@@ -81,11 +84,6 @@ var randomColor = function (options) {
 
   function pickBrightness (H, S, options) {
 
-    if (options.luminosity === 'random' ||
-        options.hue === 'monochrome') {
-      return randomWithin([0,100]);
-    }
-
     var brightness,
         bMin = getMinimumBrightness(H, S),
         bMax = 100;
@@ -93,11 +91,17 @@ var randomColor = function (options) {
     switch (options.luminosity) {
 
       case 'dark':
-        bMax = bMin + 10;break;
+        bMax = bMin + 20;
+        break;
 
       case 'light':
-        bMin = (bMax + bMin)/2;break;
+        bMin = (bMax + bMin)/2;
+        break;
 
+      case 'random':
+        bMin = 0; 
+        bMax = 100;
+        break;
     }
 
     return randomWithin([bMin, bMax]);
@@ -130,12 +134,12 @@ var randomColor = function (options) {
 
     var lowerBounds = getColorInfo(H).lowerBounds;
 
-    for (var i = 0; i < lowerBounds.length; i++) {
+    for (var i = 0; i < lowerBounds.length - 1; i++) {
 
       var s1 = lowerBounds[i][0],
-          v1 = lowerBounds[i][1],
+          v1 = lowerBounds[i][1];
 
-          s2 = lowerBounds[i+1][0],
+      var s2 = lowerBounds[i+1][0],
           v2 = lowerBounds[i+1][1];
 
       if (S >= s1 && S <= s2) {
@@ -146,7 +150,9 @@ var randomColor = function (options) {
          return m*S + b;
       }
 
-    }
+    };
+
+    return 0
   }
 
   function getHueRange (colorInput) {

@@ -113,20 +113,23 @@
       </svg>
       <h1>randomColor</h1>
       <h2>A color generator for JavaScript.</h2>
-      <a href="https://github.com/davidmerfield/randomColor.js" class="button primary">Get the code on GitHub &nbsp;&rarr;</a>      
+      <a href="https://github.com/davidmerfield/randomColor" class="button primary">Get the code on GitHub &nbsp;&rarr;</a>      
     </section>    
     <section>
       <h3>Why does this exist?</h3>   
-      <p>You can generate random colors with <a href="http://www.paulirish.com/2009/random-hex-color-code-snippets/">one neat line of JavaScript</a>. However, the one-liner naturally produces lots of browns and greys and murky yellows.</p>
+      <p>There are lots of clever <a href="http://www.paulirish.com/2009/random-hex-color-code-snippets/">one-liners</a> for generating random colors:</p>
+      <code>'#'+Math.floor(Math.random()*16777215).toString(16);</code><br />
+      <p>Unfortunately, this code naturally produces lots of greys and browns and murky greens.</p>
+
+      
       <br/>
       <p>randomColor generates <b>attractive colors</b> by default. More specifically, randomColor produces bright colors with a reasonably high saturation. This makes randomColor particularly useful for <b>data visualizations</b> and <b>generative art</b>.</p>
       <br />
       <br />
       <br />
       <h3>Examples</h3>   
-      <p>Once you've included <a href="https://github.com/davidmerfield/randomColor.js">randomColor.js</a> on your page, calling randomColor() will return a random, attractive color. Below is the output of randomColor called 54 times.</p>
-
-      <code>randomColor(); <span class="comment">// Returned a hex string for an attractive color</span></code>
+      <p>Once you've included <a href="https://github.com/davidmerfield/randomColor">randomColor.js</a> on your page, calling randomColor() will return a random attractive color. Beneath is the output of randomColor called 54 times.</p>
+      <code>randomColor(); <span class="comment">// Returned a random color as a hex string</span></code>
       <span class="output" count="54"></span>
       <br />
       <br />
@@ -163,10 +166,6 @@
       <code>randomColor({luminosity: 'light',count: 27});</code>
       <span class="output" luminosity="light" count="27"></span>
       <br />
-      <h4>Bright colors</h4>
-      <code>randomColor({luminosity: 'bright', count: 27});</code>
-      <span class="output" luminosity="bright" count="27"></span>
-      <br />
       <h4>Dark colors</h4>
       <code>randomColor({luminosity: 'dark', count: 27});</code>
       <span class="output" luminosity="dark" count="27"></span>
@@ -175,9 +174,15 @@
       <code>randomColor({hue: 'random',luminosity: 'random',count: 54});</code>
       <span class="output" count="54" hue="random" luminosity="random"></span>
       <br />
-      <a href="https://github.com/davidmerfield/randomColor.js" class="button primary">Get this on Github &nbsp;&rarr;</a>      
+      <a href="https://github.com/davidmerfield/randomColor" class="button primary">Get this on Github &nbsp;&rarr;</a>      
     </section>
-    <header><a href="http://twitter.com/davidmerfieId">Made by <em>David Merfield</em>. </a></header> 
+    <footer>
+      <a href="http://twitter.com/davidmerfieId">Made by <em>David Merfield</em>. </a>
+    <a href="https://github.com/davidmerfield/randomColor">randomColor is licensed under the <em>MIT License</em>.</a>
+    <a href="http://www.lullatone.com/music/we-will-rock-you-to-sleep/">The header graphic was stolen from Jefferson Cheng's <em>wonderful album cover</em> for Lullatone.</a>
+    <a href="http://www.google.com/fonts/specimen/Karla">All the words are set in <em>Karla</em>, a free webfont designed by Jonny Pinhorn.</a>    
+  <a href="http://en.wikipedia.org/wiki/HSV_color_space">Thanks to the <em>HSV color space</em> for making this all possible.</a>
+    </footer> 
     <script>
 
       createSwatches();

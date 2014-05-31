@@ -69,22 +69,41 @@ section {
   z-index: 0
 }
 
-header {
+
+header, footer {
   background: #fff; 
   width: 36em;
   margin: 1em auto;
 }
 
-header a {
+header a#reload {position: fixed;top: 1em;left: 1em}
+
+header a,
+header a em,
+footer a,
+footer a em {
   color: #aaa;
   text-decoration: none;
+  transition: all 0.2s ease;    
 }
 
-header a#reload {position: fixed;top: 1em;left: 1em}
-header a em {
+header a em,
+footer a em {
   font-style: normal;
   border-bottom: 2px solid #ccc 
 }
+
+header a:hover,
+footer a:hover {
+  color: #f9951d
+}
+
+header a:hover em,
+footer a:hover em {
+  color: #f9951d;border-bottom-color: #f9951d
+}
+
+footer {border-top: 1px solid rgba(0,0,0,0.1);padding: 2em 0;margin: 2em auto}
 
 #logo {width: 24em;position: relative;left: -9em;margin-bottom: 1em}
 

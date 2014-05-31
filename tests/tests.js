@@ -7,6 +7,8 @@ ga('create', 'UA-8666188-9', 'llllll.li');
 ga('send', 'pageview');
 
 var createSwatches = function() {
+
+  var rerender;
   
   var outputs = document.querySelectorAll(".output");
 
@@ -33,8 +35,10 @@ var createSwatches = function() {
 
 };
 
-var renderDemo = function() {
+function renderLogo () {
 
+  var logo = document.getElementById('logo');
+  
   var logoNodes = logo.childNodes,
       shapes = [];
 
@@ -48,7 +52,11 @@ var renderDemo = function() {
   var backgrounds = randomColor({count: shapes.length});
 
   for (var i in shapes) {var shape = shapes[i];shape.setAttribute('fill', backgrounds[i])};
+};
 
+var renderDemo = function() {
+
+  renderLogo();
   var demos = document.querySelectorAll(".swatch");
   
 

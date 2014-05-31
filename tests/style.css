@@ -72,8 +72,18 @@ section {
 header {
   background: #fff; 
   width: 36em;
-  height: 0em;
   margin: 1em auto;
+}
+
+header a {
+  color: #aaa;
+  text-decoration: none;
+}
+
+header a#reload {position: fixed;top: 1em;left: 1em}
+header a em {
+  font-style: normal;
+  border-bottom: 2px solid #ccc 
 }
 
 #logo {width: 24em;position: relative;left: -9em;margin-bottom: 1em}

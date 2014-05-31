@@ -1,18 +1,16 @@
 var randomColor = function (options) {
 
   var options = options || {},
-      
-      H,S,B,
+      colorDictionary = {},
+      H,S,B;
 
-      colorDictionary = {};
-
-  loadColorBounds();
-
+  // Check if we need to generate multiple colors
   if (options.count) {
 
-    var totalColors = options.count;
-        options.count = false,
+    var totalColors = options.count,
         colors = [];
+
+    options.count = false;
 
     while (totalColors > colors.length) {
       colors.push(randomColor(options))
@@ -21,10 +19,8 @@ var randomColor = function (options) {
     return colors
   };
 
-  // If the user wants a truly random color then give it to them
-  if (options.hue === 'random' && options.luminosity === 'random') {
-    return '#'+ ('000000' + (Math.random()*0xFFFFFF<<0).toString(16)).slice(-6);
-  };
+  // Populate the color dictionary
+  loadColorBounds();
 
   // First we pick a hue (H)
   H = pickHue(options);
@@ -54,6 +50,14 @@ var randomColor = function (options) {
 
   function pickSaturation (hue, options) {
 
+    if (options.luminosity === 'random') {
+      return randomWithin([0,100]);
+    };
+
+    if (options.hue === 'monochrome') {
+      return 0
+    };
+
     var saturationRange = getSaturationRange(hue);
 
     var sMin = saturationRange[0],
@@ -68,20 +72,15 @@ var randomColor = function (options) {
         sMax = 55;
    };
 
-   switch (options.hue) {
-      case 'monochrome':
-        return 0
-   };
-
     return randomWithin([sMin, sMax]);
 
   };
 
   function pickBrightness (H, S, options) {
     
-    switch(options.hue) {
-      case 'monochrome':
-        return randomWithin([0,100])
+    if (options.luminosity === 'random' ||
+        options.hue === 'monochrome') {
+      return randomWithin([0,100]);
     };
 
     var brightness,
@@ -90,9 +89,9 @@ var randomColor = function (options) {
 
     switch (options.luminosity) {
       case 'dark':
-        bMax = bMin + 10
+        bMax = bMin + 10;
       case 'light':
-        bMin = (bMax + bMin)/2
+        bMin = (bMax + bMin)/2;
     };
 
     return randomWithin([bMin, bMax]);
@@ -125,7 +124,7 @@ var randomColor = function (options) {
     
     var lowerBounds = getColorInfo(H).lowerBounds;
 
-    for (var i = 0; i< lowerBounds.length; i++) {
+    for (var i = 0; i < lowerBounds.length; i++) {
       
       var s1 = lowerBounds[i][0],
           v1 = lowerBounds[i][1],
@@ -140,6 +139,7 @@ var randomColor = function (options) {
 
          return m*S + b;
       };
+
     };
   };
 

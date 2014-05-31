@@ -63,12 +63,15 @@ var randomColor = function (options) {
         sMax = saturationRange[1];
 
     switch (options.luminosity) {
+
       case 'bright':
-        sMin = 55;
+        sMin = 55;break;
+
       case 'dark':
-        sMin = sMax - 10;
+        sMin = sMax - 10;break;
+
       case 'light':
-        sMax = 55;
+        sMax = 55;break;
    }
 
     return randomWithin([sMin, sMax]);
@@ -87,10 +90,13 @@ var randomColor = function (options) {
         bMax = 100;
 
     switch (options.luminosity) {
+
       case 'dark':
-        bMax = bMin + 10;
+        bMax = bMin + 10;break;
+
       case 'light':
-        bMin = (bMax + bMin)/2;
+        bMin = (bMax + bMin)/2;break;
+
     }
 
     return randomWithin([bMin, bMax]);

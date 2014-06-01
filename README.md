@@ -1,7 +1,8 @@
-[![Hello](http://llllll.li/randomColor/repo_bg.png)](http://llllll.li/randomColor)
 # Random Color
 
 For generating attractive random colors. See the results on [the demo](http://llllll.li/randomColor/).
+
+[![Hello](http://llllll.li/randomColor/repo_bg.png)](http://llllll.li/randomColor)
 
 ### Options
 

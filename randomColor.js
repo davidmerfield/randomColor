@@ -1,12 +1,18 @@
 ;(function(root, factory) {
+  // Support AMD
   if (typeof define === 'function' && define.amd) {
-    // Register as an anonymous AMD module
     define([], factory);
-  } else if (typeof module === 'object' && module && typeof module.exports === 'object') {
-    // Register CommonJS-like module (works with Component & Node)
-    module.exports = factory();
+  // Support CommonJS
+  } else if (typeof exports === 'object') {
+    var randomColor = factory();
+    // Support NodeJS & Component, which allow module.exports to be a function
+    if (typeof module === 'object' && module && module.exports) {
+      exports = module.exports = randomColor;
+    }
+    // Support CommonJS 1.1.1 spec
+    exports.randomColor = randomColor;
+  // Support vanilla script loading
   } else {
-    // Register as a global
     root.randomColor = factory();
   }
 }(this, function() {

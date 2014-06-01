@@ -2,7 +2,7 @@
 
 For generating attractive random colors. See the results on [the demo](http://llllll.li/randomColor/).
 
-[![Hello]()](http://llllll.li/randomColor)
+[![Hello](http://llllll.li/randomColor/repobg.png)](http://llllll.li/randomColor)
 
 ### Options
 

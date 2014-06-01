@@ -1,7 +1,9 @@
 # Random Color
 
-For generating attractive random colors. See the results on [the demo](http://llllll.li/randomColor/).
-
+For generating attractive random colors. See the results on [the demo](http://llllll.li/randomColor/).   
+  
+  
+    
 [![Hello](http://llllll.li/randomColor/repobg.png)](http://llllll.li/randomColor)
 
 ### Options
@@ -17,8 +19,6 @@ You can pass an options object to influence the type of color it produces. The o
 **Format** – A string which specifies the format of the generated color. Possible values are *hsvArray, rgb, rgbArray, and hex*. The type of the generated color will vary based on the format chosen.
 
 ### Examples
-
-Here's are a few examples showing what you can do with the options object.
 
 ```javascript
 

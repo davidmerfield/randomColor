@@ -1,3 +1,4 @@
+![Logo](http://s28.postimg.org/va3ipp2h9/repo_Logo.png)
 # Random Color
 
 For generating attractive random colors.

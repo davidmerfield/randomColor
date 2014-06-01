@@ -1,0 +1,26 @@
+{
+  "name": "randomColor",
+  "version": "0.1.0",
+  "homepage": "http://llllll.li/randomColor/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/davidmerfield/randomColor.git"
+  },
+  "authors": [
+    "David Merfield"
+  ],
+  "description": "For generating attractive random colors",
+  "license": "MIT",
+  "main": "randomColor.js",
+  "keywords": [
+    "color",
+    "random"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -18,11 +18,13 @@
 }(this, function() {
 
   // Shared color dictionary
-  var colorDictionary;
+  var colorDictionary = {};
+
+  // Populate the color dictionary
+  loadColorBounds();
 
   var randomColor = function(options) {
     options = options || {};
-    colorDictionary = {};
 
     var H,S,B;
 
@@ -40,9 +42,6 @@
 
       return colors;
     }
-
-    // Populate the color dictionary
-    loadColorBounds();
 
     // First we pick a hue (H)
     H = pickHue(options);

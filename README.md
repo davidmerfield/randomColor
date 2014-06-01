@@ -2,7 +2,7 @@
 
 For generating attractive random colors. See the results on [the demo](http://llllll.li/randomColor/).
 
-[![Hello](http://llllll.li/randomColor/repo_bg.png)](http://llllll.li/randomColor)
+[![Hello]()](http://llllll.li/randomColor)
 
 ### Options
 
@@ -22,30 +22,31 @@ Here's are a few examples showing what you can do with the options object.
 
 ```javascript
 
-randomColor(); // returns a hex code e.g. '#F7A7D9'
+// Returns a hex code for an attractive color
+randomColor(); 
 
-// An array of ten green colors
+// Returns an array of ten green colors
 randomColor({
    count: 10,
    hue: 'green'
 });
 
-// A light blue
+// Returns a hex code for a light blue
 randomColor({
    luminosity: 'light',
    hue: 'blue'
 });
 
-// A 'truly random' color
+// Returns a hex code for a 'truly random' color
 randomColor({
    luminosity: 'random',
    hue: 'random'
 });
 
-// A bright color in RGB
+// Returns a bright color in RGB
 randomColor({
-   luminosity: 'bright', // returns a bright color
-   format: 'rgb' // in rgb, e.g. 'rgb(225,200,20)'
+   luminosity: 'bright',
+   format: 'rgb' // e.g. 'rgb(225,200,20)'
 });
 
 ```

@@ -1,5 +1,3 @@
-[![Logo](http://s28.postimg.org/va3ipp2h9/repo_Logo.png)](http://llllll.li/randomColor/)
-
 # Random Color
 
 For generating attractive random colors. See more examples on [the demo](http://llllll.li/randomColor/).
@@ -7,6 +5,8 @@ For generating attractive random colors. See more examples on [the demo](http://
 ```javascript
 randomColor() // returns a hex code e.g. '#F7A7D9'
 ```
+
+[![Logo](http://s28.postimg.org/va3ipp2h9/repo_Logo.png)](http://llllll.li/randomColor/)
 
 ### Options
 

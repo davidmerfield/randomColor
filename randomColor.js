@@ -1,39 +1,60 @@
-var randomColor = function (options) {
-
-  options = options || {};
-
-  var colorDictionary = {},
-      H,S,B;
-
-  // Check if we need to generate multiple colors
-  if (options.count) {
-
-    var totalColors = options.count,
-        colors = [];
-
-    options.count = false;
-
-    while (totalColors > colors.length) {
-      colors.push(randomColor(options));
+;(function(root, factory) {
+  // Support AMD
+  if (typeof define === 'function' && define.amd) {
+    define([], factory);
+  // Support CommonJS
+  } else if (typeof exports === 'object') {
+    var randomColor = factory();
+    // Support NodeJS & Component, which allow module.exports to be a function
+    if (typeof module === 'object' && module && module.exports) {
+      exports = module.exports = randomColor;
     }
+    // Support CommonJS 1.1.1 spec
+    exports.randomColor = randomColor;
+  // Support vanilla script loading
+  } else {
+    root.randomColor = factory();
+  }
+}(this, function() {
 
-    return colors;
-  };
+  // Shared color dictionary
+  var colorDictionary = {};
 
   // Populate the color dictionary
   loadColorBounds();
 
-  // First we pick a hue (H)
-  H = pickHue(options);
+  var randomColor = function(options) {
+    options = options || {};
 
-  // Then use H to determine saturation (S)
-  S = pickSaturation(H, options);
+    var H,S,B;
 
-  // Then use S and H to determine brightness (B).
-  B = pickBrightness(H, S, options);
+    // Check if we need to generate multiple colors
+    if (options.count) {
 
-  // Then we return the HSB color in the desired format
-  return setFormat([H,S,B], options);
+      var totalColors = options.count,
+          colors = [];
+
+      options.count = false;
+
+      while (totalColors > colors.length) {
+        colors.push(randomColor(options));
+      }
+
+      return colors;
+    }
+
+    // First we pick a hue (H)
+    H = pickHue(options);
+
+    // Then use H to determine saturation (S)
+    S = pickSaturation(H, options);
+
+    // Then use S and H to determine brightness (B).
+    B = pickBrightness(H, S, options);
+
+    // Then we return the HSB color in the desired format
+    return setFormat([H,S,B], options);
+  };
 
   function pickHue (options) {
 
@@ -99,7 +120,7 @@ var randomColor = function (options) {
         break;
 
       case 'random':
-        bMin = 0; 
+        bMin = 0;
         bMax = 100;
         break;
     }
@@ -150,9 +171,9 @@ var randomColor = function (options) {
          return m*S + b;
       }
 
-    };
+    }
 
-    return 0
+    return 0;
   }
 
   function getHueRange (colorInput) {
@@ -332,4 +353,5 @@ var randomColor = function (options) {
     return prefix + '(' + values.join(', ') + ')';
   }
 
-};
+  return randomColor;
+}));

@@ -1,8 +1,8 @@
+[![Logo](http://s29.postimg.org/krr58tsat/image.png)](http://llllll.li/randomColor/)
+
 # Random Color
 
 For generating attractive random colors. See the results on [the demo](http://llllll.li/randomColor/).
-
-[![Logo](http://s28.postimg.org/va3ipp2h9/repo_Logo.png)](http://llllll.li/randomColor/)
 
 ### Options
 

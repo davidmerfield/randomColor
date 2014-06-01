@@ -1,10 +1,6 @@
 # Random Color
 
-For generating attractive random colors. See more examples on [the demo](http://llllll.li/randomColor/).
-
-```javascript
-randomColor() // returns a hex code e.g. '#F7A7D9'
-```
+For generating attractive random colors. See the results on [the demo](http://llllll.li/randomColor/).
 
 [![Logo](http://s28.postimg.org/va3ipp2h9/repo_Logo.png)](http://llllll.li/randomColor/)
 
@@ -25,6 +21,9 @@ You can pass an options object to influence the type of color it produces. The o
 Here's are a few examples showing what you can do with the options object.
 
 ```javascript
+
+randomColor(); // returns a hex code e.g. '#F7A7D9'
+
 // An array of ten green colors
 randomColor({
    count: 10,

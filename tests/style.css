@@ -105,7 +105,9 @@ footer a:hover em {
 
 footer {border-top: 1px solid rgba(0,0,0,0.1);padding: 2em 0;margin: 2em auto}
 
-#logo {width: 24em;position: relative;left: -9em;margin-bottom: 1em}
+#logo {
+  width: 24em;
+  position: relative;left: -9em;margin-bottom: 1em}
 
 p {
   font-size: 1.1566em;line-height: 1.5em;color: #787878}

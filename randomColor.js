@@ -1,20 +1,26 @@
 ;(function(root, factory) {
+
   // Support AMD
   if (typeof define === 'function' && define.amd) {
     define([], factory);
+
   // Support CommonJS
   } else if (typeof exports === 'object') {
     var randomColor = factory();
+    
     // Support NodeJS & Component, which allow module.exports to be a function
     if (typeof module === 'object' && module && module.exports) {
       exports = module.exports = randomColor;
     }
+    
     // Support CommonJS 1.1.1 spec
     exports.randomColor = randomColor;
+  
   // Support vanilla script loading
   } else {
     root.randomColor = factory();
-  }
+  };
+
 }(this, function() {
 
   // Shared color dictionary
@@ -224,8 +230,6 @@
   function randomWithin (range) {
     return Math.floor(range[0] + Math.random()*(range[1] + 1 - range[0]));
   }
-
-
 
   function shiftHue (h, degrees) {
     return (h + degrees)%360;

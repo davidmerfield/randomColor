@@ -1,0 +1,15 @@
+{
+  "name": "randomColor",
+  "version": "0.1.1",
+  "repo": "davidmerfield/randomColor",
+  "description": "For generating attractive random colors",
+  "license": "MIT",
+  "keywords": [
+    "attractive",
+    "random",
+    "color",
+    "generator"
+  ],
+  "scripts": ["randomColor.js"],
+  "main": "randomColor.js"
+}

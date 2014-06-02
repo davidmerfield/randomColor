@@ -69,9 +69,7 @@
 
     // Instead of storing red as two seperate ranges,
     // we group them, using negative numbers
-    if (hue < 0) {hue = 360 + hue}
-
-    return hue;
+    return (hue + 360) % 360;
 
   }
 

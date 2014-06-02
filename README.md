@@ -1,6 +1,6 @@
 # Random Color
 
-For generating attractive random colors. See the results on [the demo](http://llllll.li/randomColor/).   
+For generating attractive random colors. See the results on [the demo](http://llllll.li/randomColor/). For questions or comments [follow me on twitter](http://twitter.com/davidmerfieId).
   
   
     

@@ -24,5 +24,8 @@
   "bugs": {
     "url": "https://github.com/davidmerfield/randomColor/issues"
   },
-  "homepage": "http://llllll.li/randomColor/"
+  "homepage": "http://llllll.li/randomColor/",
+  "spm": {
+    "main": "randomColor.js"
+  }
 }

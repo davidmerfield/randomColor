@@ -111,9 +111,12 @@
 
   function pickBrightness (H, S, options) {
 
-    var brightness,
-        bMin = getMinimumBrightness(H, S),
+    var bMin = 0,
         bMax = 100;
+        
+    if (options.hue && options.hue != 'random') {
+        bMin = getMinimumBrightness(options.hue, S);
+    }
 
     switch (options.luminosity) {
 
@@ -123,11 +126,6 @@
 
       case 'light':
         bMin = (bMax + bMin)/2;
-        break;
-
-      case 'random':
-        bMin = 0;
-        bMax = 100;
         break;
     }
 
@@ -157,9 +155,9 @@
 
   }
 
-  function getMinimumBrightness(H, S) {
+  function getMinimumBrightness(hue, S) {
 
-    var lowerBounds = getColorInfo(H).lowerBounds;
+    var lowerBounds = getColorInfo(hue).lowerBounds;
 
     for (var i = 0; i < lowerBounds.length - 1; i++) {
 

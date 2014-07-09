@@ -35,12 +35,12 @@
     var H,S,B;
 
     // Check if we need to generate multiple colors
-    if (options.count) {
+    if (options.count != null) {
 
       var totalColors = options.count,
           colors = [];
 
-      options.count = false;
+      options.count = null;
 
       while (totalColors > colors.length) {
         colors.push(randomColor(options));

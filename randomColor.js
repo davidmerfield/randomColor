@@ -46,6 +46,8 @@
         colors.push(randomColor(options));
       }
 
+      options.count = totalColors;
+
       return colors;
     }
 

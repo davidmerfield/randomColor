@@ -1,8 +1,10 @@
 # Random Color
 
-For generating attractive random colors. See the results on [the demo](http://llllll.li/randomColor/). For questions or comments [follow me on twitter](http://twitter.com/davidmerfieId).
-  
-  
+For generating attractive random colors. See the results on [the demo](http://llllll.li/randomColor/). For questions or comments [follow me on twitter](http://twitter.com/davidmerfieId). The library is available [on cdnjs](http://cdnjs.com/libraries/randomcolor), npm and bower.
+
+```javascript
+npm install randomcolor
+```
     
 [![Hello](http://llllll.li/randomColor/repobg.png)](http://llllll.li/randomColor)
 

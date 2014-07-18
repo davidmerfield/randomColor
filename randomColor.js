@@ -7,15 +7,15 @@
   // Support CommonJS
   } else if (typeof exports === 'object') {
     var randomColor = factory();
-    
+
     // Support NodeJS & Component, which allow module.exports to be a function
     if (typeof module === 'object' && module && module.exports) {
       exports = module.exports = randomColor;
     }
-    
+
     // Support CommonJS 1.1.1 spec
     exports.randomColor = randomColor;
-  
+
   // Support vanilla script loading
   } else {
     root.randomColor = factory();
@@ -33,6 +33,9 @@
     options = options || {};
 
     var H,S,B;
+
+    if(options.seed != null)
+        Math.seedrandom(options.seed);
 
     // Check if we need to generate multiple colors
     if (options.count != null) {

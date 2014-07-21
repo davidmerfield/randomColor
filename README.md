@@ -6,7 +6,7 @@ For generating attractive random colors. See the results on [the demo](http://ll
 npm install randomcolor
 ```
     
-[![Hello](http://llllll.li/randomColor/repobg.png)](http://llllll.li/randomColor)
+[![Demo](http://llllll.li/randomColor/repo_demo.gif)](http://llllll.li/randomColor)
 
 ### Options
 

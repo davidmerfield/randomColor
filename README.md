@@ -1,6 +1,6 @@
 # Random Color
 
-For generating attractive random colors. See the results on [the demo](http://llllll.li/randomColor/). randomColor.js is available [on cdnjs](http://cdnjs.com/libraries/randomcolor), npm and bower.
+For generating attractive random colors. See the results on [the demo](http://llllll.li/randomColor/). Available [on cdnjs](http://cdnjs.com/libraries/randomcolor), [npm](https://www.npmjs.org/package/randomcolor) and bower.
 
 ```javascript
 npm install randomcolor

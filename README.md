@@ -2,15 +2,13 @@
 
 For generating attractive random colors. See the results on [the demo](http://llllll.li/randomColor/). 
 
-[![Demo](http://llllll.li/randomColor/repo_demo.gif)](http://llllll.li/randomColor)
-
-### Use the library
-
-The library is available [on cdnjs](http://cdnjs.com/libraries/randomcolor), npm and bower.
+randomColor.js is available [on cdnjs](http://cdnjs.com/libraries/randomcolor), npm and bower.
 
 ```javascript
 npm install randomcolor
 ```
+
+[![Demo](http://llllll.li/randomColor/repo_demo.gif)](http://llllll.li/randomColor)
 
 ### Options
 

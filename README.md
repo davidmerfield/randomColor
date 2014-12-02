@@ -55,7 +55,7 @@ randomColor({
 
 ### Other languages
 
-randomColor has been ported to [c#](https://github.com/nathanpjones/randomColorSharped) and [go](https://github.com/hansrodtang/randomcolor).
+randomColor has been ported to [c#](https://github.com/nathanpjones/randomColorSharped), [go](https://github.com/hansrodtang/randomcolor) and [PHP](https://github.com/mistic100/RandomColor.php).
 
 ### License
 

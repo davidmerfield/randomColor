@@ -144,14 +144,19 @@
       case 'hsvArray':
         return hsv;
 
-      case 'hsv':
-        return colorString('hsv', hsv);
+      case 'hslArray':
+        return HSVtoHSL(hsv);
+
+      case 'hsl':
+        var hsl = HSVtoHSL(hsv);
+        return 'hsl('+hsl[0]+', '+hsl[1]+'%, '+hsl[2]+'%)';
 
       case 'rgbArray':
         return HSVtoRGB(hsv);
 
       case 'rgb':
-        return colorString('rgb', HSVtoRGB(hsv));
+        var rgb = HSVtoRGB(hsv);
+        return 'rgb(' + rgb.join(', ') + ')';
 
       default:
         return HSVtoHex(hsv);
@@ -231,10 +236,6 @@
 
   function randomWithin (range) {
     return Math.floor(range[0] + Math.random()*(range[1] + 1 - range[0]));
-  }
-
-  function shiftHue (h, degrees) {
-    return (h + degrees)%360;
   }
 
   function HSVtoHex (hsv){
@@ -355,8 +356,17 @@
     return result;
   }
 
-  function colorString (prefix, values) {
-    return prefix + '(' + values.join(', ') + ')';
+  function HSVtoHSL (hsv) {
+    var h = hsv[0],
+      s = hsv[1]/100,
+      v = hsv[2]/100,
+      k = (2-s)*v;
+
+    return [
+      h,
+      Math.round(s*v / (k<1 ? k : 2-k) * 10000) / 100,
+      k/2 * 100
+    ];
   }
 
   return randomColor;

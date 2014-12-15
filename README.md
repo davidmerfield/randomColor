@@ -1,6 +1,7 @@
 # Random Color
 
-For generating attractive random colors. See the results on [the demo](http://llllll.li/randomColor/). Available [on cdnjs](http://cdnjs.com/libraries/randomcolor), [npm](https://www.npmjs.org/package/randomcolor) and bower. 
+For generating attractive random colors. See the results on [the demo](http://llllll.li/randomColor/). Available [on cdnjs](http://cdnjs.com/libraries/randomcolor), [npm](https://www.npmjs.org/package/randomcolor) and bower. randomColor has been ported to [c#](https://github.com/nathanpjones/randomColorSharped), [go](https://github.com/hansrodtang/randomcolor), [PHP](https://github.com/mistic100/RandomColor.php), and [python](https://github.com/kevinwuhoo/randomcolor-py).
+
 
 ```javascript
 npm install randomcolor
@@ -52,10 +53,6 @@ randomColor({
 });
 
 ```
-
-### Other languages
-
-randomColor has been ported to [c#](https://github.com/nathanpjones/randomColorSharped), [go](https://github.com/hansrodtang/randomcolor), [PHP](https://github.com/mistic100/RandomColor.php), and [python](https://github.com/kevinwuhoo/randomcolor-py).
 
 ### License
 

@@ -153,6 +153,9 @@
       case 'rgb':
         return colorString('rgb', HSVtoRGB(hsv));
 
+      case 'rgba':
+        return colorString('rgba', HSVtoRGBA(hsv));
+
       default:
         return HSVtoHex(hsv);
     }
@@ -352,6 +355,12 @@
       case 5: r = v, g = p, b = q;  break;
     }
     var result = [Math.floor(r*255), Math.floor(g*255), Math.floor(b*255)];
+    return result;
+  }
+
+  function HSVtoRGBA (hsv) {
+    var result = HSVtoRGB(hsv);
+    result.push(Math.random());
     return result;
   }
 

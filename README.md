@@ -21,7 +21,7 @@ You can pass an options object to influence the type of color it produces. The o
 
 **Count** – An integer which specifies the number of colors to generate.
 
-**Format** – A string which specifies the format of the generated color. Possible values are *hsvArray, rgb, rgbArray, and hex*. The type of the generated color will vary based on the format chosen.
+**Format** – A string which specifies the format of the generated color. Possible values are *hsl, hslArray, rgb, rgbArray, and hex*. The type of the generated color will vary based on the format chosen.
 
 ### Examples
 

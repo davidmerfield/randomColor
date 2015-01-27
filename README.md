@@ -1,16 +1,14 @@
 # [Random Color](http://llllll.li/randomColor)
 
-A tiny script for generating attractive random colors. See the results on [the demo](http://llllll.li/randomColor/).
+[![Demo](http://llllll.li/randomColor/repo_demo.gif)](http://llllll.li/randomColor)
 
-randomColor is available minified [on cdnjs](http://cdnjs.com/libraries/randomcolor). It is also distributed on [npm](https://www.npmjs.org/package/randomcolor) and bower.
+A tiny script for generating attractive random colors. See the results on [the demo](http://llllll.li/randomColor/). randomColor is available minified [on cdnjs](http://cdnjs.com/libraries/randomcolor). It is also distributed on [npm](https://www.npmjs.org/package/randomcolor) and bower.
 
 ```javascript
 npm install randomcolor
 ```
- randomColor has also been ported to [C#](https://github.com/nathanpjones/randomColorSharped), [Go](https://github.com/hansrodtang/randomcolor), [PHP](https://github.com/mistic100/RandomColor.php), [Python](https://github.com/kevinwuhoo/randomcolor-py) and [Swift](https://github.com/onevcat/RandomColorSwift).
+randomColor has been ported to [C#](https://github.com/nathanpjones/randomColorSharped), [Go](https://github.com/hansrodtang/randomcolor), [PHP](https://github.com/mistic100/RandomColor.php), [Python](https://github.com/kevinwuhoo/randomcolor-py) and [Swift](https://github.com/onevcat/RandomColorSwift).
  
-[![Demo](http://llllll.li/randomColor/repo_demo.gif)](http://llllll.li/randomColor)
-
 ### Options
 
 You can pass an options object to influence the type of color it produces. The options object accepts the following properties:

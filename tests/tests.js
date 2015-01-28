@@ -63,13 +63,16 @@ var renderDemo = function() {
       };
     };
 
-    if (options.count) {options.count = false};
+    if (options.count) {delete options.count};
 
     var color = randomColor(options);
+
+    console.log(color);
 
     if(demo.style) {
       demo.style.background = color;      
     }
+
     demo.innerHTML = color.toString();
 
   };

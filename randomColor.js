@@ -23,6 +23,9 @@
 
 }(this, function() {
 
+  // Seed to get repeatable colors
+  var seed = null;
+
   // Shared color dictionary
   var colorDictionary = {};
 
@@ -30,6 +33,7 @@
   loadColorBounds();
 
   var randomColor = function(options) {
+    if (options.seed && !seed) seed = options.seed;
     options = options || {};
 
     var H,S,B;
@@ -48,6 +52,9 @@
 
       options.count = totalColors;
 
+      //Keep the seed constant between runs. 
+      if (options.seed) seed = options.seed;
+      
       return colors;
     }
 
@@ -235,7 +242,16 @@
   }
 
   function randomWithin (range) {
-    return Math.floor(range[0] + Math.random()*(range[1] + 1 - range[0]));
+    if (seed == null) {
+      return Math.floor(range[0] + Math.random()*(range[1] + 1 - range[0]));
+    } else {
+      //Seeded random algorithm from http://indiegamr.com/generate-repeatable-random-numbers-in-js/
+      var max = range[1] || 1;
+      var min = range[0] || 0;
+      seed = (seed * 9301 + 49297) % 233280;
+      var rnd = seed / 233280.0;
+      return Math.floor(min + rnd * (max - min));
+    }
   }
 
   function HSVtoHex (hsv){

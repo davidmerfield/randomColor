@@ -33,8 +33,8 @@
   loadColorBounds();
 
   var randomColor = function(options) {
-    if (options.seed && !seed) seed = options.seed;
     options = options || {};
+    if (options.seed && !seed) seed = options.seed;
 
     var H,S,B;
 

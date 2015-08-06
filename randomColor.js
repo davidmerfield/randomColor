@@ -1,3 +1,6 @@
+// randomColor by David Merfield under the MIT license
+// https://github.com/davidmerfield/randomColor/
+
 ;(function(root, factory) {
 
   // Support AMD
@@ -33,8 +36,8 @@
   loadColorBounds();
 
   var randomColor = function(options) {
-    if (options.seed && !seed) seed = options.seed;
     options = options || {};
+    if (options.seed && !seed) seed = options.seed;
 
     var H,S,B;
 

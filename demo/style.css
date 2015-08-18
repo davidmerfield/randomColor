@@ -1,23 +1,14 @@
-html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, b, ul, ol, li, section {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-  position: relative;
-  -webkit-box-sizing: border-box; 
-  -moz-box-sizing: border-box; 
-  box-sizing: border-box; 
-  text-rendering: optimizeLegibility;
-}
+@import url(https://fonts.googleapis.com/css?family=Fira+Sans:300,300italic,400,400italic,500,500italic,700,700italic);
+@import url(https://fonts.googleapis.com/css?family=Fira+Mono:400);
 
 body {
   width:  100%;
   height: 100%;
   margin: 0px;
-  font: normal 1em / 1.33em 'Karla', sans-serif;
+  font: 400 17px / 140% 'Fira Sans', sans-serif;
+  text-rendering: optimizeLegibility;
 }
+
 
 .swatch {
   width: 3em;
@@ -43,15 +34,13 @@ section .output {
 }
 
 code {
-  padding: 1em;
-  margin: 2em 0 0;
   display: block;
   position: relative;
   clear: both;
   line-height: 1.33em;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.025) 50%,rgba(0,0,0,0) 100%);
-  border-top: 1px solid rgba(0,0,0,0.15);
+  font-family: 'Fira Mono', monospace;
   white-space: pre;
+  border-radius: 4px
 }
 
 .output:after {
@@ -71,7 +60,7 @@ section {
 
 
 header, footer {
-  background: #fff; 
+  background: #fff;
   width: 36em;
   margin: 1em auto;
 }
@@ -84,13 +73,13 @@ footer a,
 footer a em {
   color: #aaa;
   text-decoration: none;
-  transition: all 0.2s ease;    
+  transition: all 0.2s ease;
 }
 
 header a em,
 footer a em {
   font-style: normal;
-  border-bottom: 2px solid #ccc 
+  text-decoration: underline;
 }
 
 header a:hover,
@@ -110,29 +99,33 @@ footer {border-top: 1px solid rgba(0,0,0,0.1);padding: 2em 0;margin: 2em auto}
   position: relative;left: -9em;margin-bottom: 1em}
 
 p {
-  font-size: 1.1566em;line-height: 1.5em;color: #787878}
+  font-size: 1em;line-height: 1.5em;color: #323232}
 p b {font-weight: bold;color: #454545;}
+
+p a {color: #E07A00;}
 h1, h2 {
   font-size: 2em;
-  line-height: 1.33em;
+  margin-bottom: 0
 }
 
 h1 {
   color: #000;
-  font-weight: bold;
+  font-weight: 400;
   margin-top: 1em
 }
 
 h2 {
   color: #787878;
-  font-weight: normal;
+  font-weight: 300;
 }
 
 h3 {
-  font-size: 1.1566em;
-  font-weight: bold;
+  font-weight: 400;
   margin-bottom: 1em;
-  color: #000
+  color: #000;
+  text-transform: uppercase;
+  font-size: 1em;
+  letter-spacing: 0.05em
 }
 
 h4 {
@@ -145,17 +138,13 @@ h4 {
 
 .button {
   display: inline-block;
-  margin: 3em 0.66em 0.33em 0;
+  margin: 2em 0.66em 0em -0.75em;
   text-decoration: none;
   color: #111;
   color: #fff;
   background: #f9951d;
   border-radius: 4em;
   font-size: 1.1566em;
-  padding: 0.75em 2em 0.7em;  
+  padding: 0.15em 1em 0;
+  line-height: 2.66em;
 }
-
-.primary {
-}
-
-.comment {color: #888;font-weight: normal;}

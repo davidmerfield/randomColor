@@ -2,23 +2,23 @@
   <head>
     <meta charset="utf-8">
     <title>Random color generator for JavaScript - randomColor.js</title>
-    <link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>    
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" 
-          type="image/png" 
-          href="favicon.png">    
-    <script src="./tests.js"></script>
-    <script src="../randomColor.js"></script>
+    <link href='http://fonts.googleapis.com/css?family=Karla:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="./demo/style.css">
+    <link rel="icon"
+          type="image/png"
+          href="./demo/favicon.png">
+    <script src="./demo/tests.js"></script>
+    <script src="./randomColor.js"></script>
   </head>
   <body>
     <header>
       <a id="reload" href="javascript:void(0);" onclick="renderDemo()">&#8635; <em>Reload demos</em></a>
-      <a href="http://twitter.com/davidmerfieId" alt="David Merfield on Twitter">Made by <em>David Merfield</em>. </a></header> 
+      <a href="http://twitter.com/davidmerfieId" alt="David Merfield on Twitter">Made by <em>David Merfield</em>. </a></header>
     <section>
       <svg id="logo" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
          width="375.062px" height="376.363px" viewBox="0 0 375.062 376.363" enable-background="new 0 0 375.062 376.363"
          xml:space="preserve">
-      <polygon  points="111.622,204.26 122.123,212.463 114.328,222.44 103.821,214.229 95.61,224.736 85.625,216.934 
+      <polygon  points="111.622,204.26 122.123,212.463 114.328,222.44 103.821,214.229 95.61,224.736 85.625,216.934
         93.837,206.426 83.334,198.223 91.139,188.24 101.647,196.45 109.857,185.943 119.833,193.752 "/>
       <rect x="209.653" y="163.011" transform="matrix(0.972 0.2352 -0.2352 0.972 50.0954 -46.3761)"  width="19.667" height="47.667"/>
       <rect x="129.487" y="58.498" transform="matrix(0.9983 0.0578 -0.0578 0.9983 4.9916 -7.915)"  width="19.667" height="47.667"/>
@@ -47,7 +47,7 @@
       <path  d="M39.084,125.534c-10.863,0-19.701-8.838-19.701-19.702S28.221,86.13,39.084,86.13
         c10.863,0,19.7,8.838,19.7,19.702S49.947,125.534,39.084,125.534z M39.084,95.13c-5.901,0-10.701,4.801-10.701,10.702
         c0,5.901,4.8,10.702,10.701,10.702c5.9,0,10.7-4.801,10.7-10.702C49.784,99.931,44.984,95.13,39.084,95.13z"/>
-      <polygon  points="304.381,256.652 316.068,260.286 306.074,267.354 306.23,279.592 296.422,272.271 284.83,276.202 
+      <polygon  points="304.381,256.652 316.068,260.286 306.074,267.354 306.23,279.592 296.422,272.271 284.83,276.202
         288.762,264.611 281.441,254.802 293.68,254.958 300.746,244.965 "/>
       <circle  cx="174.83" cy="43.861" r="18.682"/>
       <circle  cx="74.472" cy="101.896" r="12.209"/>
@@ -70,7 +70,7 @@
       <path  d="M63.955,301.063c-0.65,6.991-4.09,13.071-9.104,17.233l-7.423-8.945c2.727-2.264,4.595-5.561,4.949-9.365
         c0.707-7.594-4.9-14.35-12.501-15.066c-3.805-0.354-7.39,0.873-10.117,3.137l-7.423-8.946c5.015-4.161,11.625-6.42,18.617-5.771
         C54.936,274.641,65.257,287.08,63.955,301.063z"/>
-      <polygon  points="245.109,135.184 257.133,142.72 243.838,147.68 240.387,161.444 231.561,150.332 217.402,151.303 
+      <polygon  points="245.109,135.184 257.133,142.72 243.838,147.68 240.387,161.444 231.561,150.332 217.402,151.303
         225.246,139.476 219.947,126.311 233.617,130.113 244.5,121.006 "/>
       <circle  cx="327.555" cy="75.151" r="7.209"/>
       <circle  cx="168.537" cy="109.83" r="12.209"/>
@@ -78,7 +78,7 @@
       <rect x="257.388" y="288.66" transform="matrix(-0.0707 -0.9975 0.9975 -0.0707 -8.5273 595.2191)"  width="31.2" height="25.842"/>
       <polygon  points="254.441,356.916 211.035,370.912 215.361,349.904 238.658,342.393 "/>
       <polygon  points="241.566,63.688 230.193,79.067 211.188,76.906 203.555,59.366 214.93,43.987 233.934,46.147 "/>
-      <polygon  points="357.129,267.109 348.967,284.41 329.904,285.99 319.004,270.271 327.166,252.973 346.229,251.391 
+      <polygon  points="357.129,267.109 348.967,284.41 329.904,285.99 319.004,270.271 327.166,252.973 346.229,251.391
         "/>
       <polygon  points="281.227,80.176 258.324,100.902 251.826,70.706 "/>
       <polygon  points="241.262,323.748 222.561,301.322 245.068,282.721 "/>
@@ -108,36 +108,29 @@
         C346.527,191.564,345.957,175.412,355.533,165.138z"/>
       <ellipse transform="matrix(0.9153 0.4028 -0.4028 0.9153 126.3607 -125.1463)"  cx="360.715" cy="237.849" rx="8.546" ry="12.693"/>
       <polygon  points="337.955,302.592 305.182,334.309 299.793,313.547 317.383,296.525 "/>
-      <polygon  points="106.346,90.578 108.655,97.55 102.031,99.744 99.721,92.766 92.745,95.076 90.55,88.445 
+      <polygon  points="106.346,90.578 108.655,97.55 102.031,99.744 99.721,92.766 92.745,95.076 90.55,88.445
         97.528,86.136 95.218,79.164 101.849,76.971 104.159,83.948 111.135,81.639 113.324,88.269 "/>
       </svg>
       <h1>randomColor</h1>
       <h2>A color generator for JavaScript.</h2>
-      <a href="https://github.com/davidmerfield/randomColor" class="button primary" alt="Attractive random color generator">Get the code on GitHub &nbsp;&rarr;</a>      
-    </section>    
+      <a href="https://github.com/davidmerfield/randomColor" class="button primary" alt="Attractive random color generator">Get the code on GitHub &nbsp;&rarr;</a>
+    </section>
     <section>
-      <h3>Why does this exist?</h3>   
+      <h3>Why does this exist?</h3>
       <p>There are lots of clever <a href="http://www.paulirish.com/2009/random-hex-color-code-snippets/">one-liners</a> for generating random colors:</p>
-      <code>'#'+Math.floor(Math.random()*16777215).toString(16);</code><br />
-      <p>Unfortunately, this code naturally produces lots of greys and browns and murky greens.</p>
+      <code>'#' + Math.floor(Math.random()*16777215).toString(16);</code>
+      <p>Unfortunately, this code naturally produces murky greys, browns and greens.</p>
 
-      
-      <br/>
-      <p>randomColor generates <b>attractive colors</b> by default. More specifically, randomColor produces bright colors with a reasonably high saturation. This makes randomColor particularly useful for <b>data visualizations</b> and <b>generative art</b>.</p>
+      <p>randomColor generates <em>attractive colors</em> by default. More specifically, randomColor produces bright colors with a reasonably high saturation. This makes randomColor particularly useful for <em>data visualizations</em> and <em>generative art</em>.</p>
       <br />
-      <br />
-      <br />
-      <h3>Examples</h3>   
+      <h3>Examples</h3>
       <p>Once you've included <a href="https://github.com/davidmerfield/randomColor" alt="Attractive random color generator">randomColor.js</a> on your page, calling randomColor() will return a random attractive color. Beneath is the output of randomColor called 54 times.</p>
-      <code>randomColor(); <span class="comment">// Returned a random color as a hex string</span></code>
+      <code>randomColor(); // Returned a random color as a hex string</code>
       <span class="output" count="54"></span>
       <br />
-      <br />
-      <br />
-      <h3>Extras</h3>   
       <p>You can also pass an options object to randomColor. This allows you to specify the hue, luminosity and the number of colors to generate.</p>
       <br />
-      <h4>Similar colors</h4>
+      <h3>Similar colors</h3>
       <code>randomColor({hue: 'red', count: 18});</code>
       <span class="output" hue="red" count="18"></span>
       <br />
@@ -162,31 +155,30 @@
       <code>randomColor({hue: 'monochrome', count: 18});</code>
       <span class="output" hue="monochrome" count="18"></span>
       <br />
-      <h4>Light colors</h4>
+      <h3>Light colors</h3>
       <code>randomColor({luminosity: 'light',count: 27});</code>
       <span class="output" luminosity="light" count="27"></span>
       <br />
-      <h4>Dark colors</h4>
+      <h3>Dark colors</h3>
       <code>randomColor({luminosity: 'dark', count: 27});</code>
       <span class="output" luminosity="dark" count="27"></span>
       <br />
-      <h4>Truly random colors</h4>
+      <h3>Truly random colors</h3>
       <code>randomColor({hue: 'random',luminosity: 'random',count: 54});</code>
       <span class="output" count="54" hue="random" luminosity="random"></span>
       <br />
-      <a href="https://github.com/davidmerfield/randomColor" class="button primary">Get this on Github &nbsp;&rarr;</a>      
+      <a href="https://github.com/davidmerfield/randomColor" class="button primary">Get this on Github &nbsp;&rarr;</a>
     </section>
     <footer>
       <a href="http://twitter.com/davidmerfieId" alt="David Merfield on Twitter">Made by <em>David Merfield</em>. </a>
     <a  alt="Attractive random color generator" href="https://github.com/davidmerfield/randomColor">randomColor is licensed under the <em>MIT License</em>.</a>
     <a href="http://www.lullatone.com/music/we-will-rock-you-to-sleep/">The header graphic was stolen from Jefferson Cheng's <em>wonderful album cover</em> for Lullatone.</a>
-    <a href="http://www.google.com/fonts/specimen/Karla">All the words are set in <em>Karla</em>, a free webfont designed by Jonny Pinhorn.</a>    
+    <a href="http://www.google.com/fonts/specimen/Karla">All the words are set in <em>Fira</em>, an open-source typeface designed by Erik Spiekermann.</a>
   <a href="http://en.wikipedia.org/wiki/HSV_color_space">Thanks to the <em>HSV color space</em> for making this all possible.</a>
-    </footer> 
+    </footer>
     <script>
-
       createSwatches();
-      renderDemo();
+      renderDemo(1234);
     </script>
   </body>
 </html>

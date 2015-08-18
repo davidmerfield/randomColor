@@ -27,5 +27,11 @@
   "homepage": "http://llllll.li/randomColor/",
   "spm": {
     "main": "randomColor.js"
+  },
+  "devDependencies": {
+    "cheerio": "^0.19.0",
+    "highlight": "^0.2.3",
+    "highlight.js": "^8.7.0",
+    "html-minifier": "^0.7.2"
   }
 }

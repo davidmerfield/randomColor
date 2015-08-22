@@ -56,6 +56,18 @@ randomColor({
    format: 'rgb' // e.g. 'rgb(225,200,20)'
 });
 
+// Returns a dark RGB color with random alpha
+randomColor({
+   luminosity: 'dark',
+   format: 'rgba' // e.g. 'rgba(9, 1, 107, 0.6482447960879654)'
+});
+
+// Returns a light HSL color with random alpha
+randomColor({
+   luminosity: 'light',
+   format: 'hsla' // e.g. 'hsla(27, 88.99%, 81.83%, 0.6450211517512798)'
+});
+
 ```
 
 ### License

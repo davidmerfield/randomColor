@@ -161,12 +161,20 @@
         var hsl = HSVtoHSL(hsv);
         return 'hsl('+hsl[0]+', '+hsl[1]+'%, '+hsl[2]+'%)';
 
+      case 'hsla':
+        var hslColor = HSVtoHSL(hsv);
+        return 'hsla('+hslColor[0]+', '+hslColor[1]+'%, '+hslColor[2]+'%, ' + Math.random() + ')';
+
       case 'rgbArray':
         return HSVtoRGB(hsv);
 
       case 'rgb':
         var rgb = HSVtoRGB(hsv);
         return 'rgb(' + rgb.join(', ') + ')';
+
+      case 'rgba':
+        var rgbColor = HSVtoRGB(hsv);
+        return 'rgba(' + rgbColor.join(', ') + ', ' + Math.random() + ')';
 
       default:
         return HSVtoHex(hsv);

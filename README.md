@@ -87,5 +87,6 @@ This project is licensed under the terms of the MIT license.
 4. Think about using and returning seeds.
 5. Think about adding feature to return complementary & contrasting colors, as well as color triads, tetrads etc. Other libraries might already do this better though.
 6. Think about adding a scheme options which would return a dominant color, as well as secondary, tertiary color and primary and secondary text colors. This might be a bad idea.
+7. Add a feature to return random colors close to a provided hex 
 
 http://indiegamr.com/generate-repeatable-random-numbers-in-js/

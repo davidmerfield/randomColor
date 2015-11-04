@@ -10,15 +10,15 @@
   // Support CommonJS
   } else if (typeof exports === 'object') {
     var randomColor = factory();
-    
+
     // Support NodeJS & Component, which allow module.exports to be a function
     if (typeof module === 'object' && module && module.exports) {
       exports = module.exports = randomColor;
     }
-    
+
     // Support CommonJS 1.1.1 spec
     exports.randomColor = randomColor;
-  
+
   // Support vanilla script loading
   } else {
     root.randomColor = factory();
@@ -37,7 +37,9 @@
 
   var randomColor = function(options) {
     options = options || {};
-    if (options.seed && !seed) seed = options.seed;
+    if (options.seed && !seed) {
+      seed = options.seed;
+    }
 
     var H,S,B;
 
@@ -55,9 +57,12 @@
 
       options.count = totalColors;
 
-      //Keep the seed constant between runs. 
-      if (options.seed) seed = options.seed;
-      
+      //Keep the seed constant between runs.
+      if (options.seed && totalColors != colors.length)
+        seed = options.seed;
+      else
+        seed = null
+
       return colors;
     }
 

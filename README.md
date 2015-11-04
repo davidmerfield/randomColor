@@ -2,7 +2,7 @@
 
 A tiny script for generating attractive random colors. See the results on [the demo](http://llllll.li/randomColor/).
 
-[![Demo](http://i.imgur.com/cTlY3Om.gif)](http://llllll.li/randomColor)
+[![Demo](http://i.imgur.com/lOLCqvu.gif)](http://llllll.li/randomColor)
 
 randomColor is available [minified on cdnjs](http://cdnjs.com/libraries/randomcolor). It is also distributed on [npm](https://www.npmjs.org/package/randomcolor) and bower.
 

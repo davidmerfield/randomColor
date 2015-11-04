@@ -1,6 +1,5 @@
 // randomColor by David Merfield under the MIT license
 // https://github.com/davidmerfield/randomColor/
-
 ;(function(root, factory) {
 
   // Support AMD
@@ -22,7 +21,7 @@
   // Support vanilla script loading
   } else {
     root.randomColor = factory();
-  };
+  }
 
 }(this, function() {
 
@@ -35,8 +34,10 @@
   // Populate the color dictionary
   loadColorBounds();
 
-  var randomColor = function(options) {
+  var randomColor = function (options) {
+
     options = options || {};
+
     if (options.seed && !seed) {
       seed = options.seed;
     }
@@ -44,7 +45,7 @@
     var H,S,B;
 
     // Check if we need to generate multiple colors
-    if (options.count != null) {
+    if (options.count !== null && options.count !== undefined) {
 
       var totalColors = options.count,
           colors = [];
@@ -58,10 +59,11 @@
       options.count = totalColors;
 
       //Keep the seed constant between runs.
-      if (options.seed && totalColors != colors.length)
+      if (options.seed && totalColors !== colors.length) {
         seed = options.seed;
-      else
-        seed = null
+      } else {
+        seed = null;
+      }
 
       return colors;
     }
@@ -86,7 +88,7 @@
 
     // Instead of storing red as two seperate ranges,
     // we group them, using negative numbers
-    if (hue < 0) {hue = 360 + hue}
+    if (hue < 0) {hue = 360 + hue;}
 
     return hue;
 
@@ -128,8 +130,7 @@
 
   function pickBrightness (H, S, options) {
 
-    var brightness,
-        bMin = getMinimumBrightness(H, S),
+    var bMin = getMinimumBrightness(H, S),
         bMax = 100;
 
     switch (options.luminosity) {
@@ -149,7 +150,6 @@
     }
 
     return randomWithin([bMin, bMax]);
-
   }
 
   function setFormat (hsv, options) {
@@ -228,7 +228,7 @@
 
       if (colorDictionary[colorInput]) {
         var color = colorDictionary[colorInput];
-        if (color.hueRange) {return color.hueRange}
+        if (color.hueRange) {return color.hueRange;}
       }
     }
 
@@ -258,7 +258,7 @@
   }
 
   function randomWithin (range) {
-    if (seed == null) {
+    if (seed === null) {
       return Math.floor(range[0] + Math.random()*(range[1] + 1 - range[0]));
     } else {
       //Seeded random algorithm from http://indiegamr.com/generate-repeatable-random-numbers-in-js/
@@ -276,10 +276,10 @@
 
     function componentToHex(c) {
         var hex = c.toString(16);
-        return hex.length == 1 ? "0" + hex : hex;
+        return hex.length == 1 ? '0' + hex : hex;
     }
 
-    var hex = "#" + componentToHex(rgb[0]) + componentToHex(rgb[1]) + componentToHex(rgb[2]);
+    var hex = '#' + componentToHex(rgb[0]) + componentToHex(rgb[1]) + componentToHex(rgb[2]);
 
     return hex;
 
@@ -359,8 +359,8 @@
     // this doesn't work for the values of 0 and 360
     // here's the hacky fix
     var h = hsv[0];
-    if (h === 0) {h = 1}
-    if (h === 360) {h = 359}
+    if (h === 0) {h = 1;}
+    if (h === 360) {h = 359;}
 
     // Rebase the h,s,v values
     h = h/360;
@@ -377,13 +377,14 @@
       b = 256;
 
     switch(h_i) {
-      case 0: r = v, g = t, b = p;  break;
-      case 1: r = q, g = v, b = p;  break;
-      case 2: r = p, g = v, b = t;  break;
-      case 3: r = p, g = q, b = v;  break;
-      case 4: r = t, g = p, b = v;  break;
-      case 5: r = v, g = p, b = q;  break;
+      case 0: r = v; g = t; b = p;  break;
+      case 1: r = q; g = v; b = p;  break;
+      case 2: r = p; g = v; b = t;  break;
+      case 3: r = p; g = q; b = v;  break;
+      case 4: r = t; g = p; b = v;  break;
+      case 5: r = v; g = p; b = q;  break;
     }
+
     var result = [Math.floor(r*255), Math.floor(g*255), Math.floor(b*255)];
     return result;
   }

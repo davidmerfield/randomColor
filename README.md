@@ -84,9 +84,7 @@ This project is licensed under the terms of the MIT license.
   - definition of hue values and attractive luminosity bounds
   - think about how to store hue aliases (e.g. fuschia) or subranges (e.g teal)
   - think about making a little point and click tool for defining your own luminosity bounds and customizing the color dictionary
-4. Think about using and returning seeds.
+4. Think about how to return seeds.
 5. Think about adding feature to return complementary & contrasting colors, as well as color triads, tetrads etc. Other libraries might already do this better though.
 6. Think about adding a scheme options which would return a dominant color, as well as secondary, tertiary color and primary and secondary text colors. This might be a bad idea.
 7. Add a feature to return random colors close to a provided hex 
-
-http://indiegamr.com/generate-repeatable-random-numbers-in-js/

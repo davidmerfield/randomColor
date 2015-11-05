@@ -3,10 +3,161 @@
     <meta charset=utf-8>
     <title>Random color generator for JavaScript - randomColor.js</title>
     <link href="//fonts.googleapis.com/css?family=Karla:400,700" rel=stylesheet type=text/css>
-    <link rel=stylesheet href=/demo/style.css>
     <link rel=icon type=image/png href=/demo/favicon.png>
     <script src=/demo/tests.js></script>
     <script src=/randomColor.js></script>
+    <style type=text/css>
+    @import url(https://fonts.googleapis.com/css?family=Fira+Sans:300,300italic,400,400italic,500,500italic,700,700italic);
+    @import url(https://fonts.googleapis.com/css?family=Fira+Mono:400);
+
+    body {
+      width:  100%;
+      height: 100%;
+      margin: 0px;
+      font: 400 17px / 140% 'Fira Sans', sans-serif;
+      text-rendering: optimizeLegibility;
+    }
+
+
+    .swatch {
+      width: 3em;
+      height: 3em;
+      border-radius: 50%;
+      display: block;
+      text-indent: -1000px;
+      float: left;
+      overflow: hidden;
+      background: #000;
+      margin: 0 1em 1em 0;
+    }
+
+    .swatch:nth-child(9n) {
+      margin-right: 0
+    }
+
+    section .output {
+      background: #fff;
+      display: block;
+      padding: 0.5em 0.5em 0;
+      margin: 1em 0
+    }
+
+    code {
+      display: block;
+      position: relative;
+      clear: both;
+      line-height: 1.33em;
+      font-family: 'Fira Mono', monospace;
+      white-space: pre;
+      border-radius: 4px
+    }
+
+    .output:after {
+      content: "";
+      width: 100%;
+      height: 0;
+      clear: both;
+      display: block;
+    }
+
+    section {
+      width: 36em;
+      margin: 2em auto;
+      padding: 1em 0;
+      z-index: 0
+    }
+
+
+    header, footer {
+      background: #fff;
+      width: 36em;
+      margin: 1em auto;
+    }
+
+    header a#reload {position: fixed;top: 1em;left: 1em}
+
+    header a,
+    header a em,
+    footer a,
+    footer a em {
+      color: #aaa;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    header a em,
+    footer a em {
+      font-style: normal;
+      text-decoration: underline;
+    }
+
+    header a:hover,
+    footer a:hover {
+      color: #f9951d
+    }
+
+    header a:hover em,
+    footer a:hover em {
+      color: #f9951d;border-bottom-color: #f9951d
+    }
+
+    footer {border-top: 1px solid rgba(0,0,0,0.1);padding: 2em 0;margin: 2em auto}
+
+    #logo {
+      width: 24em;
+      position: relative;left: -9em;margin-bottom: 1em}
+
+    p {
+      font-size: 1em;line-height: 1.5em;color: #323232}
+    p b {font-weight: bold;color: #454545;}
+
+    p a {color: #E07A00;}
+    h1, h2 {
+      font-size: 2em;
+      margin-bottom: 0
+    }
+
+    h1 {
+      color: #000;
+      font-weight: 400;
+      margin-top: 1em
+    }
+
+    h2 {
+      color: #787878;
+      font-weight: 300;
+    }
+
+    h3 {
+      font-weight: 400;
+      margin-bottom: 1em;
+      color: #000;
+      text-transform: uppercase;
+      font-size: 1em;
+      letter-spacing: 0.05em
+    }
+
+    h4 {
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.66em;
+      margin-top: 2em;
+      color: #000
+    }
+
+    .button {
+      display: inline-block;
+      margin: 2em 0.66em 0em -0.75em;
+      text-decoration: none;
+      color: #111;
+      color: #fff;
+      background: #f9951d;
+      border-radius: 4em;
+      font-size: 1.1566em;
+      padding: 0.15em 1em 0;
+      line-height: 2.66em;
+    }
+    </style>
   </head>
   <body>
     <header>

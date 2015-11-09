@@ -72,7 +72,7 @@ randomColor({
 
 ### License
 
-This project is licensed under the terms of the MIT license.
+This project is dedicated to the public domain.
 
 ### To do 
 

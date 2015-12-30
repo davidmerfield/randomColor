@@ -38,8 +38,18 @@
 
     options = options || {};
 
-    if (options.seed && !seed) {
+    // Check if there is a seed and ensure it's an
+    // integer. Otherwise, reset the seed value.
+    if (options.seed && options.seed === parseInt(options.seed, 10)) {
       seed = options.seed;
+
+    // Something was passed as a seed but it wasn't an integer
+    } else if (options.seed !== undefined && options.seed !== null) {
+      throw new TypeError('The seed value must be an integer');
+
+    // No seed, reset the value outside.
+    } else {
+      seed = null;
     }
 
     var H,S,B;
@@ -53,17 +63,16 @@
       options.count = null;
 
       while (totalColors > colors.length) {
+
+        // Since we're generating multiple colors,
+        // incremement the seed. Otherwise we'd just
+        // generate the same color each time...
+        if (seed && options.seed) options.seed += 1;
+
         colors.push(randomColor(options));
       }
 
       options.count = totalColors;
-
-      //Keep the seed constant between runs.
-      if (options.seed && totalColors !== colors.length) {
-        seed = options.seed;
-      } else {
-        seed = null;
-      }
 
       return colors;
     }

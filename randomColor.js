@@ -1,5 +1,6 @@
-// randomColor by David Merfield under the MIT license
+// randomColor by David Merfield under the CC0 license
 // https://github.com/davidmerfield/randomColor/
+
 ;(function(root, factory) {
 
   // Support AMD
@@ -49,7 +50,7 @@
 
     // Something was passed as a seed but it wasn't an integer or string
     } else if (options.seed !== undefined && options.seed !== null) {
-      throw new TypeError('The seed value must be an integer');
+      throw new TypeError('The seed value must be an integer or string');
 
     // No seed, reset the value outside.
     } else {

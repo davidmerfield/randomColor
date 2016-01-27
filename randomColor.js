@@ -43,7 +43,11 @@
     if (options.seed && options.seed === parseInt(options.seed, 10)) {
       seed = options.seed;
 
-    // Something was passed as a seed but it wasn't an integer
+    // A string was passed as a seed
+    } else if (typeof options.seed === 'string') {
+      seed = stringToInteger(options.seed);
+
+    // Something was passed as a seed but it wasn't an integer or string
     } else if (options.seed !== undefined && options.seed !== null) {
       throw new TypeError('The seed value must be an integer');
 
@@ -409,6 +413,15 @@
       Math.round(s*v / (k<1 ? k : 2-k) * 10000) / 100,
       k/2 * 100
     ];
+  }
+
+  function stringToInteger (string) {
+    var total = 0
+    for (var i = 0; i !== string.length; i++) {
+      if (total >= Number.MAX_SAFE_INTEGER) break;
+      total += string.charCodeAt(i)
+    }
+    return total
   }
 
   return randomColor;

@@ -21,7 +21,7 @@ You can pass an options object to influence the type of color it produces. The o
 
 **Count** – An integer which specifies the number of colors to generate.
 
-**Seed** - An integer which when passed will cause randomColor to return the same color each time.
+**Seed** - An integer or string which when passed will cause randomColor to return the same color each time.
 
 **Format** – A string which specifies the format of the generated color. Possible values are ```rgb```, ```rgbArray```, ```hsl```, ```hslArray``` and ```hex``` (default).
 

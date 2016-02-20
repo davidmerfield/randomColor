@@ -9,7 +9,8 @@ randomColor is available [minified on cdnjs](http://cdnjs.com/libraries/randomco
 ```javascript
 npm install randomcolor
 ```
-randomColor has been ported to [C#](https://github.com/nathanpjones/randomColorSharped), [Go](https://github.com/hansrodtang/randomcolor), [PHP](https://github.com/mistic100/RandomColor.php), [Python](https://github.com/kevinwuhoo/randomcolor-py), [Swift](https://github.com/onevcat/RandomColorSwift), [Objective-C](https://github.com/yageek/randomColor) and [Java](https://github.com/lzyzsd/AndroidRandomColor).
+randomColor has been ported to [C#](https://github.com/nathanpjones/randomColorSharped), [Go](https://github.com/hansrodtang/randomcolor), [PHP](https://github.com/mistic100/RandomColor.php), [Python](https://github.com/kevinwuhoo/randomcolor-py), [Swift](https://github.com/onevcat/RandomColorSwift), [Objective-C](https://github.com/yageek/randomColor), [Java](https://github.com/lzyzsd/AndroidRandomColor) and 
+[R](https://github.com/ronammar/randomcoloR).
  
 ### Options
 

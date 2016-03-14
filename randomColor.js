@@ -182,7 +182,8 @@
 
       case 'hsla':
         var hslColor = HSVtoHSL(hsv);
-        return 'hsla('+hslColor[0]+', '+hslColor[1]+'%, '+hslColor[2]+'%, ' + Math.random() + ')';
+        var alpha = options.alpha || Math.random();
+        return 'hsla('+hslColor[0]+', '+hslColor[1]+'%, '+hslColor[2]+'%, ' + alpha + ')';
 
       case 'rgbArray':
         return HSVtoRGB(hsv);
@@ -193,7 +194,8 @@
 
       case 'rgba':
         var rgbColor = HSVtoRGB(hsv);
-        return 'rgba(' + rgbColor.join(', ') + ', ' + Math.random() + ')';
+        var alpha = options.alpha || Math.random();
+        return 'rgba(' + rgbColor.join(', ') + ', ' + alpha + ')';
 
       default:
         return HSVtoHex(hsv);

@@ -41,19 +41,22 @@
 
     // Check if there is a seed and ensure it's an
     // integer. Otherwise, reset the seed value.
-    if (options.seed && options.seed === parseInt(options.seed, 10)) {
-      seed = options.seed;
-
-    // A string was passed as a seed
-    } else if (typeof options.seed === 'string') {
-      seed = stringToInteger(options.seed);
-
-    // Something was passed as a seed but it wasn't an integer or string
-    } else if (options.seed !== undefined && options.seed !== null) {
-      throw new TypeError('The seed value must be an integer or string');
-
-    // No seed, reset the value outside.
+    if (options.seed) {
+      var seedtype = typeof options.seed;
+      if (seedtype === 'number') {
+        seed = options.seed;
+      } else if (seedtype === 'string') { // A string was passed as a seed
+        seed = parseInt(options.seed, 10);
+        //checking for nan
+        if (seed !== seed) {
+          seed = stringToInteger(options.seed);
+        }
+      } else {
+        // Something was passed as a seed but it wasn't an integer or string
+        throw new TypeError('The seed value must be an integer or string');
+      }
     } else {
+       // No seed, reset the value outside.
       seed = null;
     }
 

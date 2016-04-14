@@ -41,7 +41,7 @@
 
     // Check if there is a seed and ensure it's an
     // integer. Otherwise, reset the seed value.
-    if (options.seed && options.seed === parseInt(options.seed, 10)) {
+    if (options.seed !== undefined && options.seed !== null && options.seed === parseInt(options.seed, 10)) {
       seed = options.seed;
 
     // A string was passed as a seed

@@ -95,6 +95,7 @@
     return setFormat([H,S,B], options);
   };
 
+
   function pickHue (options) {
 
     var hueRange = getHueRange(options.hue),
@@ -108,6 +109,13 @@
 
   }
 
+
+  /**
+   * Pick saturation for particular hue
+   * @param hue
+   * @param options
+   * @returns {number}
+     */
   function pickSaturation (hue, options) {
 
     if (options.luminosity === 'random') {
@@ -142,6 +150,14 @@
 
   }
 
+
+  /**
+   * Set the brightness using hue Saturation and luminosity if given
+   * @param H
+   * @param S
+   * @param options
+   * @returns {number}
+     */
   function pickBrightness (H, S, options) {
 
     var bMin = getMinimumBrightness(H, S),
@@ -166,6 +182,13 @@
     return randomWithin([bMin, bMax]);
   }
 
+
+  /**
+   * Convert to suitable format
+   * @param hsv
+   * @param options
+   * @returns {*}
+     */
   function setFormat (hsv, options) {
 
     switch (options.format) {
@@ -201,6 +224,13 @@
 
   }
 
+
+  /**
+   * Give the minimum brightness of the Hue and Saturation
+   * @param H
+   * @param S
+   * @returns {number}
+     */
   function getMinimumBrightness(H, S) {
 
     var lowerBounds = getColorInfo(H).lowerBounds;
@@ -226,6 +256,12 @@
     return 0;
   }
 
+
+  /**
+   * Get hue range of the color
+   * @param colorInput
+   * @returns {*}
+     */
   function getHueRange (colorInput) {
 
     if (typeof parseInt(colorInput) === 'number') {
@@ -250,9 +286,21 @@
 
   }
 
+  /**
+   * Gives Saturation range of color
+   * @param hue
+   * @returns {Array}
+     */
   function getSaturationRange (hue) {
     return getColorInfo(hue).saturationRange;
   }
+
+
+  /**
+   * Get the color info out of the color dictionary
+   * @param hue
+   * @returns color object
+     */
 
   function getColorInfo (hue) {
 
@@ -271,6 +319,12 @@
     } return 'Color not found';
   }
 
+
+  /**
+   * Generates random value with in range of range[0] to range[1]
+   * @param range
+   * @returns {number}
+     */
   function randomWithin (range) {
     if (seed === null) {
       return Math.floor(range[0] + Math.random()*(range[1] + 1 - range[0]));
@@ -284,6 +338,13 @@
     }
   }
 
+
+    /**
+     * Convert the HSV to hex
+     * @param hsv
+     * @returns {string}
+     * @constructor
+     */
   function HSVtoHex (hsv){
 
     var rgb = HSVtoRGB(hsv);
@@ -299,6 +360,13 @@
 
   }
 
+
+  /**
+   * Add colors to colorDictionary with hue range lower bounds saturation range and brightness range
+   * @param name
+   * @param hueRange
+   * @param lowerBounds
+     */
   function defineColor (name, hueRange, lowerBounds) {
 
     var sMin = lowerBounds[0][0],
@@ -316,6 +384,11 @@
 
   }
 
+
+    /**
+     * basic Color bound beyond which the colors will not be accepted
+     * Defined for monochrome etc;
+     */
   function loadColorBounds () {
 
     defineColor(
@@ -368,6 +441,14 @@
 
   }
 
+
+  /**
+   * Converts HSV to RGB  HSV stands for hue Saturation and value
+   * For more have a look here: https://en.wikipedia.org/wiki/HSL_and_HSV
+   * @param hsv
+   * @returns {*[]}
+   * @constructor
+     */
   function HSVtoRGB (hsv) {
 
     // this doesn't work for the values of 0 and 360
@@ -403,6 +484,14 @@
     return result;
   }
 
+
+    /**
+     * This function return the HSV to HSL [these are two most common cylindrical-coordinate representations of points]
+     * @param hsv
+     * @returns {*[]}
+     * @constructor
+     */
+
   function HSVtoHSL (hsv) {
     var h = hsv[0],
       s = hsv[1]/100,
@@ -416,11 +505,16 @@
     ];
   }
 
+  /**
+   * Convert string to integers by adding all the characters unicode and returning it.
+   * @param string
+   * @returns {number}
+     */
   function stringToInteger (string) {
     var total = 0
     for (var i = 0; i !== string.length; i++) {
-      if (total >= Number.MAX_SAFE_INTEGER) break;
-      total += string.charCodeAt(i)
+      if (total >= Number.MAX_SAFE_INTEGER) break;     //max safe integer in js
+      total += string.charCodeAt(i)                    //charCodeAt returns unicode of the character.
     }
     return total
   }

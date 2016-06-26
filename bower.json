@@ -10,7 +10,7 @@
     "David Merfield"
   ],
   "description": "For generating attractive random colors",
-  "license": "MIT",
+  "license": "CC0",
   "main": "randomColor.js",
   "keywords": [
     "attractive",

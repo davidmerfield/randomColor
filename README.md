@@ -71,6 +71,14 @@ randomColor({
 
 ```
 
+
+### Typescript
+
+If you are using typescript for your project you can install the types via DefinitelyTyped with this command:
+```
+tsd install randomColor
+```
+
 ### License
 
 This project is dedicated to the public domain.

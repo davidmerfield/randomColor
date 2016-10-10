@@ -76,7 +76,7 @@ randomColor({
 
 If you are using typescript for your project you can install the types via DefinitelyTyped with this command:
 ```
-typings install jquery --save
+typings install randomColor --save
 ```
 or
 ```

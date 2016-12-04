@@ -24,7 +24,9 @@ You can pass an options object to influence the type of color it produces. The o
 
 **Seed** - An integer or string which when passed will cause randomColor to return the same color each time.
 
-**Format** – A string which specifies the format of the generated color. Possible values are ```rgb```, ```rgbArray```, ```hsl```, ```hslArray``` and ```hex``` (default).
+**Format** – A string which specifies the format of the generated color. Possible values are ```rgb```, ```rgba```, ```rgbArray```, ```hsl```, ```hsla```, ```hslArray``` and ```hex``` (default).
+
+**Alpha** – A decimal between 0 and 1 which specifies the alpha amount of ```rgba``` and ```hsla``` formats. Defaults to a random value.
 
 ### Examples
 
@@ -61,6 +63,13 @@ randomColor({
 randomColor({
    luminosity: 'dark',
    format: 'rgba' // e.g. 'rgba(9, 1, 107, 0.6482447960879654)'
+});
+
+// Returns a dark RGB color with specified alpha
+randomColor({
+   luminosity: 'dark',
+   format: 'rgba',
+   alpha: 0.5 // e.g. 'rgba(9, 1, 107, 0.5)',
 });
 
 // Returns a light HSL color with random alpha

@@ -3,12 +3,8 @@
 
 ;(function(root, factory) {
 
-  // Support AMD
-  if (typeof define === 'function' && define.amd) {
-    define([], factory);
-
   // Support CommonJS
-  } else if (typeof exports === 'object') {
+  if (typeof exports === 'object') {
     var randomColor = factory();
 
     // Support NodeJS & Component, which allow module.exports to be a function
@@ -18,6 +14,10 @@
 
     // Support CommonJS 1.1.1 spec
     exports.randomColor = randomColor;
+
+  // Support AMD
+  } else if (typeof define === 'function' && define.amd) {
+    define([], factory);
 
   // Support vanilla script loading
   } else {

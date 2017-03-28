@@ -427,5 +427,20 @@
     return total
   }
 
+// Add a fonction to decompose the color string to three parts
+  function extractRGB(hex){
+    var rgb = [];
+    hex = hex.substring(1);
+
+    rgb[0] = hex[0] + '' + hex[1];
+    rgb[1] = hex[2] + '' + hex[3];
+    rgb[2] = hex[4] + '' + hex[5];
+
+    return rgb.map(function(current){
+      return parseInt(current, 16);
+    });
+
+  }
+
   return randomColor;
 }));

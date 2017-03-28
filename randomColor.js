@@ -74,7 +74,24 @@
         // generate the same color each time...
         if (seed && options.seed) options.seed += 1;
 
-        colors.push(randomColor(options));
+        // generate a color
+        var ourColor = randomColor(options);
+        console.log("first test option wantseed: "+options.seed);
+
+
+        var isThereSimilarities = false;
+
+        // test the color generated with the table colors
+        for (var i = 0; i < colors.length; i++) {
+          if(compareColors(ourColor,colors[i]) && colors.length > 1){
+            isThereSimilarities = true;
+          }
+        }
+
+        // if there isn't a similatore color which there is a difference 20 deg
+        if(!isThereSimilarities){
+            colors.push(ourColor);
+        }
       }
 
       options.count = totalColors;

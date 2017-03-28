@@ -441,6 +441,26 @@
     });
 
   }
+  // Add fonction to compare two colors, Comparing the three parts
+  function compareColors(color1, color2){
+    var rgb1 = [];
+    var rgb2 = [];
+
+    var rgb1 =  extractRGB(color1);
+
+    var rgb2 = extractRGB(color2);
+
+    //console.log(rgb1[0] > rgb2[0] + 20 || rgb1[0] < rgb2[0] + 20);
+
+    if((rgb1[0] > rgb2[0] + 20 || rgb1[0] < rgb2[0] + 20)
+      || (rgb1[1] > rgb2[1] + 20 || rgb1[1] < rgb2[1] + 20)
+      || (rgb1[2] > rgb2[2] + 20 || rgb1[2] < rgb2[2] + 20)) {
+
+        return false; // si ya pas de sumilarité
+      }
+      return true;
+
+  }
 
   return randomColor;
 }));

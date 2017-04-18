@@ -59,6 +59,14 @@
 
     var H,S,B;
 
+    if(options.seed != null) {
+        if(typeof(Math.seedrandom) == 'function') {
+            Math.seedrandom(options.seed);
+        } else {
+            throw('Using a random seed requires seedrandom! Available here: https://github.com/davidbau/seedrandom');
+        }
+    }
+
     // Check if we need to generate multiple colors
     if (options.count !== null && options.count !== undefined) {
 

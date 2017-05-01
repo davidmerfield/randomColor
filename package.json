@@ -1,6 +1,6 @@
 {
   "name": "randomcolor",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "description": "For generating attractive random colors",
   "main": "randomColor.js",
   "directories": {

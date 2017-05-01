@@ -110,12 +110,12 @@
 
   function pickSaturation (hue, options) {
 
-    if (options.luminosity === 'random') {
-      return randomWithin([0,100]);
-    }
-
     if (options.hue === 'monochrome') {
       return 0;
+    }
+
+    if (options.luminosity === 'random') {
+      return randomWithin([0,100]);
     }
 
     var saturationRange = getSaturationRange(hue);

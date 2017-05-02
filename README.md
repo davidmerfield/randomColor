@@ -4,7 +4,7 @@ A tiny script for generating attractive random colors. See the results on [the d
 
 [![Demo](http://i.imgur.com/lOLCqvu.gif)](http://llllll.li/randomColor)
 
-randomColor is available [minified on cdnjs](http://cdnjs.com/libraries/randomcolor). It is also distributed on [npm](https://www.npmjs.org/package/randomcolor) and bower.
+randomColor is available [minified on cdnjs](http://cdnjs.com/libraries/randomcolor). It is also distributed on [npm](https://www.npmjs.org/package/randomcolor).
 
 ```javascript
 npm install randomcolor

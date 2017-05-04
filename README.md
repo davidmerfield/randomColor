@@ -1,6 +1,6 @@
 # [Random Color](http://llllll.li/randomColor)
 
-A tiny script for generating attractive random colors. See the results on [the demo](http://llllll.li/randomColor/).
+A tiny script for generating attractive random colors. See the demo for [an explanation](http://llllll.li/randomColor/) and [some samples](http://llllll.li/randomColor/).
 
 [![Demo](http://i.imgur.com/lOLCqvu.gif)](http://llllll.li/randomColor)
 

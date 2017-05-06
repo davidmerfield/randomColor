@@ -4,7 +4,7 @@ A tiny script for generating attractive random colors. See the demo for [an expl
 
 [![Demo](http://i.imgur.com/lOLCqvu.gif)](http://llllll.li/randomColor)
 
-**Use in the browser**
+## Use in the browser
 
 Download the [latest minified version of randomColor](http://cdnjs.com/libraries/randomcolor) and include it on your page. Then call the script:
 
@@ -12,7 +12,7 @@ Download the [latest minified version of randomColor](http://cdnjs.com/libraries
 var color = randomColor(); // a hex code for an attractive color
 ```
 
-**Use on the server**
+## Use on the server
 
 Install the script from [npm](https://www.npmjs.org/package/randomcolor):
 
@@ -26,7 +26,7 @@ var randomColor = require('randomColor'); // import the script
 var color = randomColor(); // a hex code for an attractive color
 ```
 
-**Options**
+## Options
 
 You can pass an options object to influence the type of color it produces. The options object accepts the following properties:
 
@@ -42,7 +42,7 @@ You can pass an options object to influence the type of color it produces. The o
 
 ```alpha``` – A decimal between 0 and 1. Only relevant when using a format with an alpha channel (```rgba``` and ```hsla```). Defaults to a random value.
 
-**Examples**
+## Examples
 
 ```javascript
 
@@ -94,7 +94,7 @@ randomColor({
 
 ```
 
-**To do**
+## To do
 
 *More generally, it might be a good idea to consider using other color models.*
 

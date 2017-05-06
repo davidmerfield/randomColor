@@ -1,34 +1,48 @@
 # [Random Color](http://llllll.li/randomColor)
 
-A tiny script for generating attractive random colors. See the demo for [an explanation](http://llllll.li/randomColor/) and [some samples](http://llllll.li/randomColor/).
+A tiny script for generating attractive random colors. See the demo for [an explanation](http://llllll.li/randomColor/) and [some samples](http://llllll.li/randomColor/). randomColor has been ported to [C#](https://github.com/nathanpjones/randomColorSharped), [C++](https://github.com/xuboying/randomcolor-cpp), [Go](https://github.com/hansrodtang/randomcolor), [PHP](https://github.com/mistic100/RandomColor.php), [Python](https://github.com/kevinwuhoo/randomcolor-py), [Swift](https://github.com/onevcat/RandomColorSwift), [Objective-C](https://github.com/yageek/randomColor), [Java](https://github.com/lzyzsd/AndroidRandomColor) and [R](https://github.com/ronammar/randomcoloR). This project is dedicated to the public domain.
 
 [![Demo](http://i.imgur.com/lOLCqvu.gif)](http://llllll.li/randomColor)
 
-randomColor is available [minified on cdnjs](http://cdnjs.com/libraries/randomcolor). It is also distributed on [npm](https://www.npmjs.org/package/randomcolor).
+**Use in the browser**
+
+Download the [latest minified version of randomColor](http://cdnjs.com/libraries/randomcolor) and include it on your page. Then call the script:
 
 ```javascript
-npm install randomcolor
+var color = randomColor(); // a hex code for an attractive color
 ```
-randomColor has been ported to [C#](https://github.com/nathanpjones/randomColorSharped), [C++](https://github.com/xuboying/randomcolor-cpp), [Go](https://github.com/hansrodtang/randomcolor), [PHP](https://github.com/mistic100/RandomColor.php), [Python](https://github.com/kevinwuhoo/randomcolor-py), [Swift](https://github.com/onevcat/RandomColorSwift), [Objective-C](https://github.com/yageek/randomColor), [Java](https://github.com/lzyzsd/AndroidRandomColor) and 
-[R](https://github.com/ronammar/randomcoloR).
- 
-### Options
+
+**Use on the server**
+
+Install the script from [npm](https://www.npmjs.org/package/randomcolor):
+
+```bash
+$ npm install randomcolor
+```
+
+Then in your code:
+```javascript
+var randomColor = require('randomColor'); // import the script
+var color = randomColor(); // a hex code for an attractive color
+```
+
+**Options**
 
 You can pass an options object to influence the type of color it produces. The options object accepts the following properties:
 
-**Hue** – Controls the hue of the generated color. You can pass a string representing a color name: ```red```, ```orange```, ```yellow```, ```green```, ```blue```, ```purple```, ```pink``` and ```monochrome``` are currently supported. If you pass a  hexidecimal color string such as ```#00FFFF```, randomColor will extract its hue value and use that to generate colors.
+```hue``` – Controls the hue of the generated color. You can pass a string representing a color name: ```red```, ```orange```, ```yellow```, ```green```, ```blue```, ```purple```, ```pink``` and ```monochrome``` are currently supported. If you pass a  hexidecimal color string such as ```#00FFFF```, randomColor will extract its hue value and use that to generate colors.
 
-**Luminosity** – Controls the luminosity of the generated color. You can specify a string containing ```bright```, ```light``` or ```dark```.
+```luminosity``` – Controls the luminosity of the generated color. You can specify a string containing ```bright```, ```light``` or ```dark```.
 
-**Count** – An integer which specifies the number of colors to generate.
+```count``` – An integer which specifies the number of colors to generate.
 
-**Seed** - An integer or string which when passed will cause randomColor to return the same color each time.
+```seed``` - An integer or string which when passed will cause randomColor to return the same color each time.
 
-**Format** – A string which specifies the format of the generated color. Possible values are ```rgb```, ```rgba```, ```rgbArray```, ```hsl```, ```hsla```, ```hslArray``` and ```hex``` (default).
+```format``` – A string which specifies the format of the generated color. Possible values are ```rgb```, ```rgba```, ```rgbArray```, ```hsl```, ```hsla```, ```hslArray``` and ```hex``` (default).
 
-**Alpha** – A decimal between 0 and 1. Only relevant when using a format with an alpha channel (```rgba``` and ```hsla```). Defaults to a random value.
+```alpha``` – A decimal between 0 and 1. Only relevant when using a format with an alpha channel (```rgba``` and ```hsla```). Defaults to a random value.
 
-### Examples
+**Examples**
 
 ```javascript
 
@@ -80,11 +94,7 @@ randomColor({
 
 ```
 
-### License
-
-This project is dedicated to the public domain.
-
-### To do 
+**To do**
 
 *More generally, it might be a good idea to consider using other color models.*
 

@@ -4,20 +4,16 @@ A tiny script for generating attractive random colors. See the demo for [an expl
 
 [![Demo](http://i.imgur.com/lOLCqvu.gif)](http://llllll.li/randomColor)
 
-## Use in the browser
-
-Download the [latest minified version of randomColor](http://cdnjs.com/libraries/randomcolor) and include it on your page. Then call the script:
+To use randomColor **in the browser**, download the [latest minified version of randomColor](http://cdnjs.com/libraries/randomcolor) and include it on your page. Then call the script:
 
 ```javascript
 var color = randomColor(); // a hex code for an attractive color
 ```
 
-## Use on the server
-
-Install [randomColor from npm](https://www.npmjs.org/package/randomcolor) then call the script:
+To use randomColor **on the server with node.js**, install [randomColor from npm](https://www.npmjs.org/package/randomcolor) then call the script:
 
 ```bash
-$ npm install randomcolor
+npm install randomcolor
 ```
 ```javascript
 var randomColor = require('randomColor'); // import the script

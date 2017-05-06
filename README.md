@@ -14,13 +14,11 @@ var color = randomColor(); // a hex code for an attractive color
 
 ## Use on the server
 
-Install the script from [npm](https://www.npmjs.org/package/randomcolor):
+Install [randomColor from npm](https://www.npmjs.org/package/randomcolor) then call the script:
 
 ```bash
 $ npm install randomcolor
 ```
-
-Then in your code:
 ```javascript
 var randomColor = require('randomColor'); // import the script
 var color = randomColor(); // a hex code for an attractive color

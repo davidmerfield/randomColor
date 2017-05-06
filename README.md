@@ -16,7 +16,7 @@ To use randomColor **on the server with node.js**, install [randomColor from npm
 npm install randomcolor
 ```
 ```javascript
-var randomColor = require('randomColor'); // import the script
+var randomColor = require('randomcolor'); // import the script
 var color = randomColor(); // a hex code for an attractive color
 ```
 

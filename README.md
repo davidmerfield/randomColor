@@ -92,6 +92,8 @@ randomColor({
 
 *More generally, it might be a good idea to consider using other color models.*
 
+0. use this on the demo
+http://jsfiddle.net/dpLp318f/
 1. When returning an array of multiple colors, try to make each color as distinct as possible. Make sure each color is distinct to its neighbours.
 2. Improve attractive dark color generation, currently they're a touch murky.
 3. Improve the color dictionary

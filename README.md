@@ -94,6 +94,8 @@ randomColor({
 
 0. use this on the demo
 http://jsfiddle.net/dpLp318f/
+https://www.vis4.net/blog/posts/avoid-equidistant-hsv-colors/
+https://www.vis4.net/blog/posts/mastering-multi-hued-color-scales/
 1. When returning an array of multiple colors, try to make each color as distinct as possible. Make sure each color is distinct to its neighbours.
 2. Improve attractive dark color generation, currently they're a touch murky.
 3. Improve the color dictionary

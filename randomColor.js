@@ -74,7 +74,24 @@
         // generate the same color each time...
         if (seed && options.seed) options.seed += 1;
 
-        colors.push(randomColor(options));
+        // generate a color
+        var ourColor = randomColor(options);
+        console.log("first test option wantseed: "+options.seed);
+
+
+        var isThereSimilarities = false;
+
+        // test the color generated with the table colors
+        for (var i = 0; i < colors.length; i++) {
+          if(compareColors(ourColor,colors[i]) && colors.length > 1){
+            isThereSimilarities = true;
+          }
+        }
+
+        // if there isn't a similatore color which there is a difference 20 deg
+        if(!isThereSimilarities){
+            colors.push(ourColor);
+        }
       }
 
       options.count = totalColors;
@@ -447,6 +464,41 @@
       total += string.charCodeAt(i)
     }
     return total
+  }
+
+// Add a fonction to decompose the color string to three parts
+  function extractRGB(hex){
+    var rgb = [];
+    hex = hex.substring(1);
+
+    rgb[0] = hex[0] + '' + hex[1];
+    rgb[1] = hex[2] + '' + hex[3];
+    rgb[2] = hex[4] + '' + hex[5];
+
+    return rgb.map(function(current){
+      return parseInt(current, 16);
+    });
+
+  }
+  // Add fonction to compare two colors, Comparing the three parts
+  function compareColors(color1, color2){
+    var rgb1 = [];
+    var rgb2 = [];
+
+    var rgb1 =  extractRGB(color1);
+
+    var rgb2 = extractRGB(color2);
+
+    //console.log(rgb1[0] > rgb2[0] + 20 || rgb1[0] < rgb2[0] + 20);
+
+    if((rgb1[0] > rgb2[0] + 20 || rgb1[0] < rgb2[0] + 20)
+      || (rgb1[1] > rgb2[1] + 20 || rgb1[1] < rgb2[1] + 20)
+      || (rgb1[2] > rgb2[2] + 20 || rgb1[2] < rgb2[2] + 20)) {
+
+        return false; // si ya pas de sumilarité
+      }
+      return true;
+
   }
 
   return randomColor;

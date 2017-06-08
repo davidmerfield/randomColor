@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<!-- saved from url=(0034)http://fiddle.jshell.net/_display/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+
+  
+  
+
+  
+  
+  
+
+  
+
+  <script type="text/javascript" src="./dummy.js"></script>
+
+  
+
+  
+
+  
+
+  
+    <link rel="stylesheet" type="text/css" href="./result-light.css">
+  
+
+  
+
+  <style type="text/css">
+    body {
+	background-color: #000;
+	margin: 0px;
+	overflow: hidden;
+}
+
+  </style>
+
+  <title></title>
+
+  
+    
+
+
+
+
+<script type="text/javascript">//<![CDATA[
+window.onload=function(){
+// Isometric Projection using an Orthographic Camera
+// useful:
+// cube with gradients http://jsfiddle.net/FtML5/3/
+// rotating cube http://jsfiddle.net/b45xk38d/1/
+// quad gradient https://jsfiddle.net/eh3k7u93/
+// rgb cube definition https://www.researchgate.net/profile/Zaher_Aghbari/publication/223162168/figure/fig5/AS:305176415096858@1449771135873/Fig-6-The-eight-corners-of-RGB-cube.png
+// previous complex method
+// http://jsfiddle.net/9hhgmpL8/
+// simpler method modified from
+// https://stemkoski.github.io/Three.js/Vertex-Colors.html
+
+var cube, pyramid, renderer, scene, camera;
+
+var width = 500;
+var height = 500;
+
+init();
+render();
+animate();
+
+function init() {
+
+	// renderer
+	renderer = new THREE.WebGLRenderer({antialias:true, alpha: true});
+	renderer.setSize(width, height);
+	document.body.appendChild( renderer.domElement );
+
+	// scene
+	scene = new THREE.Scene();
+
+  
+	// axes
+	scene.add( new THREE.AxisHelper( 20 ) );
+
+	// camera
+	var aspect = width / height;
+	var d = 15;
+	camera = new THREE.OrthographicCamera( - d * aspect, d * aspect, d, - d, 1, 1000 );
+	camera.position.set( d, d, d );
+  camera.lookAt( scene.position );
+	
+  			// camera = new THREE.PerspectiveCamera(50, 1, 1, 1000 );
+				// camera.position.y = 20;
+				// camera.position.z = 20;
+
+  
+  
+  controls = new THREE.OrbitControls( camera );
+	controls.minDistance = 10;
+	controls.maxDistance = 50;
+
+  pyramid = coloredPyramid();
+  pyramid.position.set(0, 0, 0);
+	scene.add(pyramid);
+
+  cube = Cube();
+	cube.position.set( 5, 5, 5 );
+	scene.add(cube);
+  
+
+}
+
+function Cube () {
+
+	var cubeMaterial = new THREE.MeshBasicMaterial({
+  	color: 0xffffff,
+    wireframe: true,
+    vertexColors:  THREE.VertexColors
+  });
+	
+	var color, face, numberOfSides, vertexIndex;
+	
+	// faces are indexed using characters
+	var faceIndices = [ 'a', 'b', 'c', 'd' ];
+
+	var size = 10;
+	var point;
+	var cubeGeometry = new THREE.CubeGeometry( size, size, size, 1, 1, 1 );
+
+	for ( var i = 0; i < cubeGeometry.faces.length; i++ ) {
+
+		face = cubeGeometry.faces[ i ];
+		// determine if current face is a tri or a quad
+		
+    numberOfSides = ( face instanceof THREE.Face3 ) ? 3 : 4;
+		// assign color to each vertex of current face
+		
+    for( var j = 0; j < numberOfSides; j++ ) {
+
+			vertexIndex = face[ faceIndices[ j ] ];
+			// store coordinates of vertex
+			point = cubeGeometry.vertices[ vertexIndex ];
+			// initialize color variable
+			color = new THREE.Color( 0xffffff );
+			color.setRGB( 0.5 + point.x / size, 0.5 + point.y / size, 0.5 + point.z / size );
+
+			face.vertexColors[j] = color;
+		}
+	}
+  
+	item = new THREE.Mesh( cubeGeometry, cubeMaterial );
+  return item;
+}
+
+function coloredPyramid () {
+
+	var material = new THREE.MeshBasicMaterial({
+  	color: 0xffffff,
+    vertexColors:  THREE.VertexColors
+  });
+	
+	var color, face, numberOfSides, vertexIndex;
+  
+	// faces are indexed using characters
+	var faceIndices = [ 'a', 'b', 'c', 'd' ];
+
+	var size = 10;
+	var point;
+	var geometry = Pyramid();
+
+	for ( var i = 0; i < geometry.faces.length; i++ ) {
+
+		face = geometry.faces[ i ];
+		// determine if current face is a tri or a quad
+				
+    for( var j = 0; j < 3; j++ ) {
+
+			vertexIndex = face[ faceIndices[ j ] ];
+
+		// store coordinates of vertex
+			point = geometry.vertices[ vertexIndex ];
+			// initialize color variable
+			color = new THREE.Color( 0xffffff );
+			color.setRGB(point.x / size, point.y / size, point.z / size );
+
+			face.vertexColors[j] = color;
+		}
+	}
+
+item = new THREE.Mesh( geometry, material );
+  return item;
+
+}
+
+function plainPyramid () {
+	var geometry = Pyramid();
+	var material = new THREE.MeshBasicMaterial( {color:0xffffff} );
+	var item = new THREE.Mesh( geometry, material );
+	return item;
+}
+
+function Pyramid () {
+
+var width, height, legnth;
+
+width = height = length = 10;
+
+var geometry = new THREE.Geometry();
+
+geometry.vertices = [
+    new THREE.Vector3( 0, 0, 0 ),
+    new THREE.Vector3( 0, 1, 0 ),
+    new THREE.Vector3( 1, 1, 0 ),
+    new THREE.Vector3( 1, 0, 0 ),
+    new THREE.Vector3( 1, 1, 1 )
+];
+
+geometry.faces = [
+    new THREE.Face3( 0, 1, 2 ),
+    new THREE.Face3( 0, 2, 3 ),
+    new THREE.Face3( 1, 0, 4 ),
+    new THREE.Face3( 2, 1, 4 ),
+    new THREE.Face3( 3, 2, 4 ),
+    new THREE.Face3( 0, 3, 4 )
+];    
+
+var transformation = new THREE.Matrix4().makeScale( width, length, height );
+
+geometry.applyMatrix( transformation );
+	return geometry;
+}
+
+function render() {
+	renderer.render(scene, camera);
+}
+
+function animate() {
+	requestAnimationFrame(animate);
+	renderer.render(scene, camera);
+}
+}//]]> 
+
+</script>
+
+  
+</head>
+
+<body>
+  <script src="./three.min.js"></script>
+<script src="./OrbitControls.js"></script>
+
+  
+  <script>
+  // tell the embed parent frame the height of the content
+  if (window.parent && window.parent.parent){
+    window.parent.parent.postMessage(["resultsFrame", {
+      height: document.body.getBoundingClientRect().height,
+      slug: "None"
+    }], "*")
+  }
+</script>
+
+
+
+
+
+<canvas width="500" height="500" style="width: 500px; height: 500px;"></canvas></body></html>

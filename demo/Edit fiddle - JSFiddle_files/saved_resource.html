@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://jsfiddle.net/92rxdg2d/embedded/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    
+    <meta http-equiv="edit-Type" edit="text/html; charset=utf-8">
+
+    
+      <meta name="robots" content="index, follow">
+      <meta name="googlebot" content="index, follow">
+
+      <script async="" src="http://www.google-analytics.com/analytics.js"></script><script type="text/javascript" src="./highlight.pack.js"></script>
+
+      <script type="text/javascript" src="./embed.js"></script>
+
+
+      
+        <link rel="stylesheet" type="text/css" href="./embed-light.css">
+
+      
+
+      <script type="text/javascript">
+        var height;
+        var force_height = null;
+        var slug = "92rxdg2d";
+        var show_src = "//fiddle.jshell.net/92rxdg2d/show/light/";
+        var resize_element_counter = 0;
+        var shell_edit_url = '/92rxdg2d/light/';
+
+        
+      </script>
+    
+
+    <link href="./css" rel="stylesheet" type="text/css">
+    <!-- <link href="//fonts.googleapis.com/css?family=Lato:400|Inconsolata" rel="stylesheet" type="text/css"> -->
+
+    <style type="text/css" media="screen">
+      
+      
+      
+      
+    </style>
+
+  <style type="text/css">
+:root #share,
+:root .actionItem:nth-of-type(2) > .dropdownTrigger.aiButton,
+:root #collaborate,
+:root #tidy,
+:root #sidebar,
+:root #s-cont,
+:root #keep-us-running,
+:root #content > #right > .dose > .dosesingle,
+:root #content > #center > .dose > .dosesingle,
+:root #header + #content > #left > #rlblock_left
+{ display: none !important; }</style></head>
+  <body>
+    <div id="wrapper">
+      
+        <header>
+          <h1><a href="http://jsfiddle.net/92rxdg2d/?utm_source=website&amp;utm_medium=embed&amp;utm_campaign=92rxdg2d" target="_blank">Edit in JSFiddle</a></h1>
+          <!-- <h1><a href="/92rxdg2d/light/" target="_blank">Edit in JSFiddle</a></h1> -->
+          <div id="actions">
+            <ul class="normalRes">
+              
+                <li class="active">
+                  <a data-trigger-type="js" href="http://jsfiddle.net/92rxdg2d/embedded/#JavaScript">JavaScript</a>
+                </li>
+              
+                <li>
+                  <a data-trigger-type="html" href="http://jsfiddle.net/92rxdg2d/embedded/#HTML">HTML</a>
+                </li>
+              
+                <li>
+                  <a data-trigger-type="css" href="http://jsfiddle.net/92rxdg2d/embedded/#CSS">CSS</a>
+                </li>
+              
+                <li>
+                  <a data-trigger-type="result" href="http://jsfiddle.net/92rxdg2d/embedded/#Result">Result</a>
+                </li>
+              
+            </ul>
+            <div class="hl" style="left: 0px; width: 89.3125px;"></div>
+          </div>
+        </header>
+
+        <div id="tabs">
+          
+            
+              
+                <pre class="tCont  active hljs javascript"><span class="hljs-comment">// Isometric Projection using an Orthographic Camera</span>
+<span class="hljs-comment">// useful:</span>
+<span class="hljs-comment">// cube with gradients http://jsfiddle.net/FtML5/3/</span>
+<span class="hljs-comment">// rotating cube http://jsfiddle.net/b45xk38d/1/</span>
+<span class="hljs-comment">// quad gradient https://jsfiddle.net/eh3k7u93/</span>
+<span class="hljs-comment">// rgb cube definition https://www.researchgate.net/profile/Zaher_Aghbari/publication/223162168/figure/fig5/AS:305176415096858@1449771135873/Fig-6-The-eight-corners-of-RGB-cube.png</span>
+<span class="hljs-comment">// previous complex method</span>
+<span class="hljs-comment">// http://jsfiddle.net/9hhgmpL8/</span>
+<span class="hljs-comment">// simpler method modified from</span>
+<span class="hljs-comment">// https://stemkoski.github.io/Three.js/Vertex-Colors.html</span>
+<span class="hljs-comment">// great examples</span>
+<span class="hljs-comment">// https://stemkoski.github.io/Three.js/</span>
+<span class="hljs-keyword">var</span> cube, pyramid, renderer, scene, camera;
+
+<span class="hljs-keyword">var</span> width = <span class="hljs-number">500</span>;
+<span class="hljs-keyword">var</span> height = <span class="hljs-number">500</span>;
+
+init();
+render();
+animate();
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">init</span>(<span class="hljs-params"></span>) </span>{
+
+	<span class="hljs-comment">// renderer</span>
+	renderer = <span class="hljs-keyword">new</span> THREE.WebGLRenderer({antialias:<span class="hljs-literal">true</span>, alpha: <span class="hljs-literal">true</span>});
+	renderer.setSize(width, height);
+	<span class="hljs-built_in">document</span>.body.appendChild( renderer.domElement );
+
+	<span class="hljs-comment">// scene</span>
+	scene = <span class="hljs-keyword">new</span> THREE.Scene();
+
+  
+	<span class="hljs-comment">// axes</span>
+	scene.add( <span class="hljs-keyword">new</span> THREE.AxisHelper( <span class="hljs-number">20</span> ) );
+
+	<span class="hljs-comment">// camera</span>
+	<span class="hljs-keyword">var</span> aspect = width / height;
+	<span class="hljs-keyword">var</span> d = <span class="hljs-number">15</span>;
+	camera = <span class="hljs-keyword">new</span> THREE.OrthographicCamera( - d * aspect, d * aspect, d, - d, <span class="hljs-number">1</span>, <span class="hljs-number">1000</span> );
+	camera.position.set( d, d, d );
+  camera.lookAt( scene.position );
+	
+  			<span class="hljs-comment">// camera = new THREE.PerspectiveCamera(50, 1, 1, 1000 );</span>
+				<span class="hljs-comment">// camera.position.y = 20;</span>
+				<span class="hljs-comment">// camera.position.z = 20;</span>
+
+  
+  
+  controls = <span class="hljs-keyword">new</span> THREE.OrbitControls( camera );
+	controls.minDistance = <span class="hljs-number">10</span>;
+	controls.maxDistance = <span class="hljs-number">50</span>;
+
+  pyramid = coloredPyramid();
+  pyramid.position.set(<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>);
+	scene.add(pyramid);
+
+  cube = Cube();
+	cube.position.set( <span class="hljs-number">5</span>, <span class="hljs-number">5</span>, <span class="hljs-number">5</span> );
+	scene.add(cube);
+  
+
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Cube</span> (<span class="hljs-params"></span>) </span>{
+
+	<span class="hljs-keyword">var</span> cubeMaterial = <span class="hljs-keyword">new</span> THREE.MeshBasicMaterial({
+  	color: <span class="hljs-number">0xffffff</span>,
+    wireframe: <span class="hljs-literal">true</span>,
+    vertexColors:  THREE.VertexColors
+  });
+	
+	<span class="hljs-keyword">var</span> color, face, numberOfSides, vertexIndex;
+	
+	<span class="hljs-comment">// faces are indexed using characters</span>
+	<span class="hljs-keyword">var</span> faceIndices = [ <span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>, <span class="hljs-string">'d'</span> ];
+
+	<span class="hljs-keyword">var</span> size = <span class="hljs-number">10</span>;
+	<span class="hljs-keyword">var</span> point;
+	<span class="hljs-keyword">var</span> cubeGeometry = <span class="hljs-keyword">new</span> THREE.CubeGeometry( size, size, size, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span> );
+
+	<span class="hljs-keyword">for</span> ( <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; cubeGeometry.faces.length; i++ ) {
+
+		face = cubeGeometry.faces[ i ];
+		<span class="hljs-comment">// determine if current face is a tri or a quad</span>
+		
+    numberOfSides = ( face <span class="hljs-keyword">instanceof</span> THREE.Face3 ) ? <span class="hljs-number">3</span> : <span class="hljs-number">4</span>;
+		<span class="hljs-comment">// assign color to each vertex of current face</span>
+		
+    <span class="hljs-keyword">for</span>( <span class="hljs-keyword">var</span> j = <span class="hljs-number">0</span>; j &lt; numberOfSides; j++ ) {
+
+			vertexIndex = face[ faceIndices[ j ] ];
+			<span class="hljs-comment">// store coordinates of vertex</span>
+			point = cubeGeometry.vertices[ vertexIndex ];
+			<span class="hljs-comment">// initialize color variable</span>
+			color = <span class="hljs-keyword">new</span> THREE.Color( <span class="hljs-number">0xffffff</span> );
+			color.setRGB( <span class="hljs-number">0.5</span> + point.x / size, <span class="hljs-number">0.5</span> + point.y / size, <span class="hljs-number">0.5</span> + point.z / size );
+
+			face.vertexColors[j] = color;
+		}
+	}
+  
+	item = <span class="hljs-keyword">new</span> THREE.Mesh( cubeGeometry, cubeMaterial );
+  <span class="hljs-keyword">return</span> item;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">coloredPyramid</span> (<span class="hljs-params"></span>) </span>{
+
+	<span class="hljs-keyword">var</span> material = <span class="hljs-keyword">new</span> THREE.MeshBasicMaterial({
+  	color: <span class="hljs-number">0xffffff</span>,
+    vertexColors:  THREE.VertexColors
+  });
+	
+	<span class="hljs-keyword">var</span> color, face, numberOfSides, vertexIndex;
+  
+	<span class="hljs-comment">// faces are indexed using characters</span>
+	<span class="hljs-keyword">var</span> faceIndices = [ <span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, <span class="hljs-string">'c'</span>, <span class="hljs-string">'d'</span> ];
+
+	<span class="hljs-keyword">var</span> size = <span class="hljs-number">10</span>;
+	<span class="hljs-keyword">var</span> point;
+	<span class="hljs-keyword">var</span> geometry = Pyramid();
+
+	<span class="hljs-keyword">for</span> ( <span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; geometry.faces.length; i++ ) {
+
+		face = geometry.faces[ i ];
+		<span class="hljs-comment">// determine if current face is a tri or a quad</span>
+				
+    <span class="hljs-keyword">for</span>( <span class="hljs-keyword">var</span> j = <span class="hljs-number">0</span>; j &lt; <span class="hljs-number">3</span>; j++ ) {
+
+			vertexIndex = face[ faceIndices[ j ] ];
+
+		<span class="hljs-comment">// store coordinates of vertex</span>
+			point = geometry.vertices[ vertexIndex ];
+			<span class="hljs-comment">// initialize color variable</span>
+			color = <span class="hljs-keyword">new</span> THREE.Color( <span class="hljs-number">0xffffff</span> );
+			color.setRGB(point.x / size, point.y / size, point.z / size );
+
+			face.vertexColors[j] = color;
+		}
+	}
+
+item = <span class="hljs-keyword">new</span> THREE.Mesh( geometry, material );
+  <span class="hljs-keyword">return</span> item;
+
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">plainPyramid</span> (<span class="hljs-params"></span>) </span>{
+	<span class="hljs-keyword">var</span> geometry = Pyramid();
+	<span class="hljs-keyword">var</span> material = <span class="hljs-keyword">new</span> THREE.MeshBasicMaterial( {color:<span class="hljs-number">0xffffff</span>} );
+	<span class="hljs-keyword">var</span> item = <span class="hljs-keyword">new</span> THREE.Mesh( geometry, material );
+	<span class="hljs-keyword">return</span> item;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Pyramid</span> (<span class="hljs-params"></span>) </span>{
+
+<span class="hljs-keyword">var</span> width, height, legnth;
+
+width = height = length = <span class="hljs-number">10</span>;
+
+<span class="hljs-keyword">var</span> geometry = <span class="hljs-keyword">new</span> THREE.Geometry();
+
+geometry.vertices = [
+    <span class="hljs-keyword">new</span> THREE.Vector3( <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span> ),
+    <span class="hljs-keyword">new</span> THREE.Vector3( <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span> ),
+    <span class="hljs-keyword">new</span> THREE.Vector3( <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span> ),
+    <span class="hljs-keyword">new</span> THREE.Vector3( <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span> ),
+    <span class="hljs-keyword">new</span> THREE.Vector3( <span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span> )
+];
+
+geometry.faces = [
+    <span class="hljs-keyword">new</span> THREE.Face3( <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span> ),
+    <span class="hljs-keyword">new</span> THREE.Face3( <span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span> ),
+    <span class="hljs-keyword">new</span> THREE.Face3( <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">4</span> ),
+    <span class="hljs-keyword">new</span> THREE.Face3( <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">4</span> ),
+    <span class="hljs-keyword">new</span> THREE.Face3( <span class="hljs-number">3</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span> ),
+    <span class="hljs-keyword">new</span> THREE.Face3( <span class="hljs-number">0</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span> )
+];    
+
+<span class="hljs-keyword">var</span> transformation = <span class="hljs-keyword">new</span> THREE.Matrix4().makeScale( width, length, height );
+
+geometry.applyMatrix( transformation );
+	<span class="hljs-keyword">return</span> geometry;
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">render</span>(<span class="hljs-params"></span>) </span>{
+	renderer.render(scene, camera);
+}
+
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">animate</span>(<span class="hljs-params"></span>) </span>{
+	requestAnimationFrame(animate);
+	renderer.render(scene, camera);
+}</pre>
+              
+            
+          
+            
+              
+                <pre class="tCont hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://threejs.org/build/three.min.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">"http://threejs.org/examples/js/controls/OrbitControls.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</pre>
+              
+            
+          
+            
+              
+                <pre class="tCont hljs css"><span class="hljs-selector-tag">body</span> {
+	<span class="hljs-attribute">background-color</span>: <span class="hljs-number">#000</span>;
+	<span class="hljs-attribute">margin</span>: <span class="hljs-number">0px</span>;
+	<span class="hljs-attribute">overflow</span>: hidden;
+}
+</pre>
+              
+            
+          
+            <div class="tCont result" id="result"></div>
+              
+            
+          
+        </div>
+      
+    </div>
+
+    
+      <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  var GA_LOCAL_STORAGE_KEY = 'ga:clientId';
+  if (window.localStorage) {
+    ga('create', 'UA-366077-19', {
+      'storage': 'none',
+      'clientId': localStorage.getItem(GA_LOCAL_STORAGE_KEY)
+    });
+    ga(function(tracker) {
+      localStorage.setItem(GA_LOCAL_STORAGE_KEY, tracker.get('clientId'));
+    });
+    ga('send', 'pageview', '/[fiddle]/embedded/'); // where `url_structure` is for example `/[user]/[fiddle]/[revision]/embedded/js,css/`
+  }
+</script>
+
+      
+    
+
+  
+
+</body></html>

@@ -1,0 +1,259 @@
+@-webkit-keyframes rotate {
+  from {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    transform: rotate(360deg); } }
+
+*, html, body, button, input, textarea, select {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+.CodeMirror * {
+  -moz-osx-font-smoothing: auto; }
+
+a {
+  color: #39464E;
+  text-decoration: none; }
+  a:hover {
+    text-decoration: underline; }
+
+input, textarea, select {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; }
+
+select {
+  cursor: pointer; }
+
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td {
+  margin: 0;
+  padding: 0; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+fieldset, img {
+  border: 0; }
+
+address, caption, cite, code, dfn, em, strong, th, var {
+  font-style: normal;
+  font-weight: normal; }
+
+ol, ul {
+  list-style: none; }
+
+caption, th {
+  text-align: left; }
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 100%;
+  font-weight: normal; }
+
+abbr, acronym {
+  border: 0; }
+
+::-webkit-input-placeholder {
+  color: #abb9c2; }
+
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #abb9c2; }
+
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #abb9c2; }
+
+:-ms-input-placeholder {
+  color: #abb9c2; }
+
+.errorlist {
+  font-size: .85em; }
+  .errorlist li {
+    margin-bottom: 5px;
+    color: #f36e65; }
+
+html {
+  height: 100vh; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  font-size: 14px;
+  color: #39464E; }
+
+a:hover {
+  text-decoration: none; }
+
+#wrapper {
+  position: relative; }
+
+header {
+  height: 50px;
+  box-shadow: 0 0 5px rgba(57, 70, 78, 0.2);
+  position: relative;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0; }
+  header h1 {
+    float: right;
+    height: 50px;
+    margin: 0 0 0 10px; }
+  header h1 a {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    color: #7f94a1;
+    font-size: 12px;
+    padding-right: 45px;
+    margin-right: 10px;
+    background: url(/img/embeddable/logo-dark.png) 100% 50% no-repeat; }
+    @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2 / 1), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+      header h1 a {
+        background: transparent url(/img/embeddable/logo-dark@2x.png) no-repeat 100% 50%;
+        background-size: 37px; } }
+    header h1 a:hover {
+      text-decoration: underline; }
+
+#actions li {
+  float: left; }
+  #actions li a {
+    display: block;
+    padding: 0 10px;
+    line-height: 50px;
+    height: 50px; }
+
+#actions .hl {
+  height: 3px;
+  width: 0;
+  background: #1C90F3;
+  position: absolute;
+  bottom: 0;
+  left: 0; }
+  #actions .hl.animated {
+    -moz-transition: all 0.15s;
+    /* FF3.6+ */
+    -webkit-transition: all 0.15s;
+    /* Chrome, Safari */
+    -o-transition: all 0.15s;
+    /* Opera */
+    -ms-transition: all 0.15s;
+    /* IE 9 */
+    transition: all 0.15s; }
+
+#tabs {
+  margin-top: 50px;
+  overflow: auto;
+  height: calc(100vh - 50px); }
+  #tabs .tCont {
+    padding: 10px;
+    display: none; }
+    #tabs .tCont.active {
+      display: block; }
+  #tabs pre {
+    background: transparent;
+    font-family: "Inconsolata", "Monaco", "Andale Mono", "Lucida Console", "Bitstream Vera Sans Mono", "Courier New", Courier, monospace;
+    line-height: 1.55em;
+    font-size: 14px; }
+  #tabs #result {
+    padding: 0;
+    height: calc(100vh - 50px); }
+    #tabs #result iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+      margin: 0; }
+
+#resources h3 {
+  font-size: 11px;
+  color: #7f94a1;
+  line-height: 23px;
+  text-transform: uppercase;
+  letter-spacing: 1px; }
+
+#resources ul {
+  border-top: solid 1px #cfd6d9; }
+  #resources ul li {
+    border-bottom: solid 1px #cfd6d9;
+    padding: 7px 0; }
+  #resources ul a {
+    color: #1C90F3; }
+
+/*
+
+JSFiddle Light (c) Oskar Krawczyk <oskar@jsfiddle.net>
+
+*/
+.hljs-comment,
+.hljs-quote {
+  color: #abb8c6; }
+
+.hljs-variable,
+.hljs-template-variable,
+.hljs-regexp,
+.hljs-deletion,
+.hljs-keyword,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-tag,
+.hljs-attr {
+  color: #e38800; }
+
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+  color: #8d44eb; }
+
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-selector-tag,
+.hljs-attr {
+  color: #e77600; }
+
+.hljs-attribute {
+  color: #108de8; }
+
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+  color: #2AAB51; }
+
+.hljs-subst,
+.hljs-number {
+  color: #ED6E55; }
+
+.hljs-title,
+.hljs-section,
+.hljs-name {
+  color: #fa3d58; }
+
+.hljs {
+  display: block;
+  overflow-x: auto; }
+
+.hljs-emphasis {
+  font-style: italic; }
+
+.hljs-strong {
+  font-weight: bold; }
+
+header {
+  background-color: #ffffff; }
+
+body {
+  background-color: #f3f5f6; }

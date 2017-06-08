@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://headway-widget.net/widgets/1xGMJQ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <style>
+      *{box-sizing:border-box}*,body,button,input,select,textarea{-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;-moz-osx-font-smoothing:grayscale}body,html{height:100vh}html{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;text-size-adjust:100%}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";font-size:13px;overflow:hidden}body,h2,h3,p{padding:0;margin:0}p{font-size:13px}h2,h3{font-weight:600;font-size:.9rem}.outercont{color:#222c36}.outercont .cont{overflow:hidden;position:relative;height:100vh;width:100vw}.outercont .innercont{-webkit-transform:translate(0);transform:translate(0);overflow:hidden;position:absolute;left:0;-webkit-transition:all .3s;transition:all .3s;will-change:left;width:200vw}.outercont .innercont .logDetails,.outercont .innercont .logListCont{width:100vw;float:left;overflow:hidden}.outercont .innercont .slideCont{padding:16px}.outercont .innercont .slideCont .slideBody .label{margin-bottom:10px}.outercont .innercont .slideCont .slideBody p{margin-bottom:10px;line-height:19px;color:#222c36;clear:both}.outercont .innercont .slideCont .slideBody p a{color:#3778ff}.outercont .innercont .slideCont .slideBody p:last-child{margin-bottom:0}.outercont .innercont .slideCont .slideBody ul{clear:both;padding:0;margin:10px 0 10px 15px;line-height:22px}.outercont .innercont .logDetailsItem{position:relative}.outercont .innercont .logItem{display:block;line-height:19px;padding:7px 16px 7px 12px;color:#666;text-decoration:none;border-left:3px solid #3778ff}.outercont .innercont .logItem.read{border-left:0;padding:7px 15px}.outercont .innercont .logItem:first-child{padding-top:14px}.outercont .innercont .logItem:last-child{padding-bottom:14px}.outercont .innercont .logItem:hover strong{text-decoration:underline}.outercont .innercont strong{color:#222c36;font-weight:600}.outercont .innercont .back{position:absolute;top:0;left:0;display:block;height:46px;width:30px;opacity:.25}.outercont .innercont .back:after,.outercont .innercont .back:before{content:"";height:12px;width:1px;display:block;background:#222c36;position:absolute;left:17px}.outercont .innercont .back:before{-webkit-transform:rotate(45deg);transform:rotate(45deg);top:14px}.outercont .innercont .back:after{-webkit-transform:rotate(-45deg);transform:rotate(-45deg);bottom:12px}.outercont .innercont h3{text-align:center;border-bottom:1px solid #f1f1f1;font-weight:600;font-size:14px;padding:15px 23px;line-height:15px}.outercont .innercont .link{margin:15px 0 5px}.outercont .innercont .link a{color:#3778ff;font-weight:bold;text-decoration:none;display:inline-block}.outercont .innercont .seeMore{background:#fcfcfc;color:#a8a8a8;font-size:12px;text-align:center;border-top:1px solid #f1f1f1;height:35px;line-height:35px;border-radius:0 0 4px 4px}.outercont .innercont .seeMore a{color:#a8a8a8}.outercont .innercont .label{border-radius:10px;color:#fff;font-size:11px;padding:0 6px;height:18px;line-height:18px;margin-right:5px;float:left}.outercont .innercont .label.category_{display:none}.outercont .innercont .label.category_1{background:#3778ff}.outercont .innercont .label.category_2{background:#b26cee}.outercont .innercont .label.category_3{background:#ff4772}.outercont .innercont .label.category_4{background:#17caf0}.outercont .innercont .label.category_5{background:#3aaa55}.outercont .innercont .label.category_6{background:#ffc505}.outercont .innercont .label.category_7{background:#7290df}.outercont .innercont .label.category_8{background:#94cd1b}.outercont .innercont .label.category_9{background:#ba68db}.outercont .innercont .label.category_10{background:#846eff}
+    </style>
+    <script>
+      (function(){var t,e=function(t,e){return function(){return t.apply(e,arguments)}},s=function(t,e){function s(){this.constructor=t}for(var o in e)n.call(e,o)&&(t[o]=e[o]);return s.prototype=e.prototype,t.prototype=new s,t.__super__=e.prototype,t},n={}.hasOwnProperty;t=function(){function t(){this.log=e(this.log,this)}return t.prototype.pushMessage=function(t,e){return null==e&&(e={}),window.parent.postMessage([t,e],"*")},t.prototype.addEvent=function(t,e,s,n){return null==n&&(n=!1),t.addEventListener(e,s,n)},t.prototype.setStyles=function(t,e){var s,n;n=[];for(s in e)n.push(t.style[s]=e[s]);return n},t.prototype.log=function(){if(this.options.debug)return console.log("[Headway Debug]",arguments)},t}(),this.App=function(t){function n(t){this.applyTranslations=e(this.applyTranslations,this),this.moveScreenTo=e(this.moveScreenTo,this),this.replaceBaseUrl=e(this.replaceBaseUrl,this),this.setDetailsHeight=e(this.setDetailsHeight,this),this.setListHeight=e(this.setListHeight,this),this.markItems=e(this.markItems,this),this.logsExpired=e(this.logsExpired,this),this.countUnseenItems=e(this.countUnseenItems,this),this.countItems=e(this.countItems,this),this.storeSeenItems=e(this.storeSeenItems,this),this.getCurrentIds=e(this.getCurrentIds,this),this.setSeenIds=e(this.setSeenIds,this),this.setReadIds=e(this.setReadIds,this),this.setupDefaults=e(this.setupDefaults,this),this.options=t,this.elements={logItems:document.querySelectorAll(".logItem"),backLinks:document.querySelectorAll(".back"),logListCont:document.querySelector(".logListCont"),logDetailsItem:document.querySelectorAll(".logDetailsItem"),innercont:document.querySelector(".innercont"),title:document.querySelector("h3"),readMore:document.querySelector(".link a"),seeMore:document.querySelector(".seeMore a")},this.storageKey,this.currentCount,this.badgeCount,this.storageIds,this.current={data:null},this.setupDefaults(),this.log("App.constructor",this.options,this.elements,this.storageKey,this.currentCount,this.badgeCount,this.storageIds,this.current)}return s(n,t),n.prototype.setupDefaults=function(){var t,e,s,n,o,r,i,a,l;for(a=this.elements.logItems,t=function(t){return function(e,s){return e.addEventListener("click",function(n){if(n.stopPropagation(),n.preventDefault(),t.moveScreenTo(-100),t.setDetailsHeight(s),t.currentCount>=0&&!e.dataset.read&&t.storageIds.read.indexOf(e.dataset.id)<0)return t.currentCount=t.currentCount-1,t.setReadIds(e.dataset.id),t.markItems("read")})}}(this),s=e=0,o=a.length;e<o;s=++e)i=a[s],t(i,s);for(l=this.elements.backLinks,n=0,r=l.length;n<r;n++)i=l[n],i.addEventListener("click",function(t){return function(e){return e.stopPropagation(),e.preventDefault(),t.moveScreenTo(0),t.setListHeight()}}(this));if(this.setListHeight(),this.elements.logItems.length>0)return window.addEventListener("message",function(t){return function(e){var s,n;if(n=e.data[0],s=e.data[1],"opened"===n&&(t.storeSeenItems(),t.pushMessage("setBadge",{counter:0,softHide:!0,options:t.options})),"closed"===n&&(t.moveScreenTo(0),t.setListHeight()),"ready"===n)return t.options.debug=s.options.debug,t.options.baseUrl=s.options.baseUrl,t.current.data=s,t.storageKey=t.current.data.host,t.storageIds=s.storage,t.currentCount=t.countItems("read"),t.badgeCount=t.countUnseenItems(),t.markItems("read"),t.markItems("seen"),t.applyTranslations(),t.elements.seeMore.href=t.options.baseUrl,t.log("App.setupDefaults#ready",e.data),t.pushMessage("widgetReady",{counter:t.badgeCount,softHide:!0,options:t.options})}}(this))},n.prototype.setReadIds=function(t){var e,s;return s="HW_readItems",this.storageIds.read.push(t),e=this.storageIds.read.join(","),this.pushMessage("setStorage",{key:s,ids:e})},n.prototype.getIds=function(t){return this.storageIds[t]},n.prototype.setSeenIds=function(t){var e;return e="HW_seenItems",t=t.join(","),this.pushMessage("setStorage",{key:e,ids:t})},n.prototype.getCurrentIds=function(){var t;return t=Array.prototype.slice.call(this.elements.logItems),t.map(function(t){return t.dataset.id})},n.prototype.storeSeenItems=function(){var t,e,s,n;for(s=Array.prototype.slice.call(this.elements.logItems),this.storageIds.seen=this.storageIds.seen.slice(0,20),t=0,n=s.length;t<n;t++)e=s[t],this.storageIds.seen.indexOf(e.dataset.id)<0&&this.storageIds.seen.push(e.dataset.id);return this.setSeenIds(this.storageIds.seen)},n.prototype.countItems=function(t){var e,s,n,o,r,i,a;if(s=0,this.log("App.countItems("+t+")",this.storageIds),null!=(a=this.storageIds)?a[t]:void 0){for(o=this.storageIds[t],e=this.getCurrentIds(),n=e.map(function(t){return o.indexOf(t)>=0}),r=0,i=n.length;r<i;r++)n[r]||(s+=1);this.log("App.countItems#storageIds["+t+"]",e,n)}return s},n.prototype.countUnseenItems=function(){var t,e,s;return s=this.countItems("seen"),e=this.logsExpired(),t=s,e&&(t=0),t},n.prototype.logsExpired=function(){var t,e,s,n,o,r;return e=this.options.expireAfter||9999,n=this.elements.logItems[0],o=n.dataset.date,s=new Date(o),t=new Date,r=Math.abs(t.getTime()-s.getTime()),Math.floor(r/864e5)>=e},n.prototype.markItems=function(t){var e,s,n,o,r,i;if(n=this.getIds(t),n.length>0){for(i=[],e=0,r=n.length;e<r;e++)s=n[e],s?(o=document.querySelector("*[data-id='"+s+"']"),null!=o&&(o.dataset[t]=!0),i.push(null!=o?o.classList.add(t):void 0)):i.push(void 0);return i}},n.prototype.setListHeight=function(){return this.pushMessage("setHeight",{height:this.elements.logListCont.offsetHeight})},n.prototype.setDetailsHeight=function(t){var e,s,n,o,r,i;for(i=this.elements.logDetailsItem,n=0,r=i.length;n<r;n++)o=i[n],this.setStyles(o,{display:"none"});return s=this.elements.logDetailsItem[t].querySelector("noscript"),s&&(e=s.innerHTML,e=e.replace(/&gt;/g,">").replace(/&lt;/g,"<").replace(/&amp;/g,"&"),s.parentNode.innerHTML=e,this.applyTranslations(),this.addTargetBlank(this.elements.logDetailsItem[t]),this.replaceBaseUrl(this.elements.logDetailsItem[t])),this.setStyles(this.elements.logDetailsItem[t],{display:"block"}),this.pushMessage("setHeight",{height:this.elements.logDetailsItem[t].offsetHeight})},n.prototype.replaceBaseUrl=function(t){var e,s;if(s=t.querySelector(".link a"),this.options.baseUrl&&null!=s)return e=s.dataset.path,s.href=this.options.baseUrl+e},n.prototype.addTargetBlank=function(t){var e,s,n,o,r;for(o=t.querySelectorAll(".slideBody a"),r=[],e=0,s=o.length;e<s;e++)n=o[e],n.target="_blank",r.push(n.rel="noopener noreferrer");return r},n.prototype.moveScreenTo=function(t){return this.setStyles(this.elements.innercont,{left:t+"%"})},n.prototype.applyTranslations=function(){var t,e,s,n,o,r,i,a,l;if(this.current.data.options.translations){if(a=this.current.data.options.translations,null!=a.title&&(this.elements.title.textContent=a.title),null!=a.labels){r=a.labels;for(e in r)for(l=r[e],n=document.querySelectorAll("*[data-label-value='"+e+"']"),t=0,o=n.length;t<o;t++)s=n[t],s.textContent=l}if(null!=a.readMore)return null!=(i=this.elements.readMore)?i.textContent=a.readMore:void 0}},n}(t)}).call(this);
+    </script>
+    <script type="text/javascript">
+      var HW_config =  {"badgeDelay":3,"softHide":true,"eyecatcher":false,"expireAfter":null}
+
+      document.addEventListener("DOMContentLoaded", function(){
+        new App(HW_config);
+      }, false);
+    </script>
+
+      <style>
+        .outercont .innercont .link a {
+          color: #1C90F3;
+        }
+
+        .outercont .innercont .slideCont .slideBody p a {
+          color: #1C90F3;
+        }
+
+        .outercont .innercont .logItem {
+          border-left-color: #1C90F3;
+        }
+      </style>
+  </head>
+  <body>
+    <div class="outercont">
+      <div class="cont">
+        <div class="innercont">
+            <div class="logListCont">
+    <h3>Latest changes</h3>
+    <div class="logList">
+      <a href="http://headway-widget.net/widgets/1xGMJQ#" class="logItem seen" data-id="16265" data-date="2017-02-13 13:08:09 UTC" data-seen="true">
+  <span class="label category_4" data-label-value="update">Update</span>
+  <strong>Updated CoffeeScript.</strong>
+  Just a small bump in CoffeeScript parser, updated to version 1.12.3 - tons has changed and been...
+</a> <!-- /logItem -->
+<a href="http://headway-widget.net/widgets/1xGMJQ#" class="logItem seen" data-id="13381" data-date="2016-12-14 11:24:28 UTC" data-seen="true">
+  <span class="label category_3" data-label-value="fix">Fix</span>
+  <strong>Embed fixes.</strong>
+  We've added a bunch of fixes to the Embed:
+
+🎨 Overriding colors works again.
+
+🐞 There was a...
+</a> <!-- /logItem -->
+<a href="http://headway-widget.net/widgets/1xGMJQ#" class="logItem seen" data-id="9678" data-date="2016-10-06 19:49:23 UTC" data-seen="true">
+  <span class="label category_2" data-label-value="improvement">Improvement</span>
+  <strong>JSX Syntax Highlighting.</strong>
+  Added JSX syntax highlighting when you switch the language of the JavaScript panel to...
+</a> <!-- /logItem -->
+<a href="http://headway-widget.net/widgets/1xGMJQ#" class="logItem seen" data-id="9011" data-date="2016-09-21 15:47:33 UTC" data-seen="true">
+  <span class="label category_3" data-label-value="fix">Fix</span>
+  <strong>JavaScript-based embed.</strong>
+  There was an issue with using the JavaScript-based embed (the default one), where it would throw...
+</a> <!-- /logItem -->
+
+    </div> <!-- /logList -->
+    <div class="seeMore">
+      <a target="_blank" rel="noopener noreferrer" href="http://headway-widget.net/widgets/undefined">JSFiddle changelog</a>
+        powered by <a target="_blank" href="https://headwayapp.co/?utm_medium=widget&amp;utm_source=JSFiddle" rel="noopener noreferrer">Headway</a>
+    </div>
+  </div> <!-- /logListCont -->
+
+  <div class="logDetails">
+    <div class="logDetailsItem">
+  <a href="http://headway-widget.net/widgets/1xGMJQ#back" class="back"></a>
+  <h3>Updated CoffeeScript</h3>
+  <div class="slideCont">
+    <div class="slideBody">
+      <noscript>
+        &lt;span class="label category_4" data-label-value="update"&gt;Update&lt;/span&gt;
+        &lt;p&gt;Just a small bump in CoffeeScript parser, updated to version 1.12.3 - tons has changed and been fixed since 1.10.0. More on &lt;a href="http://coffeescript.org/#changelog" target="_blank" rel="noopener noreferrer"&gt;coffeescript.org&lt;/a&gt;.&lt;/p&gt;
+      </noscript>
+    </div>
+  </div> <!-- /slideCont -->
+</div> <!-- /logDetailsItem -->
+<div class="logDetailsItem">
+  <a href="http://headway-widget.net/widgets/1xGMJQ#back" class="back"></a>
+  <h3>Embed fixes</h3>
+  <div class="slideCont">
+    <div class="slideBody">
+      <noscript>
+        &lt;span class="label category_3" data-label-value="fix"&gt;Fix&lt;/span&gt;
+        &lt;p&gt;We've added a bunch of fixes to the Embed:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;🎨 Overriding colors works again.
+&lt;img src="https://cloud.headwayapp.co/changelogs_images/images/small/000/001/761-a68cad8f71c47fa79b88489e0fe26c1164aa871a.png" width="308" height="150"&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;🐞 There was a problem when the &lt;strong&gt;Results&lt;/strong&gt; tab would not have the correct height if embedded as the first tab in order. This is now working as expected.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+      </noscript>
+    </div>
+      <p class="link"><a target="_blank" href="http://changelog.jsfiddle.net/embed-fixes-13381" data-path="/embed-fixes-13381" rel="noopener noreferrer">Read the whole post</a></p>
+  </div> <!-- /slideCont -->
+</div> <!-- /logDetailsItem -->
+<div class="logDetailsItem">
+  <a href="http://headway-widget.net/widgets/1xGMJQ#back" class="back"></a>
+  <h3>JSX Syntax Highlighting</h3>
+  <div class="slideCont">
+    <div class="slideBody">
+      <noscript>
+        &lt;span class="label category_2" data-label-value="improvement"&gt;Improvement&lt;/span&gt;
+        &lt;p&gt;Added &lt;b&gt;JSX syntax highlighting&lt;/b&gt; when you switch the language of the JavaScript panel to &lt;b&gt;Babel&lt;/b&gt;.&lt;/p&gt;&lt;p&gt;Additionally bumped CodeMirror version from 5.9.0 to 5.19.0 – they sure update it a lot!&lt;/p&gt;
+      </noscript>
+    </div>
+  </div> <!-- /slideCont -->
+</div> <!-- /logDetailsItem -->
+<div class="logDetailsItem">
+  <a href="http://headway-widget.net/widgets/1xGMJQ#back" class="back"></a>
+  <h3>JavaScript-based embed</h3>
+  <div class="slideCont">
+    <div class="slideBody">
+      <noscript>
+        &lt;span class="label category_3" data-label-value="fix"&gt;Fix&lt;/span&gt;
+        &lt;p&gt;There was an issue with using the JavaScript-based embed (the default one), where it would throw an error when no-protocol was defined as the URL.&lt;/p&gt;&lt;p&gt;Sorry for the trouble.&lt;/p&gt;
+      </noscript>
+    </div>
+  </div> <!-- /slideCont -->
+</div> <!-- /logDetailsItem -->
+
+  </div> <!-- /logDetails -->
+
+        </div> <!-- /innercont -->
+      </div> <!-- /cont -->
+    </div> <!-- /outercont -->
+  
+
+</body></html>

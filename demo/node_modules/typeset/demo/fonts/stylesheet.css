@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Charter SC';
+    src: url('fonts/charter_small_cap_bt-webfont-webfont.eot');
+    src: url('fonts/charter_small_cap_bt-webfont-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/charter_small_cap_bt-webfont-webfont.woff2') format('woff2'),
+         url('fonts/charter_small_cap_bt-webfont-webfont.woff') format('woff'),
+         url('fonts/charter_small_cap_bt-webfont-webfont.ttf') format('truetype'),
+         url('fonts/charter_small_cap_bt-webfont-webfont.svg#webfontregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Charter SC';
+    src: url('fonts/charteritc-boldsc-webfont.eot');
+    src: url('fonts/charteritc-boldsc-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/charteritc-boldsc-webfont.woff2') format('woff2'),
+         url('fonts/charteritc-boldsc-webfont.woff') format('woff'),
+         url('fonts/charteritc-boldsc-webfont.ttf') format('truetype'),
+         url('fonts/charteritc-boldsc-webfont.svg#charter_itc_scbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}

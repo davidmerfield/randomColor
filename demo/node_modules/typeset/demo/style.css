@@ -1,0 +1,225 @@
+@import url(https://fonts.googleapis.com/css?family=Fira+Mono:400);
+
+@font-face {
+    font-family: 'Charter';
+    src: url('fonts/charter_bold_italic-webfont.eot');
+    src: url('fonts/charter_bold_italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/charter_bold_italic-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Charter';
+    src: url('fonts/charter_bold-webfont.eot');
+    src: url('fonts/charter_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/charter_bold-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Charter';
+    src: url('fonts/charter_italic-webfont.eot');
+    src: url('fonts/charter_italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/charter_italic-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Charter';
+    src: url('fonts/charter_regular-webfont.eot');
+    src: url('fonts/charter_regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/charter_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Charter SC';
+    src: url('fonts/charter_small_cap_bt-webfont-webfont.eot');
+    src: url('fonts/charter_small_cap_bt-webfont-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/charter_small_cap_bt-webfont-webfont.woff2') format('woff2'),
+         url('fonts/charter_small_cap_bt-webfont-webfont.woff') format('woff'),
+         url('fonts/charter_small_cap_bt-webfont-webfont.ttf') format('truetype'),
+         url('fonts/charter_small_cap_bt-webfont-webfont.svg#webfontregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Charter SC';
+    src: url('fonts/charteritc-boldsc-webfont.eot');
+    src: url('fonts/charteritc-boldsc-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/charteritc-boldsc-webfont.woff2') format('woff2'),
+         url('fonts/charteritc-boldsc-webfont.woff') format('woff'),
+         url('fonts/charteritc-boldsc-webfont.ttf') format('truetype'),
+         url('fonts/charteritc-boldsc-webfont.svg#charter_itc_scbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+}
+
+body {
+  text-rendering: optimizeLegibility;
+    font-family: 'Charter', Times, Georgia, serif;
+    font-variant-ligatures: common-ligatures;
+    font-feature-settings: "liga", "clig";
+    -moz-font-feature-settings: "liga", "clig";
+    -ms-font-feature-settings: "liga", "clig";
+    -webkit-font-feature-settings: "liga", "clig";
+}
+.handle {
+  font-size: 11px;
+  text-transform: uppercase;
+  position: absolute;
+  right: -8.7em;
+  top: -3.29em;
+  text-align: center;
+  background: #fff;
+  font-family: 'Fira Mono', sans-serif;
+  text-decoration: none;
+  font-weight: 400;
+  color: #d0d0d0;
+  text-indent: -0.2em;
+  line-height: 2.5em;
+  padding: 0.2em 0.66em 0 0;
+}
+
+
+
+pre {
+  font-family: 'Fira Mono', monospace;
+    line-height: 170%;
+}
+
+.button {
+  position: absolute;
+  right: 0;
+  float: right;
+  z-index: 10;
+  font-size: 1em;
+  margin: 0.5em 0 0;
+  float: right;
+  background: #F94141;
+  border-radius: 100%;
+  color: white;
+  text-decoration: none;
+  width: 6.9em;
+  height: 6.9em;
+  text-align: center;
+}
+
+.button .center {
+  margin-top: 2em;
+  display: block;
+}
+
+.button big {font-size: 1.25em;margin-top: -0.15em;display: block;}
+
+ul, li {margin:0;padding:0}
+
+li {list-style-type: none;display: block;width:40%;float:left;margin-right: 1em;margin-bottom: 0.33em}
+
+html, body {margin: 0;padding: 0;min-width:320px}
+
+
+.clear{clear:both;width:100%;display: block}
+.left {
+  top: 0;
+  left: 0;
+  padding: 1.5em 2em 0;
+  box-sizing: border-box;
+}
+.demo {
+  box-sizing: border-box;
+  font-size:22px;
+  line-height: 130%;
+  position: relative;
+}
+
+.container {
+  max-width:600px;padding: 1em 0 2.33em;margin: 0 auto;  position: relative;
+  overflow: visible;
+}
+
+h1, h2, h3, h4, h5, h6, b {font-weight: 400}
+
+h2 {font-size: 22px;margin-bottom: 1.15em;}
+
+h3 {border-bottom: 1px solid #ddd;margin-top: 2em;}
+
+.nav {
+  padding-top: 2em;
+  display:block!important;
+  width: 100%;
+border-bottom: 1px solid #eee;
+}
+
+.demo {color: #000;}
+.nav a {
+  color: #A0501B;
+  margin-bottom: -1px;
+  border-bottom: 1px solid transparent;
+  text-decoration: none;margin-right: 0.66em;
+  line-height: 1.5em;
+  font-size: 1.33em;
+    display: inline-block;}
+
+.nav a.is-selected {border-bottom: 1px solid #A0501B}
+
+a.logo {
+  font: 400 1em / 150% 'Helvetica Neue',Helvetica,Arial,Sans-serif;
+  border-bottom: none;
+  text-decoration: none;
+  color: #F03C3C;
+  font-size: 1.2em;
+  margin: 0.66em 0 0;
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+}
+
+.small-caps {
+  font-size: 1.025em;
+  line-height: 0em;
+  display: inline;
+  text-transform: lowercase;
+}
+
+a.logo:before {
+  content: "";
+  background:url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxNi4wLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+DQo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4Ig0KCSB3aWR0aD0iMTAwcHgiIGhlaWdodD0iOTEuNDZweCIgdmlld0JveD0iMCAwIDEwMCA5MS40NiIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTAwIDkxLjQ2IiB4bWw6c3BhY2U9InByZXNlcnZlIj4NCjxwYXRoIGZpbGw9IiNGOTQxNDEiIGQ9Ik00OS45OTksOTEuNDZjMy45NDQtMy45NDMsMjYuNDU4LTI2LjQ3MSw0MC41MzMtNDAuNTQzYzEyLjYxLTEyLjYxMSwxMi4zNDEtMzAuOTk0LDAuODc2LTQyLjM5Ng0KCUM3OS45NDMtMi44ODQsNjEuNDA0LTIuODM0LDQ5Ljk5OSw4LjYzMkMzOC41OTUtMi44MzQsMjAuMDU2LTIuODg0LDguNTkxLDguNTIyQy0yLjg3NCwxOS45MjUtMy4xNDIsMzguMzA2LDkuNDY3LDUwLjkxNw0KCUMyMy41NDEsNjQuOTksNDYuMDU4LDg3LjUxNyw0OS45OTksOTEuNDZ6Ii8+DQo8L3N2Zz4NCg==) center center/.7em no-repeat;
+  height: 1em;
+  width: 1em;
+  display: inline-block;
+  margin-left: -1.1em;
+  position: relative;
+  top: .1em;
+  margin-right: .1em;
+}
+
+
+blockquote {
+  border-top:3px solid #000;
+  padding-top: 0.4em;
+  font-family: 'Fira Sans', sans-serif;
+  font-weight: 700;
+  font-size:1.25em;
+  line-height:117%;
+  float:left;
+  width:7em;
+  margin:0.3em 1em 0em -1.33em;
+}
+
+@media only screen and (max-width: 500px) {
+  .left{padding: 0 1.5em}
+  h1 {font-size: 1.6em}
+  h2 {font-size: 1.15em}
+  .demo {font-size: 1em}
+  li {width: 100%}
+}
+
+
+@media only screen and (max-width: 430px) {
+  .button {margin-right: -1em;margin-top: 1em}
+}

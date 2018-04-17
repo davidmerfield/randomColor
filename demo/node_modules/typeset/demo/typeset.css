@@ -1,0 +1,21 @@
+/* Small caps */
+.small-caps {font-family: 'Charter SC', serif}
+
+/* Double quote (") marks */
+.pull-double{margin-left:-.38em}
+.push-double{margin-right:.38em}
+
+/* Single quote (') marks */
+.pull-single{margin-left:-.15em}
+.push-single{margin-right:.15em}
+
+/* Optical margin alignment for particular letters */
+.pull-T, .pull-V, .pull-W, .pull-Y {margin-left: -0.07em}
+.push-T, .push-V, .push-W, .push-Y {margin-right: 0.07em}
+
+.pull-O, .pull-C, .pull-o, .pull-c {margin-left: -0.04em}
+.push-O, .push-C, .push-o, .push-c {margin-right: 0.04em}
+
+.pull-A {margin-left: -0.03em}
+.push-A {margin-right: 0.03em}
+

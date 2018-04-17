@@ -1,0 +1,34 @@
+{
+    "name" : "highlight-cli",
+    "description" : "cli for the highlight module",
+    "version" : "1.1.0",
+    "author" : "AJ ONeal",
+    "homepage": "https://github.com/andris9/highlight",
+    "maintainers":[
+        {
+            "name":"andris",
+            "email":"andris@node.ee"
+        }
+    ],
+    "engines": {
+      "node": "*"
+    },
+    "repository" : {
+        "type" : "git",
+        "url" : "http://github.com/andris9/highlight.git"
+    },
+    "bin": {
+      "highlight": "./highlight-cli.js"
+    },
+    "main": "./highlight-cli",
+    "dependencies": {
+      "highlight": "*"
+    },
+    "licenses" : [
+        {
+            "type": "BSD",
+            "url": "http://github.com/andris9/highlight/blob/master/LICENSE"
+        }
+    ],
+    "preferGlobal": true
+}

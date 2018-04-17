@@ -1,0 +1,7 @@
+examples/
+Makefile
+lib/jquery.hypher.js
+lib/patterns.browser.pre.js
+lib/patterns.browser.post.js
+lib/hypher.browser.pre.js
+lib/hypher.browser.post.js

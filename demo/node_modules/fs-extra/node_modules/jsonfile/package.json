@@ -1,0 +1,77 @@
+{
+  "name": "jsonfile",
+  "version": "4.0.0",
+  "description": "Easily read/write JSON files.",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/jprichardson/node-jsonfile.git"
+  },
+  "keywords": [
+    "read",
+    "write",
+    "file",
+    "json",
+    "fs",
+    "fs-extra"
+  ],
+  "author": {
+    "name": "JP Richardson",
+    "email": "jprichardson@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "graceful-fs": "^4.1.6"
+  },
+  "optionalDependencies": {
+    "graceful-fs": "^4.1.6"
+  },
+  "devDependencies": {
+    "mocha": "2.x",
+    "rimraf": "^2.4.0",
+    "standard": "^10.0.3"
+  },
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "lint": "standard",
+    "test": "npm run lint && npm run unit",
+    "unit": "mocha"
+  },
+  "gitHead": "840bcc77f4e0bfcdf44c32895af42de97e80e3a8",
+  "bugs": {
+    "url": "https://github.com/jprichardson/node-jsonfile/issues"
+  },
+  "homepage": "https://github.com/jprichardson/node-jsonfile#readme",
+  "_id": "jsonfile@4.0.0",
+  "_shasum": "8771aae0799b64076b76640fca058f9c10e33ecb",
+  "_from": "jsonfile@>=4.0.0 <5.0.0",
+  "_npmVersion": "3.10.3",
+  "_nodeVersion": "6.5.0",
+  "_npmUser": {
+    "name": "ryanzim",
+    "email": "opensrc@ryanzim.com"
+  },
+  "dist": {
+    "shasum": "8771aae0799b64076b76640fca058f9c10e33ecb",
+    "tarball": "https://registry.npmjs.org/jsonfile/-/jsonfile-4.0.0.tgz"
+  },
+  "maintainers": [
+    {
+      "name": "jprichardson",
+      "email": "jprichardson@gmail.com"
+    },
+    {
+      "name": "ryanzim",
+      "email": "opensrc@ryanzim.com"
+    }
+  ],
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/jsonfile-4.0.0.tgz_1505244118025_0.7907822937704623"
+  },
+  "directories": {},
+  "_resolved": "https://registry.npmjs.org/jsonfile/-/jsonfile-4.0.0.tgz",
+  "readme": "ERROR: No README data found!"
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">    <title>Typeset.js – an HTML pre-processor for web typography</title>
+    <link rel="icon" type="image/png" href="https://s3-us-west-1.amazonaws.com/blot-dump/typeset/favicon.png">
+    <link rel="stylesheet" href="./demo/style.css">
+    <link rel="stylesheet" href="https://s3-us-west-1.amazonaws.com/blot-dump/typeset/typeset.css">
+  </head>
+  <body>
+<div class="left">
+
+
+  <div class="container">
+
+    <a class="logo" href="https://blot.im">Blot</a>
+    <h1>Typeset<span></span>.js</h1>
+    <h2 style="max-width:80%">A typographic pre-processor for your HTML which uses <em>zero</em> client-side JavaScript and gives you:</h2>
+
+    <a class="button" href="https://github.com/davidmerfield/typeset">
+        <span class="center">Get the code<Br /> on GitHub <br /> <big>→</big></span>
+    </a>
+
+    <ul>
+        <li>Real hanging punctuation</li>
+        <li>Soft hyphen insertion</li>
+        <li>Optical margin outdents</li>
+        <li>Small-caps conversion</li>
+        <li>Punctuation substitution</li>
+        <li>Space substitution</li>
+    </ul>
+    <div class="clear"></div>
+
+    <div class="small-caps nav tabs" data-directive="tabs">
+        <a href="#panel-1" data-behaviour="tab">After Typeset.js</a>
+        <a href="#panel-2" data-behaviour="tab">Before</a>
+    </div>
+    <div class="demo">
+
+
+        <div id="panel-1">
+            <p>Yjarni Sigurðardóttir spoke to NATO from Iceland yesterday: "Light of my life, fire of my florins -- my sin, my soul. The tip of the tongue taking a trip to 118° 19' 43.5"."</p>
+
+            <p>"She's faster than a 120' 4" whale." <em>Piña co­ladas</em> were widely consumed in Götterdämmerung from 1880–1912. For the low price of $20 / year from Ex­hi­bits A–E... Then the <em>duplex</em> came forward. "Thrice the tower, he mounted the round gunrest, 'awaking' HTML. He can print a fixed num­ber of dots in a square inch (for in­stance, 600 × 600)."
+            </p>
+
+        </div>
+        <p>
+    </p>
+        <div id="panel-2" class="ts-ignore"></div>
+    </div>
+
+
+    <h3>How to get it</h3>
+    <pre>npm install typeset</pre>
+    <p>The code is also available <a href="https://github.com/davidmerfield/typeset">on Github</a>.</p>
+
+    <h3>How to use it</h3>
+<pre>
+var typeset = require('typeset');
+var html = '&lt;p&gt;&quot;Hello,&quot; said the fox.&lt;/p&gt;';
+var output = typeset(html);</pre>
+
+    <p>Modify <a href="https://s3-us-west-1.amazonaws.com/blot-dump/typeset/typeset.css">typeset.css</a> (&lt;1kb) to match the metrics of your font and include it on your page. Learn more about the options <a href="https://github.com/davidmerfield/typeset">on Github</a>.</p>
+
+    <h3>Found a bug?</h3>
+    <p>Please file an issue <a href="https://github.com/davidmerfield/typeset">on Github</a>. Feel free to <a href="https://blot.im/contact">contact me</a> with any questions.</p>
+
+    <h3>About</h3>
+    <p>This project started as a collection of libraries used by <a href="https://blot.im">Blot</a> for typesetting blog posts. This would not be possible without the work of <a href="https://github.com/bramstein">Bram Stein</a> and <a href="http://leancrew.com/all-this/2010/11/smart-quotes-in-javascript/">Dr. Drang</a>. This page is set in <a href="https://en.wikipedia.org/wiki/Bitstream_Charter">Charter</a> by Matthew Carter and <a href="https://en.wikipedia.org/wiki/Fira_Sans">Fira Mono</a> by Erik Spiekermann.</p>
+   </div>
+
+</div>
+        <script type="text/javascript" src="https://s3-us-west-1.amazonaws.com/blot-dump/typeset/tabs.js"></script>
+        <script src="https://s3-us-west-1.amazonaws.com/blot-dump/typeset/analytics.js"></script>
+        </body>
+    </html>

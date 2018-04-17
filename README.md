@@ -1,8 +1,8 @@
-# [Random Color](http://llllll.li/randomColor)
+# [Random Color](https://randomcolor.lllllllllllllllll.com)
 
-A tiny script for generating attractive random colors. See the demo for [an explanation](http://llllll.li/randomColor/) and [some samples](http://llllll.li/randomColor/). randomColor has been ported to [C#](https://github.com/nathanpjones/randomColorSharped), [C++](https://github.com/xuboying/randomcolor-cpp), [Go](https://github.com/hansrodtang/randomcolor), [PHP](https://github.com/mistic100/RandomColor.php), [Python](https://github.com/kevinwuhoo/randomcolor-py), [Swift](https://github.com/onevcat/RandomColorSwift), [Objective-C](https://github.com/yageek/randomColor), [Java](https://github.com/lzyzsd/AndroidRandomColor), [R](https://github.com/ronammar/randomcoloR) and [Rust](https://github.com/elementh/random_color).
+A tiny script for generating attractive random colors. See the demo for [an explanation](https://randomcolor.lllllllllllllllll.com) and [some samples](https://randomcolor.lllllllllllllllll.com). randomColor has been ported to [C#](https://github.com/nathanpjones/randomColorSharped), [C++](https://github.com/xuboying/randomcolor-cpp), [Go](https://github.com/hansrodtang/randomcolor), [PHP](https://github.com/mistic100/RandomColor.php), [Python](https://github.com/kevinwuhoo/randomcolor-py), [Swift](https://github.com/onevcat/RandomColorSwift), [Objective-C](https://github.com/yageek/randomColor), [Java](https://github.com/lzyzsd/AndroidRandomColor), [R](https://github.com/ronammar/randomcoloR) and [Rust](https://github.com/elementh/random_color).
 
-[![Demo](http://i.imgur.com/lOLCqvu.gif)](http://llllll.li/randomColor)
+[![Demo](http://i.imgur.com/lOLCqvu.gif)](https://randomcolor.lllllllllllllllll.com)
 
 To use randomColor **in the browser**, download the [latest minified version of randomColor](http://cdnjs.com/libraries/randomcolor) and include it on your page. Then call the script:
 
@@ -114,4 +114,4 @@ https://www.vis4.net/blog/posts/mastering-multi-hued-color-scales/
 * [Initial.js](https://github.com/judesfernando/initial.js) used it to generate Gmail-style avatars.
 * [ng2-Logger](https://github.com/darekf77/ng2-logger) used it to make logs a little more colorful.
 
-Did you use randomColor.js for something? [Tell me about it](https://twitter.com/lllIIlIlIl).
+Did you use randomColor.js for something? [Tell me about it](https://lllllllllllllllll.com).

@@ -10,9 +10,10 @@
   "keywords": ["attractive", "random", "color", "generator"],
   "author": "David Merfield",
   "license": "CC0",
-  "bugs": {"url": "https://github.com/davidmerfield/randomColor/issues"},
+  "bugs": { "url": "https://github.com/davidmerfield/randomColor/issues" },
   "homepage": "https://randomcolor.llllll.li/",
-  "spm": {"main": "randomColor.js"},
+  "spm": { "main": "randomColor.js" },
+  "typings": "randomColor.d.ts",
   "devDependencies": {
     "cheerio": "^0.19.0",
     "highlight": "^0.2.3",

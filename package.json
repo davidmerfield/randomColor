@@ -2,7 +2,9 @@
   "name": "randomcolor",
   "version": "0.5.3",
   "description": "A tiny script for generating attractive random colors",
-  "main": "randomColor.js",
+  "main": "randomcolor.umd.js",
+  "module": "randomColor.js",
+  "jsnext:main": "randomColor.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/davidmerfield/randomColor.git"
@@ -20,8 +22,12 @@
   },
   "homepage": "https://randomcolor.llllll.li/",
   "spm": {
-    "main": "randomColor.js"
+    "main": "randomcolor.umd.js"
   },
-  "devDependencies": {},
-  "dependencies": {}
+  "devDependencies": {
+    "rollup": "^0.59.2"
+  },
+  "scripts": {
+    "prepare": "rollup randomColor.js -f umd -n randomColor -o randomcolor.umd.js"
+  }
 }

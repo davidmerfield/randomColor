@@ -69,12 +69,13 @@
 
       while (totalColors > colors.length) {
 
-        // Since we're generating multiple colors,
-        // incremement the seed. Otherwise we'd just
-        // generate the same color each time...
-        if (seed && options.seed) options.seed += 1;
+        var color = randomColor(options);
 
-        colors.push(randomColor(options));
+        if (seed !== null) {
+          options.seed = seed;
+        }
+
+        colors.push(color);
       }
 
       options.count = totalColors;

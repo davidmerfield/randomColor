@@ -1,6 +1,6 @@
 {
   "name": "randomcolor",
-  "version": "0.5.3",
+  "version": "0.5.4",
   "description": "A tiny script for generating attractive random colors",
   "main": "randomColor.js",
   "repository": {

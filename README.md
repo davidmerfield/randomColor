@@ -113,5 +113,6 @@ https://www.vis4.net/blog/posts/mastering-multi-hued-color-scales/
 * [The Daily Show](http://maketrumptweetseightagain.com/) used it to make an extension which [converts Trump's tweets into a child's scribble](https://twitter.com/riseuphes/status/929579600354693120).
 * [Initial.js](https://github.com/judesfernando/initial.js) used it to generate Gmail-style avatars.
 * [ng2-Logger](https://github.com/darekf77/ng2-logger) used it to make logs a little more colorful.
+* [vue-randomcolor](https://github.com/alebeck/vue-randomcolor) adds attractive random colors to Vue.js.
 
 Did you use randomColor.js for something? [Tell me about it](https://lllllllllllllllll.com).

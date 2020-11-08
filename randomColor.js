@@ -18,7 +18,7 @@ export default function randomColor (options) {
   options = options || {};
 
   // If reset flag is true, set colorRanges to [].
-  if (options.reset !== undefined && options.reset !== null && options.reset) {
+  if (options.reset !== undefined && options.reset !== null && options.reset === true) {
     colorRanges = [];
   }
 

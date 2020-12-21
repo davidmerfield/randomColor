@@ -140,8 +140,29 @@ function pickHue(options) {
 }
 
 function pickSaturation(hue, options) {
+  if (typeof options.luminosity === "object") {
+    // console.log(options.lRange);
+    if (options.sRange === undefined) {
+      cOptions = { ...options };
+      cOptions.luminosity = options.luminosity[0];
+      s1 = pickSaturation(hue, cOptions);
+      cOptions.luminosity = options.luminosity[1];
+      s2 = pickSaturation(hue, cOptions);
+      options.sRange = [s1, s2];
+      // console.log(options.lRange);
+    }
+    var sRange = options.sRange;
+
+    // console.log(lRange);
+    let s =
+      sRange[0] + colorIndex * ((sRange[1] - sRange[0]) / options.totalColors);
+    if (typeof options.hue !== "object") {
+      colorIndex += 1;
+    }
+    return s;
+  }
+
   if (typeof options.hue === "object") {
-    console.log(options.S);
     if (options.S === undefined) {
       cOptions = { ...options };
       cOptions.hue = "";
@@ -181,11 +202,15 @@ function pickSaturation(hue, options) {
 }
 
 function pickBrightness(H, S, options) {
-  if (typeof options.hue === "object") {
+  if (
+    typeof options.hue === "object" ||
+    typeof options.luminosity === "object"
+  ) {
     console.log(options.B);
     if (options.B === undefined) {
       cOptions = { ...options };
       cOptions.hue = "";
+      cOptions.luminosity = "light";
       options.B = pickBrightness(H, S, cOptions);
     }
     return options.B;

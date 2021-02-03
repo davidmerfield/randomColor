@@ -114,5 +114,6 @@ https://www.vis4.net/blog/posts/mastering-multi-hued-color-scales/
 * [Initial.js](https://github.com/judesfernando/initial.js) used it to generate Gmail-style avatars.
 * [ng2-Logger](https://github.com/darekf77/ng2-logger) used it to make logs a little more colorful.
 * [vue-randomcolor](https://github.com/alebeck/vue-randomcolor) adds attractive random colors to Vue.js.
+* [sudoku-solver.ch](https://www.sudoku-solver.ch/) uses it for coloring the puzzle's numbers
 
 Did you use randomColor.js for something? [Tell me about it](https://lllllllllllllllll.com).

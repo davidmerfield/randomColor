@@ -115,5 +115,6 @@ https://www.vis4.net/blog/posts/mastering-multi-hued-color-scales/
 * [ng2-Logger](https://github.com/darekf77/ng2-logger) used it to make logs a little more colorful.
 * [vue-randomcolor](https://github.com/alebeck/vue-randomcolor) adds attractive random colors to Vue.js.
 * [sudoku-solver.ch](https://www.sudoku-solver.ch/) uses it for coloring constraints on the puzzle
+* [farbvelo.elastiq.ch](https://farbvelo.elastiq.ch/) uses it to generate color harmonies.
 
 Did you use randomColor.js for something? [Tell me about it](https://lllllllllllllllll.com).

@@ -13,7 +13,7 @@ loadColorBounds();
 // check if a range is taken
 var colorRanges = [];
 
-export default function randomColor(options) {
+export default function randomColor (options) {
 
   options = options || {};
 
@@ -22,30 +22,30 @@ export default function randomColor(options) {
   if (options.seed !== undefined && options.seed !== null && options.seed === parseInt(options.seed, 10)) {
     seed = options.seed;
 
-    // A string was passed as a seed
+  // A string was passed as a seed
   } else if (typeof options.seed === 'string') {
     seed = stringToInteger(options.seed);
 
-    // Something was passed as a seed but it wasn't an integer or string
+  // Something was passed as a seed but it wasn't an integer or string
   } else if (options.seed !== undefined && options.seed !== null) {
     throw new TypeError('The seed value must be an integer or string');
 
-    // No seed, reset the value outside.
+  // No seed, reset the value outside.
   } else {
     seed = null;
   }
 
-  var H, S, B;
+  var H,S,B;
 
   // Check if we need to generate multiple colors
   if (options.count !== null && options.count !== undefined) {
 
     var totalColors = options.count,
-      colors = [];
+        colors = [];
     // Value false at index i means the range i is not taken yet.
     for (var i = 0; i < options.count; i++) {
       colorRanges.push(false)
-    }
+      }
     options.count = null;
 
     while (totalColors > colors.length) {
@@ -74,7 +74,7 @@ export default function randomColor(options) {
   B = pickBrightness(H, S, options);
 
   // Then we return the HSB color in the desired format
-  return setFormat([H, S, B], options);
+  return setFormat([H,S,B], options);
 };
 
 function pickHue(options) {
@@ -94,16 +94,16 @@ function pickHue(options) {
     }
     else {
       colorRanges[j] = true
-    }
+         }
 
     var min = (hueRange[0] + j * step) % 359,
-      max = (hueRange[0] + (j + 1) * step) % 359;
+        max = (hueRange[0] + (j + 1) * step) % 359;
 
     hueRange = [min, max]
 
     hue = randomWithin(hueRange)
 
-    if (hue < 0) { hue = 360 + hue; }
+    if (hue < 0) {hue = 360 + hue;}
     return hue
   }
   else {
@@ -120,20 +120,20 @@ function pickHue(options) {
   }
 }
 
-function pickSaturation(hue, options) {
+function pickSaturation (hue, options) {
 
   if (options.hue === 'monochrome') {
     return 0;
   }
 
   if (options.luminosity === 'random') {
-    return randomWithin([0, 100]);
+    return randomWithin([0,100]);
   }
 
   var saturationRange = getSaturationRange(hue);
 
   var sMin = saturationRange[0],
-    sMax = saturationRange[1];
+      sMax = saturationRange[1];
 
   switch (options.luminosity) {
 
@@ -148,16 +148,16 @@ function pickSaturation(hue, options) {
     case 'light':
       sMax = 55;
       break;
-  }
+ }
 
   return randomWithin([sMin, sMax]);
 
 }
 
-function pickBrightness(H, S, options) {
+function pickBrightness (H, S, options) {
 
   var bMin = getMinimumBrightness(H, S),
-    bMax = 100;
+      bMax = 100;
 
   switch (options.luminosity) {
 
@@ -166,7 +166,7 @@ function pickBrightness(H, S, options) {
       break;
 
     case 'light':
-      bMin = (bMax + bMin) / 2;
+      bMin = (bMax + bMin)/2;
       break;
 
     case 'random':
@@ -178,7 +178,7 @@ function pickBrightness(H, S, options) {
   return randomWithin([bMin, bMax]);
 }
 
-function setFormat(hsv, options) {
+function setFormat (hsv, options) {
 
   switch (options.format) {
 
@@ -190,12 +190,12 @@ function setFormat(hsv, options) {
 
     case 'hsl':
       var hsl = HSVtoHSL(hsv);
-      return 'hsl(' + hsl[0] + ', ' + hsl[1] + '%, ' + hsl[2] + '%)';
+      return 'hsl('+hsl[0]+', '+hsl[1]+'%, '+hsl[2]+'%)';
 
     case 'hsla':
       var hslColor = HSVtoHSL(hsv);
       var alpha = options.alpha || Math.random();
-      return 'hsla(' + hslColor[0] + ', ' + hslColor[1] + '%, ' + hslColor[2] + '%, ' + alpha + ')';
+      return 'hsla('+hslColor[0]+', '+hslColor[1]+'%, '+hslColor[2]+'%, ' + alpha + ')';
 
     case 'rgbArray':
       return HSVtoRGB(hsv);
@@ -222,17 +222,17 @@ function getMinimumBrightness(H, S) {
   for (var i = 0; i < lowerBounds.length - 1; i++) {
 
     var s1 = lowerBounds[i][0],
-      v1 = lowerBounds[i][1];
+        v1 = lowerBounds[i][1];
 
-    var s2 = lowerBounds[i + 1][0],
-      v2 = lowerBounds[i + 1][1];
+    var s2 = lowerBounds[i+1][0],
+        v2 = lowerBounds[i+1][1];
 
     if (S >= s1 && S <= s2) {
 
-      var m = (v2 - v1) / (s2 - s1),
-        b = v1 - m * s1;
+       var m = (v2 - v1)/(s2 - s1),
+           b = v1 - m*s1;
 
-      return m * S + b;
+       return m*S + b;
     }
 
   }
@@ -240,7 +240,7 @@ function getMinimumBrightness(H, S) {
   return 0;
 }
 
-function getHueRange(colorInput) {
+function getHueRange (colorInput) {
 
   if (typeof parseInt(colorInput) === 'number') {
 
@@ -256,46 +256,46 @@ function getHueRange(colorInput) {
 
     if (colorDictionary[colorInput]) {
       var color = colorDictionary[colorInput];
-      if (color.hueRange) { return color.hueRange; }
+      if (color.hueRange) {return color.hueRange;}
     } else if (colorInput.match(/^#?([0-9A-F]{3}|[0-9A-F]{6})$/i)) {
       var hue = HexToHSB(colorInput)[0];
-      return [hue, hue];
+      return [ hue, hue ];
     }
   }
 
-  return [0, 360];
+  return [0,360];
 
 }
 
-function getSaturationRange(hue) {
+function getSaturationRange (hue) {
   return getColorInfo(hue).saturationRange;
 }
 
-function getColorInfo(hue) {
+function getColorInfo (hue) {
 
   // Maps red colors to make picking hue easier
   if (hue >= 334 && hue <= 360) {
-    hue -= 360;
+    hue-= 360;
   }
 
   for (var colorName in colorDictionary) {
-    var color = colorDictionary[colorName];
-    if (color.hueRange &&
-      hue >= color.hueRange[0] &&
-      hue <= color.hueRange[1]) {
-      return colorDictionary[colorName];
-    }
+     var color = colorDictionary[colorName];
+     if (color.hueRange &&
+         hue >= color.hueRange[0] &&
+         hue <= color.hueRange[1]) {
+        return colorDictionary[colorName];
+     }
   } return 'Color not found';
 }
 
-function randomWithin(range) {
+function randomWithin (range) {
   if (seed === null) {
     //generate random evenly destinct number from : https://martin.ankerl.com/2009/12/09/how-to-create-random-colors-programmatically/
     var golden_ratio = 0.618033988749895
-    var r = Math.random()
+    var r=Math.random()
     r += golden_ratio
     r %= 1
-    return Math.floor(range[0] + r * (range[1] + 1 - range[0]));
+    return Math.floor(range[0] + r*(range[1] + 1 - range[0]));
   } else {
     //Seeded random algorithm from http://indiegamr.com/generate-repeatable-random-numbers-in-js/
     var max = range[1] || 1;
@@ -303,16 +303,16 @@ function randomWithin(range) {
     seed = (seed * 9301 + 49297) % 233280;
     var rnd = seed / 233280.0;
     return Math.floor(min + rnd * (max - min));
-  }
+}
 }
 
-function HSVtoHex(hsv) {
+function HSVtoHex (hsv){
 
   var rgb = HSVtoRGB(hsv);
 
   function componentToHex(c) {
-    var hex = c.toString(16);
-    return hex.length == 1 ? '0' + hex : hex;
+      var hex = c.toString(16);
+      return hex.length == 1 ? '0' + hex : hex;
   }
 
   var hex = '#' + componentToHex(rgb[0]) + componentToHex(rgb[1]) + componentToHex(rgb[2]);
@@ -321,13 +321,13 @@ function HSVtoHex(hsv) {
 
 }
 
-function defineColor(name, hueRange, lowerBounds) {
+function defineColor (name, hueRange, lowerBounds) {
 
   var sMin = lowerBounds[0][0],
-    sMax = lowerBounds[lowerBounds.length - 1][0],
+      sMax = lowerBounds[lowerBounds.length - 1][0],
 
-    bMin = lowerBounds[lowerBounds.length - 1][1],
-    bMax = lowerBounds[0][1];
+      bMin = lowerBounds[lowerBounds.length - 1][1],
+      bMax = lowerBounds[0][1];
 
   colorDictionary[name] = {
     hueRange: hueRange,
@@ -338,90 +338,90 @@ function defineColor(name, hueRange, lowerBounds) {
 
 }
 
-function loadColorBounds() {
+function loadColorBounds () {
 
   defineColor(
     'monochrome',
     null,
-    [[0, 0], [100, 0]]
+    [[0,0],[100,0]]
   );
 
   defineColor(
     'red',
-    [-26, 18],
-    [[20, 100], [30, 92], [40, 89], [50, 85], [60, 78], [70, 70], [80, 60], [90, 55], [100, 50]]
+    [-26,18],
+    [[20,100],[30,92],[40,89],[50,85],[60,78],[70,70],[80,60],[90,55],[100,50]]
   );
 
   defineColor(
     'orange',
-    [18, 46],
-    [[20, 100], [30, 93], [40, 88], [50, 86], [60, 85], [70, 70], [100, 70]]
+    [18,46],
+    [[20,100],[30,93],[40,88],[50,86],[60,85],[70,70],[100,70]]
   );
 
   defineColor(
     'yellow',
-    [46, 62],
-    [[25, 100], [40, 94], [50, 89], [60, 86], [70, 84], [80, 82], [90, 80], [100, 75]]
+    [46,62],
+    [[25,100],[40,94],[50,89],[60,86],[70,84],[80,82],[90,80],[100,75]]
   );
 
   defineColor(
     'green',
-    [62, 178],
-    [[30, 100], [40, 90], [50, 85], [60, 81], [70, 74], [80, 64], [90, 50], [100, 40]]
+    [62,178],
+    [[30,100],[40,90],[50,85],[60,81],[70,74],[80,64],[90,50],[100,40]]
   );
 
   defineColor(
     'blue',
     [178, 257],
-    [[20, 100], [30, 86], [40, 80], [50, 74], [60, 60], [70, 52], [80, 44], [90, 39], [100, 35]]
+    [[20,100],[30,86],[40,80],[50,74],[60,60],[70,52],[80,44],[90,39],[100,35]]
   );
 
   defineColor(
     'purple',
     [257, 282],
-    [[20, 100], [30, 87], [40, 79], [50, 70], [60, 65], [70, 59], [80, 52], [90, 45], [100, 42]]
+    [[20,100],[30,87],[40,79],[50,70],[60,65],[70,59],[80,52],[90,45],[100,42]]
   );
 
   defineColor(
     'pink',
     [282, 334],
-    [[20, 100], [30, 90], [40, 86], [60, 84], [80, 80], [90, 75], [100, 73]]
+    [[20,100],[30,90],[40,86],[60,84],[80,80],[90,75],[100,73]]
   );
 
 }
 
-function HSVtoRGB(hsv) {
+function HSVtoRGB (hsv) {
 
   // this doesn't work for the values of 0 and 360
   // here's the hacky fix
   var h = hsv[0];
-  if (h === 0) { h = 1; }
-  if (h === 360) { h = 359; }
+  if (h === 0) {h = 1;}
+  if (h === 360) {h = 359;}
 
   // Rebase the h,s,v values
-  h = h / 360;
-  var s = hsv[1] / 100,
-    v = hsv[2] / 100;
+  h = h/360;
+  var s = hsv[1]/100,
+      v = hsv[2]/100;
 
-  var h_i = Math.floor(h * 6),
+  var h_i = Math.floor(h*6),
     f = h * 6 - h_i,
     p = v * (1 - s),
-    q = v * (1 - f * s),
-    t = v * (1 - (1 - f) * s),
+    q = v * (1 - f*s),
+    t = v * (1 - (1 - f)*s),
     r = 256,
     g = 256,
     b = 256;
 
-  switch (h_i) {
-    case 0: r = v; g = t; b = p; break;
-    case 1: r = q; g = v; b = p; break;
-    case 2: r = p; g = v; b = t; break;
-    case 3: r = p; g = q; b = v; break;
-    case 4: r = t; g = p; b = v; break;
-    case 5: r = v; g = p; b = q; break;
+  switch(h_i) {
+    case 0: r = v; g = t; b = p;  break;
+    case 1: r = q; g = v; b = p;  break;
+    case 2: r = p; g = v; b = t;  break;
+    case 3: r = p; g = q; b = v;  break;
+    case 4: r = t; g = p; b = v;  break;
+    case 5: r = v; g = p; b = q;  break;
   }
 
-  var result = [Math.floor(r * 255), Math.floor(g * 255), Math.floor(b * 255)];
+  var result = [Math.floor(r*255), Math.floor(g*255), Math.floor(b*255)];
   return result;
 }
 
@@ -450,20 +450,20 @@ function HexToHSB(hex) {
   return [h, s, l];
 }
 
-function HSVtoHSL(hsv) {
+function HSVtoHSL (hsv) {
   var h = hsv[0],
-    s = hsv[1] / 100,
-    v = hsv[2] / 100,
-    k = (2 - s) * v;
+    s = hsv[1]/100,
+    v = hsv[2]/100,
+    k = (2-s)*v;
 
   return [
     h,
-    Math.round(s * v / (k < 1 ? k : 2 - k) * 10000) / 100,
-    k / 2 * 100
+    Math.round(s*v / (k<1 ? k : 2-k) * 10000) / 100,
+    k/2 * 100
   ];
 }
 
-function stringToInteger(string) {
+function stringToInteger (string) {
   var total = 0
   for (var i = 0; i !== string.length; i++) {
     if (total >= Number.MAX_SAFE_INTEGER) break;

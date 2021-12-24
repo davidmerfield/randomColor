@@ -17,6 +17,10 @@ export default function randomColor(options) {
 
   options = options || {};
 
+  if (options.hue === undefined || options.hue === null) {
+    options.hue = generateRandomHue();
+  }
+
   // Check if there is a seed and ensure it's an
   // integer. Otherwise, reset the seed value.
   if (options.seed !== undefined && options.seed !== null && options.seed === parseInt(options.seed, 10)) {
@@ -500,4 +504,34 @@ function getRealHueRange(colorHue) {
       return getColorInfo(hue).hueRange
     }
   }
+}
+
+
+function generateRandomHue() {
+  let random = Math.floor((Math.random() * 8) + 1);
+  let hue = "";
+  switch (random) {
+    case 1:
+      hue = "red";
+      break;
+    case 2:
+      hue = "green";
+      break;
+    case 3:
+      hue = "blue";
+      break;
+    case 4:
+      hue = "orange";
+      break;
+    case 5:
+      hue = "yellow";
+      break;
+    case 6:
+      hue = "purple";
+      break;
+    default:
+      hue = "pink";
+
+  }
+  return hue;
 }

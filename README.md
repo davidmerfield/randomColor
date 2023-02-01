@@ -91,7 +91,12 @@ randomColor({
 ## To do
 
 *More generally, it might be a good idea to consider using other color models.*
-
+*More generally, it might be a good idea to consider using other color models.*
+*More generally, it might be a good idea to consider using other color models.*
+*More generally, it might be a good idea to consider using other color models.*
+*More generally, it might be a good idea to consider using other color models.*
+*More generally, it might be a good idea to consider using other color models.*
+*More generally, it might be a good idea to consider using other color models.*
 1. Use this on the demo
 http://jsfiddle.net/dpLp318f/
 https://www.vis4.net/blog/posts/avoid-equidistant-hsv-colors/

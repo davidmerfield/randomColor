@@ -9,7 +9,7 @@
     "highlight": "^0.2.3",
     "highlight.js": "^11.8.0",
     "html-minifier": "^4.0.0",
-    "typeset": "^0.2.2",
+    "typeset": "^0.2.9",
     "uglify-js": "^3.3.21"
   }
 }

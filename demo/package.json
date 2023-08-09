@@ -7,7 +7,7 @@
     "clean-css": "^4.1.11",
     "fs-extra": "^5.0.0",
     "highlight": "^0.2.3",
-    "highlight.js": "^8.7.0",
+    "highlight.js": "^10.4.1",
     "html-minifier": "^0.7.2",
     "typeset": "^0.2.2",
     "uglify-js": "^3.3.21"

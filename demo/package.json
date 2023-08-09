@@ -5,11 +5,11 @@
   "dependencies": {
     "cheerio": "^1.0.0-rc.12",
     "clean-css": "^4.1.11",
+    "esbuild": "^0.19.0",
     "fs-extra": "^5.0.0",
     "highlight": "^0.2.3",
     "highlight.js": "^11.8.0",
     "html-minifier": "^4.0.0",
-    "typeset": "^0.2.6",
-    "uglify-js": "^3.3.21"
+    "typeset": "^0.2.6"
   }
 }

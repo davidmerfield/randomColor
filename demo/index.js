@@ -7,7 +7,7 @@ var minifyOpts = {removeComments: true,  removeAttributeQuotes: true};
 var join = require('path').join;
 var extname = require('path').extname;
 var CleanCSS = require('clean-css');
-var UglifyJS = require("uglify-js");
+var esbuild = require("esbuild");
 
 var SOURCE = __dirname + '/source';
 var PUBLIC = __dirname + '/public';
@@ -17,7 +17,7 @@ function build () {
   fs.emptyDirSync(PUBLIC);
   
   // Copy library across
-  compress_js(__dirname + '/../randomColor.js', join(PUBLIC, 'randomColor.js'));
+  compress_js(__dirname + '/../randomColor.js', join(PUBLIC, 'randomColor.min.js'));
 
   var source_files = fs.readdirSync(SOURCE);
 
@@ -38,12 +38,17 @@ function build () {
   });
 }
 
-function compress_js (from, to) {
-  var file = fs.readFileSync(from, 'utf-8')  ;
+async function compress_js (from, to) {
 
-  file = UglifyJS.minify(file).code;
 
-  fs.writeFileSync(to, file);
+  let result = await esbuild.build({
+    entryPoints: [from],
+    format: 'cjs',
+    minify: true,
+    outfile: to,
+
+  });
+
 }
 
 function compress_css (from, to) {

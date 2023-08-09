@@ -17,6 +17,11 @@ export default function randomColor (options) {
 
   options = options || {};
 
+  // If reset flag is true, set colorRanges to [].
+  if (options.reset !== undefined && options.reset !== null && options.reset === true) {
+    colorRanges = [];
+  }
+
   // Check if there is a seed and ensure it's an
   // integer. Otherwise, reset the seed value.
   if (options.seed !== undefined && options.seed !== null && options.seed === parseInt(options.seed, 10)) {

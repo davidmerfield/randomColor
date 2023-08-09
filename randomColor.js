@@ -430,23 +430,29 @@ function HSVtoRGB (hsv) {
   return result;
 }
 
-function HexToHSB (hex) {
-  hex = hex.replace(/^#/, '');
-  hex = hex.length === 3 ? hex.replace(/(.)/g, '$1$1') : hex;
-
-  var red = parseInt(hex.substr(0, 2), 16) / 255,
-        green = parseInt(hex.substr(2, 2), 16) / 255,
-        blue = parseInt(hex.substr(4, 2), 16) / 255;
-
-  var cMax = Math.max(red, green, blue),
-        delta = cMax - Math.min(red, green, blue),
-        saturation = cMax ? (delta / cMax) : 0;
-
-  switch (cMax) {
-    case red: return [ 60 * (((green - blue) / delta) % 6) || 0, saturation, cMax ];
-    case green: return [ 60 * (((blue - red) / delta) + 2) || 0, saturation, cMax ];
-    case blue: return [ 60 * (((red - green) / delta) + 4) || 0, saturation, cMax ];
+// based on the code from this great gist
+// https://gist.github.com/xenozauros/f6e185c8de2a04cdfecf
+function HexToHSB(hex) {
+  let result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+  let r = parseInt(result[1], 16);
+  let g = parseInt(result[2], 16);
+  let b = parseInt(result[3], 16);
+  r /= 255, g /= 255, b /= 255;
+  var max = Math.max(r, g, b), min = Math.min(r, g, b);
+  var h, s, l = (max + min) / 2;
+  if (max == min) {
+    h = s = 0; // achromatic
+  } else {
+    var d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch (max) {
+      case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+      case g: h = (b - r) / d + 2; break;
+      case b: h = (r - g) / d + 4; break;
+    }
+    h /= 6;
   }
+  return [h, s, l];
 }
 
 function HSVtoHSL (hsv) {

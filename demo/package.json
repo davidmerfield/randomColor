@@ -3,13 +3,13 @@
   "author": "David Merfield",
   "license": "CC0",
   "dependencies": {
-    "cheerio": "^0.19.0",
+    "cheerio": "^1.0.0-rc.12",
     "clean-css": "^4.1.11",
     "fs-extra": "^5.0.0",
     "highlight": "^0.2.3",
     "highlight.js": "^8.7.0",
     "html-minifier": "^0.7.2",
-    "typeset": "^0.2.2",
+    "typeset": "^0.2.9",
     "uglify-js": "^3.3.21"
   }
 }

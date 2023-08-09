@@ -88,33 +88,3 @@ randomColor({
 
 ```
 
-## To do
-
-*More generally, it might be a good idea to consider using other color models.*
-
-1. Use this on the demo
-http://jsfiddle.net/dpLp318f/
-https://www.vis4.net/blog/posts/avoid-equidistant-hsv-colors/
-https://www.vis4.net/blog/posts/mastering-multi-hued-color-scales/
-2. When returning an array of multiple colors, try to make each color as distinct as possible. Make sure each color is distinct to its neighbours.
-3. Improve attractive dark color generation, currently they're a touch murky.
-4. Improve the color dictionary
-  - definition of hue values and attractive luminosity bounds
-  - think about how to store hue aliases (e.g. fuschia) or subranges (e.g teal)
-  - think about making a little point and click tool for defining your own luminosity bounds and customizing the color dictionary
-5. Think about how to return seeds.
-6. Think about adding feature to return complementary & contrasting colors, as well as color triads, tetrads etc. Other libraries might already do this better though.
-7. Think about adding a scheme options which would return a dominant color, as well as secondary, tertiary color and primary and secondary text colors. This might be a bad idea.
-8. Add a nice visualization of the 'attractive color space' to the demo https://www.youtube.com/watch?v=x0-qoXOCOow
-9. Add a feature to return random colors close to a provided hex 
-
-## In use
-
-* [The Daily Show](http://maketrumptweetseightagain.com/) used it to make an extension which [converts Trump's tweets into a child's scribble](https://twitter.com/riseuphes/status/929579600354693120).
-* [Initial.js](https://github.com/judesfernando/initial.js) used it to generate Gmail-style avatars.
-* [ng2-Logger](https://github.com/darekf77/ng2-logger) used it to make logs a little more colorful.
-* [vue-randomcolor](https://github.com/alebeck/vue-randomcolor) adds attractive random colors to Vue.js.
-* [sudoku-solver.ch](https://www.sudoku-solver.ch/) uses it for coloring constraints on the puzzle
-* [farbvelo.elastiq.ch](https://farbvelo.elastiq.ch/) uses it to generate color harmonies.
-
-Did you use randomColor.js for something? [Tell me about it](https://lllllllllllllllll.com).

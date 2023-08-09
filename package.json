@@ -7,7 +7,6 @@
     "type": "git",
     "url": "git://github.com/davidmerfield/randomColor.git"
   },
-  "files": [],
   "keywords": [
     "attractive",
     "random",
@@ -16,13 +15,5 @@
   ],
   "author": "David Merfield",
   "license": "CC0",
-  "bugs": {
-    "url": "https://github.com/davidmerfield/randomColor/issues"
-  },
-  "homepage": "https://randomcolor.lllllllllllllllll.com/",
-  "spm": {
-    "main": "randomColor.js"
-  },
-  "devDependencies": {},
-  "dependencies": {}
+  "homepage": "https://randomcolor.lllllllllllllllll.com/"
 }

@@ -106,6 +106,8 @@
 
       var hue = randomWithin(hueRange);
 
+      if (!hueRange) return hue;
+
       //Each of colorRanges.length ranges has a length equal approximatelly one step
       var step = (hueRange[1] - hueRange[0]) / colorRanges.length;
 
@@ -310,6 +312,7 @@
 
   function randomWithin(range) {
     if (seed === null) {
+      if (!range) return 0;
       //generate random evenly destinct number from : https://martin.ankerl.com/2009/12/09/how-to-create-random-colors-programmatically/
       var golden_ratio = 0.618033988749895;
       var r = Math.random();

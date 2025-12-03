@@ -294,6 +294,9 @@
     if (hue >= 334 && hue <= 360) {
       hue -= 360;
     }
+    if (hue < 0) {
+      hue *= -1;
+    }
 
     for (var colorName in colorDictionary) {
       var color = colorDictionary[colorName];

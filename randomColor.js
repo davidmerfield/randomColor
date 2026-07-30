@@ -32,7 +32,7 @@
   // Populate the color dictionary
   loadColorBounds();
 
-  // check if a range is taken
+  // Check if a range is taken
   var colorRanges = [];
 
   var randomColor = function (options) {
@@ -51,7 +51,7 @@
     } else if (typeof options.seed === "string") {
       seed = stringToInteger(options.seed);
 
-      // Something was passed as a seed but it wasn't an integer or string
+      // Something was passed as a seed, but it wasn't an integer or string
     } else if (options.seed !== undefined && options.seed !== null) {
       throw new TypeError("The seed value must be an integer or string");
 
@@ -133,7 +133,7 @@
       var hueRange = getHueRange(options.hue);
 
       hue = randomWithin(hueRange);
-      // Instead of storing red as two seperate ranges,
+      // Instead of storing red as two separate ranges,
       // we group them, using negative numbers
       if (hue < 0) {
         hue = 360 + hue;
@@ -167,6 +167,7 @@
         break;
 
       case "light":
+      case "muted":
         sMax = 55;
         break;
     }
@@ -313,7 +314,7 @@
 
   function randomWithin(range) {
     if (seed === null) {
-      //generate random evenly destinct number from : https://martin.ankerl.com/2009/12/09/how-to-create-random-colors-programmatically/
+      //generate random evenly distinct number from: https://martin.ankerl.com/2009/12/09/how-to-create-random-colors-programmatically/
       var golden_ratio = 0.618033988749895;
       var r = Math.random();
       r += golden_ratio;
@@ -368,7 +369,7 @@
 
     defineColor(
       "red",
-      [-26, 18],
+      [-26, 18],//360-26=334
       [
         [20, 100],
         [30, 92],
@@ -583,7 +584,7 @@
     return total;
   }
 
-  // get The range of given hue when options.count!=0
+  // get the range of given hue when options.count!=0
   function getRealHueRange(colorHue) {
     if (!isNaN(colorHue)) {
       var number = parseInt(colorHue);
